@@ -1,0 +1,642 @@
+/* Final message layout layer: text, voice, music and documents. */
+#messages .message-row {
+  align-items: flex-end !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+#messages .message-row.me {
+  justify-content: flex-end !important;
+}
+
+#messages .message-row:not(.me) {
+  justify-content: flex-start !important;
+}
+
+#messages .message-row:not(.system-message) .bubble,
+#messages .message-row.me:not(.system-message) .bubble,
+#messages .message-row:not(.me):not(.system-message) .bubble,
+#messages .message-row.channel-post-row:not(.system-message) .bubble {
+  position: relative !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: min(65%, 620px) !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 8px 10px 7px !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-radius: 15px !important;
+  overflow: visible !important;
+}
+
+#messages .message-row:not(.me):not(.system-message) .bubble {
+  border-bottom-left-radius: 5px !important;
+}
+
+#messages .message-row.me:not(.system-message) .bubble {
+  border-bottom-right-radius: 5px !important;
+}
+
+#messages .message-row:not(.system-message) .bubble::before {
+  content: "" !important;
+  position: absolute !important;
+  bottom: -1px !important;
+  width: 13px !important;
+  height: 15px !important;
+  pointer-events: none !important;
+  background: inherit !important;
+}
+
+#messages .message-row:not(.me):not(.system-message) .bubble::before {
+  left: -7px !important;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%) !important;
+}
+
+#messages .message-row.me:not(.system-message) .bubble::before {
+  right: -7px !important;
+  clip-path: polygon(0 0, 100% 100%, 0 100%) !important;
+}
+
+#messages .message-row.photo-only-message .bubble::before,
+#messages .message-row.system-message .bubble::before {
+  display: none !important;
+}
+
+#messages .message-row:not(.system-message) .bubble > p,
+#messages .message-row.text-only-message:not(.system-message) .bubble > p,
+#messages .message-row.channel-post-row.text-only-message:not(.system-message) .bubble > p {
+  box-sizing: border-box !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 46px 0 0 !important;
+  line-height: 1.34 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: normal !important;
+}
+
+#messages .message-row:not(.system-message) .bubble-footer {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 3px !important;
+  width: auto !important;
+  min-width: 0 !important;
+  margin: 3px 0 0 8px !important;
+  float: right !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+}
+
+#messages .message-row.photo-only-message .bubble {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+#messages .message-row.photo-only-message .bubble-footer {
+  position: absolute !important;
+  right: 8px !important;
+  bottom: 8px !important;
+  z-index: 3 !important;
+  float: none !important;
+  margin: 0 !important;
+  padding: 4px 7px !important;
+  border-radius: 999px !important;
+  color: rgba(255,255,255,.94) !important;
+  background: rgba(16,18,28,.34) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+#messages .message-row.has-files:not(.photo-only-message) .bubble {
+  padding: 7px !important;
+}
+
+#messages .message-row .attachments {
+  display: grid !important;
+  gap: 6px !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+#messages .message-row .tg-file-card,
+#messages .message-row .attachment-card.audio-attachment-card,
+#messages .message-row .attachment-card.document-attachment-card {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: 38px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 9px !important;
+  width: min(292px, calc(100vw - 128px)) !important;
+  max-width: 100% !important;
+  min-height: 50px !important;
+  padding: 6px 8px !important;
+  border: 0 !important;
+  border-radius: 12px !important;
+  color: rgba(255,255,255,.96) !important;
+  background: color-mix(in srgb, rgba(255,255,255,.10) 72%, var(--accent) 28%) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+#messages .message-row .tg-document-card .tg-file-icon,
+#messages .message-row .tg-file-icon {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  border-radius: 50% !important;
+  color: rgba(255,255,255,.98) !important;
+  background: color-mix(in srgb, var(--accent) 66%, #66f0ff 34%) !important;
+}
+
+#messages .message-row .tg-file-icon .svg-icon {
+  width: 19px !important;
+  height: 19px !important;
+}
+
+#messages .message-row .tg-file-meta {
+  display: grid !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+}
+
+#messages .message-row .tg-file-meta strong {
+  display: block !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,.98) !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  line-height: 1.18 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#messages .message-row .tg-file-meta small {
+  display: block !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,.70) !important;
+  font-size: 11.5px !important;
+  font-weight: 700 !important;
+  line-height: 1.18 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#messages .message-row .tg-media-play-button {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: color-mix(in srgb, var(--accent) 64%, #22d6e7 36%) !important;
+  cursor: pointer !important;
+}
+
+#messages .message-row .tg-media-play-button .svg-icon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+#messages .message-row .tg-audio-native {
+  display: none !important;
+}
+
+#messages .message-row .attachment-audio-download,
+#messages .message-row .tg-file-card > a {
+  display: none !important;
+}
+
+#messages .message-row.voice-message-row .bubble,
+#messages .message-row.me.voice-message-row .bubble,
+#messages .message-row:not(.me).voice-message-row .bubble,
+#messages .message-row.channel-post-row.voice-message-row .bubble {
+  display: block !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: min(65%, 390px) !important;
+  padding: 7px 8px 16px !important;
+  overflow: visible !important;
+}
+
+#messages .message-row.voice-message-row .compact-voice-message,
+#messages .message-row.voice-message-row .vk-voice-message {
+  display: grid !important;
+  grid-template-columns: 38px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: min(var(--voice-width, 150px), 350px, calc(100vw - 130px)) !important;
+  min-width: min(150px, calc(100vw - 130px)) !important;
+  max-width: min(350px, calc(100vw - 130px)) !important;
+  min-height: 40px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#messages .message-row.voice-message-row .voice-play-button {
+  display: grid !important;
+  place-items: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  background: color-mix(in srgb, var(--accent) 64%, #22d6e7 36%) !important;
+}
+
+#messages .message-row.voice-message-row .voice-main {
+  display: grid !important;
+  align-content: center !important;
+  gap: 2px !important;
+  min-width: 0 !important;
+}
+
+#messages .message-row.voice-message-row .voice-wave {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 24px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+}
+
+#messages .message-row.voice-message-row .voice-wave i {
+  flex: 0 0 2px !important;
+  width: 2px !important;
+  max-height: 24px !important;
+  border-radius: 999px !important;
+}
+
+#messages .message-row.voice-message-row .voice-meta {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 0 !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+}
+
+#messages .message-row.voice-message-row .voice-meta b {
+  font-size: 11.5px !important;
+  font-weight: 900 !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcript-line {
+  grid-column: 1 / -1 !important;
+  margin: 3px 0 0 !important;
+  color: rgba(255,255,255,.82) !important;
+  font-size: 12px !important;
+  line-height: 1.3 !important;
+}
+
+#messages .message-row.voice-message-row .bubble > .bubble-footer {
+  position: absolute !important;
+  right: 8px !important;
+  bottom: 5px !important;
+  z-index: 2 !important;
+  float: none !important;
+  margin: 0 !important;
+  color: rgba(255,255,255,.72) !important;
+}
+
+@media (max-width: 700px) {
+  #messages .message-row:not(.system-message) .bubble,
+  #messages .message-row.me:not(.system-message) .bubble,
+  #messages .message-row:not(.me):not(.system-message) .bubble,
+  #messages .message-row.channel-post-row:not(.system-message) .bubble {
+    max-width: calc(100vw - 82px) !important;
+  }
+
+  #messages .message-row.voice-message-row .bubble,
+  #messages .message-row.me.voice-message-row .bubble,
+  #messages .message-row:not(.me).voice-message-row .bubble {
+    max-width: calc(100vw - 82px) !important;
+  }
+
+  #messages .message-row.voice-message-row .compact-voice-message,
+  #messages .message-row.voice-message-row .vk-voice-message {
+    width: min(var(--voice-width, 150px), calc(100vw - 116px)) !important;
+    max-width: calc(100vw - 116px) !important;
+  }
+}
+
+/* Final requested override: every message is left-aligned, regardless of sender. */
+body.dark {
+  --onix-chat-bg: #111019;
+  --onix-left-panel-bg: #242131;
+  --onix-left-panel-strong: #2c293a;
+}
+
+body.dark .layout {
+  background: #191724 !important;
+}
+
+body.dark .chat-panel {
+  background: var(--onix-chat-bg) !important;
+}
+
+body.dark .messages {
+  background: var(--onix-chat-bg) !important;
+}
+
+body.dark .chat-header,
+body.dark .composer {
+  background: #1d1a29 !important;
+}
+
+body.dark .left-panel {
+  background: var(--onix-left-panel-bg) !important;
+}
+
+body.dark .left-header,
+body.dark .archive-mode-banner {
+  background: var(--onix-left-panel-bg) !important;
+}
+
+body.dark .search-wrap,
+body.dark .left-panel .icon-button,
+body.dark .archive-row,
+body.dark .chat-card {
+  background: var(--onix-left-panel-strong) !important;
+}
+
+body.dark .chat-card.active,
+body.dark .chat-card:hover {
+  background: #302d3f !important;
+}
+
+#messages .message-row,
+#messages .message-row.me,
+#messages .message-row:not(.me),
+#messages .message-row.channel-post-row,
+#messages .message-row.me.channel-post-row,
+#messages .message-row.voice-message-row,
+#messages .message-row.me.voice-message-row,
+#messages .message-row:not(.me).voice-message-row {
+  justify-content: flex-start !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  text-align: left !important;
+}
+
+#messages .message-row .message-avatar,
+#messages .message-row.me .message-avatar,
+#messages .message-row:not(.me) .message-avatar,
+#messages .message-row.channel-post-row .message-avatar,
+#messages .message-row.me .own-message-avatar {
+  display: grid !important;
+  order: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 6px !important;
+}
+
+#messages .message-row .bubble,
+#messages .message-row.me .bubble,
+#messages .message-row:not(.me) .bubble,
+#messages .message-row.channel-post-row .bubble,
+#messages .message-row.me.channel-post-row .bubble,
+#messages .message-row.voice-message-row .bubble,
+#messages .message-row.me.voice-message-row .bubble,
+#messages .message-row:not(.me).voice-message-row .bubble {
+  order: 1 !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  border-bottom-left-radius: 5px !important;
+  border-bottom-right-radius: 15px !important;
+}
+
+#messages .message-row.me:not(.system-message) .bubble::before,
+#messages .message-row:not(.me):not(.system-message) .bubble::before,
+#messages .message-row.channel-post-row:not(.system-message) .bubble::before {
+  left: -7px !important;
+  right: auto !important;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%) !important;
+}
+
+#messages .message-row.me .bubble-footer,
+#messages .message-row .bubble-footer {
+  text-align: left !important;
+}
+
+/* Compact readable text/file bubbles. Voice message rules above stay untouched. */
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble {
+  width: fit-content !important;
+  max-width: min(65%, 620px) !important;
+  padding: 8px 12px 7px !important;
+  color: #ffffff !important;
+  background: #747c88 !important;
+  border-color: rgba(255,255,255,.16) !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.16) !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble > p,
+body.dark #messages .message-row.text-only-message:not(.voice-message-row):not(.photo-only-message) .bubble > p,
+body.dark #messages .message-row.channel-post-row.text-only-message:not(.voice-message-row):not(.photo-only-message) .bubble > p {
+  display: inline !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
+  text-shadow: none !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble a {
+  color: #79d5ff !important;
+  font-weight: 900 !important;
+  text-decoration-thickness: 2px !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-post-meta,
+body.dark #messages .message-row.text-only-message:not(.voice-message-row):not(.photo-only-message) .bubble-footer {
+  display: inline-flex !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 0 0 0 8px !important;
+  padding: 0 !important;
+  float: none !important;
+  vertical-align: baseline !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 5px !important;
+  color: rgba(255,255,255,.84) !important;
+  opacity: 1 !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble-footer,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble-footer span,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-views,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-views b,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .read-receipt,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .read-check-svg {
+  color: rgba(255,255,255,.84) !important;
+  opacity: 1 !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-views .svg-icon,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .read-receipt .svg-icon {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+body.dark #messages .message-row.channel-post-row:not(.voice-message-row) .telegram-comment-row,
+body.dark #messages .message-row.channel-post-row:not(.voice-message-row) .channel-comment-button.telegram-comment-row {
+  display: none !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-author-name {
+  display: none !important;
+}
+
+/* Final visual cleanup: darker text bubbles, no photo bubble, compact comment row. */
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble,
+body.dark #messages .message-row.channel-post-row:not(.voice-message-row):not(.photo-only-message) .bubble,
+body.dark #messages .message-row.me:not(.voice-message-row):not(.photo-only-message) .bubble {
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: min(62%, 560px) !important;
+  padding: 8px 10px 7px 11px !important;
+  color: #f8fafc !important;
+  background: #4f5864 !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  border-radius: 14px 14px 14px 5px !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.16) !important;
+}
+
+body.dark #messages .message-row.photo-only-message .bubble,
+body.dark #messages .message-row.channel-post-row.photo-only-message .bubble,
+body.dark #messages .message-row .bubble:has(.attachment-media),
+body.dark #messages .message-row .bubble:has(.media-grid) {
+  width: fit-content !important;
+  max-width: min(66%, 520px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.dark #messages .message-row.photo-only-message .bubble::before,
+body.dark #messages .message-row.channel-post-row.photo-only-message .bubble::before,
+body.dark #messages .message-row .bubble:has(.attachment-media)::before,
+body.dark #messages .message-row .bubble:has(.media-grid)::before {
+  display: none !important;
+}
+
+body.dark #messages .message-row.photo-only-message .attachment-media,
+body.dark #messages .message-row.channel-post-row.photo-only-message .attachment-media,
+body.dark #messages .message-row .bubble:has(.attachment-media) .attachment-media {
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 14px !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble > p,
+body.dark #messages .message-row.channel-post-row:not(.voice-message-row):not(.photo-only-message) .bubble > p {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #f8fafc !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  line-height: 1.32 !important;
+  overflow-wrap: anywhere !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble a {
+  color: #76d7ff !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-post-meta,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble-footer {
+  display: inline-flex !important;
+  float: right !important;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  margin: 3px 0 0 9px !important;
+  padding: 0 !important;
+  vertical-align: baseline !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+  color: rgba(255,255,255,.82) !important;
+  opacity: 1 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .bubble-footer *,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-post-meta *,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-views,
+body.dark #messages .message-row:not(.voice-message-row):not(.photo-only-message) .channel-views b {
+  color: rgba(255,255,255,.82) !important;
+  opacity: 1 !important;
+  font-size: 10.5px !important;
+  font-weight: 800 !important;
+}
+
+body.dark #messages .message-row.channel-post-row .telegram-comment-row,
+body.dark #messages .message-row.channel-post-row .channel-comment-button.telegram-comment-row {
+  min-height: 24px !important;
+  height: 24px !important;
+  margin: 6px -10px -2px !important;
+  padding: 0 9px !important;
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 0 0 12px 5px !important;
+  background: transparent !important;
+  opacity: .62 !important;
+}
+
+body.dark #messages .message-row.channel-post-row .telegram-comment-row .channel-comment-label {
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+/* agent: bubble size vars in templates v2 */
+html body #messages .message-row:not(.system-message) .bubble,
+html body #messages .message-row.me:not(.system-message) .bubble,
+html body #messages .message-row:not(.me):not(.system-message) .bubble,
+html body #messages .message-row.channel-post-row:not(.system-message) .bubble {
+  max-width: min(var(--bubble-max, 620px), 78%) !important;
+  padding-top: var(--bubble-pad-y, 8px) !important;
+  padding-right: var(--bubble-pad-x, 10px) !important;
+  padding-bottom: calc(var(--bubble-pad-y, 8px) - 1px) !important;
+  padding-left: var(--bubble-pad-x, 10px) !important;
+  border-top-left-radius: var(--bubble-radius, 15px) !important;
+  border-top-right-radius: var(--bubble-radius, 15px) !important;
+  font-size: var(--bubble-font-size, 14.5px) !important;
+}
+html body #messages .message-row.photo-only-message .bubble {
+  padding: 0 !important;
+}

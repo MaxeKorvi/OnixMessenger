@@ -1,0 +1,1940 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Onix (OX) — Messenger</title>
+  <meta name="description" content="Onix (OX) Messenger — приватные диалоги, аккаунты и подтверждение почты для своей команды." />
+  <meta name="theme-color" content="#111111" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="assets/onix-favicon.png" />
+  <link rel="apple-touch-icon" href="assets/onix-logo.png" />
+  <link rel="stylesheet" href="styles.css?v=report-reasons-v137&build=20260722" />
+  <link rel="stylesheet" href="onix-current-fixes.css?v=voice-video-duck-v43&build=realtime-removed-20260713" />
+  <link rel="stylesheet" href="onix-light-theme-restore.css?build=realtime-removed-20260713" />
+  <link rel="stylesheet" href="onix-mini-player-fix.css?build=realtime-removed-20260713" />
+  <link rel="stylesheet" href="onix-message-templates.css?v=voice-video-duck-v43&build=realtime-removed-20260713" />
+  <link rel="stylesheet" href="onix-final-fixes.css?v=autotranslate-toggle-quiet-v15&build=stable-20260716" />
+  <link rel="stylesheet" href="onix-advanced-features.css?v=translate-all-langs-v4">
+  <link rel="stylesheet" href="onix-white-theme-complete.css?v=fix5">
+  <link rel="stylesheet" href="onix-voice-and-theme-fix.css?v=fix5">
+  <link rel="stylesheet" href="onix-stickers.css?v=sticker18-hold-preview">
+  <link rel="stylesheet" href="onix-text-center-fix.css?v=center3">
+  <link rel="stylesheet" href="onix-group-appearance.css?v=group5-sticker-clean">
+  <link rel="stylesheet" href="onix-light-theme-fixes.css?v=lightfix5&build=20260720">
+  <link rel="stylesheet" href="onix-2026-07-20-fixes.css?v=fix-20260721-008">
+    <style id="user-requested-fixes">
+    /* Hide Bot Filter – user requested removal, only Favorites by default */
+    /* bot-builder restored per user request */
+    /* botBuilderModal restored */
+    /* Hide one-time message toggle – removed per request */
+    #viewOnceToggle, .view-once-toggle { display: none !important; }
+    .view-once-card, .view-once-owner-label, .view-once-message { display: none !important; }
+    /* Confirmation modal for subscription disable – make distinct */
+    #confirmModal .confirm-content { max-width: 420px; }
+    #confirmModal #confirmOk.danger-confirm { background: #ef4444; border-color: #ef4444; }
+    #confirmModal #confirmOk.danger-confirm:hover { background: #dc2626; }
+    #confirmModal .confirm-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 18px; }
+    #confirmModal .confirm-actions .secondary-button { min-width: 140px; }
+    #confirmModal .confirm-actions .primary-button { min-width: 180px; }
+
+    /* ===== Premium Cat Badge System ===== */
+    .onix-premium-cat-badge {
+      position: relative;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: radial-gradient(120% 120% at 30% 20%, #b6e8ff 0%, #7dd4ff 25%, #3a7bd5 60%, #1a2a4a 100%);
+      box-shadow: 0 0 8px rgba(106,210,255,0.9), 0 0 14px rgba(59,130,246,0.6), inset 0 0 6px rgba(255,255,255,0.8);
+      animation: premium-cat-glow 2.2s ease-in-out infinite alternate;
+      flex-shrink: 0;
+    }
+    .onix-premium-cat-badge img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    }
+    @keyframes premium-cat-glow {
+      0% { box-shadow: 0 0 6px rgba(106,210,255,0.7), 0 0 10px rgba(59,130,246,0.5); transform: scale(1); }
+      100% { box-shadow: 0 0 12px rgba(106,210,255,1), 0 0 20px rgba(59,130,246,0.8), 0 0 28px rgba(99,102,241,0.5); transform: scale(1.06); }
+    }
+    /* Chat list premium highlight */
+    .chat-card.is-premium-chat, .chat-card:has(.onix-premium-cat-badge) {
+      border-left: 2px solid rgba(125,212,255,0.6);
+      background: linear-gradient(90deg, rgba(125,212,255,0.08) 0%, transparent 60%);
+    }
+    /* When a user is premium, make their avatar have a neon ring */
+    .avatar:has(+ * .onix-premium-cat-badge), .chat-card .avatar.premium-avatar {
+      box-shadow: 0 0 0 2px rgba(125,212,255,0.9), 0 0 12px rgba(59,130,246,0.7);
+    }
+    /* Message author premium */
+    .message-author-name .onix-premium-cat-badge {
+      width: 16px; height: 16px; margin-left: 5px;
+    }
+    /* Drawer and settings names */
+    #drawerName .onix-premium-cat-badge, #settingsUserName .onix-premium-cat-badge {
+      width: 22px; height: 22px; margin-left: 8px;
+    }
+    /* Big badge for profile page */
+    .premium-profile-cat {
+      display: inline-flex; align-items:center; gap:8px;
+      margin-top: 8px; padding: 6px 12px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(125,212,255,0.15), rgba(59,130,246,0.15));
+      border: 1px solid rgba(125,212,255,0.4);
+      font-size: 13px; font-weight: 600; color: #7dd4ff;
+    }
+    .premium-profile-cat img { width: 20px; height: 20px; border-radius: 50%; }
+    /* Onix Plus chat – special background */
+    .onix-plus-badge {
+      display: inline-flex !important;
+    }
+  
+
+    /* ===== Fix long filename in payment card (broken photo) ===== */
+    .ppmc-file-name, .attachment-card .tg-file-meta strong, .tg-file-meta, .drop-attach-chip b {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    /* ===== Premium Promo Mimic Card – exact replica of screenshot ===== */
+    .premium-promo-mimic-card {
+      background: #2f3342;
+      border-radius: 18px;
+      padding: 14px;
+      color: #d6d9e2;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .ppmc-header {
+      display: flex; align-items: center; gap: 8px;
+      background: #3a3f52;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: #e6e8ef;
+    }
+    .ppmc-header .ppmc-icon {
+      width: 20px; height: 20px;
+      display: inline-flex; align-items:center; justify-content:center;
+      background: #5a86ff;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .ppmc-rows { display: flex; flex-direction: column; gap: 1px; background: #262a38; border-radius: 12px; overflow: hidden; }
+    .ppmc-row {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 10px 12px;
+      background: #323647;
+      font-size: 13.5px; line-height: 1.35;
+    }
+    .ppmc-row span { color: #8a8ea0; flex-shrink: 0; }
+    .ppmc-row b { color: #e8eaf0; font-weight: 500; text-align: right; overflow-wrap: anywhere; word-break: break-word; }
+    .ppmc-row b.ppmc-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+    .ppmc-link { color: #7aa8ff !important; text-decoration: underline; word-break: break-all; }
+    .ppmc-note { padding: 12px 4px 8px; font-size: 12px; color: #9aa0b8; line-height: 1.4; }
+    .ppmc-file {
+      display: flex; align-items: center; gap: 10px;
+      background: #1e212e; border-radius: 12px; padding: 10px 12px; margin-top: 6px;
+    }
+    .ppmc-file-icon { font-size: 18px; }
+    .ppmc-file-name { font-size: 13px; color: #cbd1e2; flex: 1; overflow-wrap: anywhere; word-break: break-word; }
+    .ppmc-actions { display: flex; gap: 10px; margin-top: 14px; }
+    .ppmc-btn {
+      flex: 1; height: 44px; border-radius: 12px; border: 0; font-weight: 700; font-size: 14px; cursor: pointer;
+      display: inline-flex; align-items:center; justify-content:center; gap:6px;
+      transition: transform 0.1s, opacity 0.2s;
+    }
+    .ppmc-btn:active { transform: scale(0.97); }
+    .ppmc-btn.accept { background: #2d5bff; color: white; }
+    .ppmc-btn.reject { background: #3a3f52; color: #a9adc0; }
+    .ppmc-footer { margin-top: 12px; font-size: 11.5px; color: #8a8fa6; line-height: 1.4; }
+
+    /* ===== Premium Emoji Picker – Telegram style ===== */
+    .premium-emoji-picker { display: flex; flex-direction: column; gap: 14px; }
+    .pep-header { display:flex; gap:12px; align-items:flex-start; background: linear-gradient(135deg, rgba(125,212,255,0.12), rgba(99,102,241,0.12)); border:1px solid rgba(125,212,255,0.2); border-radius:14px; padding:12px; }
+    .pep-header b { display:block; font-size:14px; margin-bottom:4px; }
+    .pep-header small { display:block; font-size:12px; color:#9aa0b8; line-height:1.35; }
+    .pep-current { display:flex; align-items:center; justify-content:space-between; background:#222636; border-radius:10px; padding:10px 12px; font-size:13px; }
+    .pep-clear { background:#3a3f52; border:0; border-radius:8px; padding:6px 10px; color:#a9adc0; cursor:pointer; font-size:12px; }
+    .pep-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(44px,1fr)); gap:8px; max-height: 320px; overflow:auto; padding:4px; background:#1e212e; border-radius:12px; }
+    .premium-emoji-cell {
+      width:44px; height:44px; border-radius:10px; border:1px solid transparent; background:#2a2e40; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; font-size:22px; transition: all 0.15s;
+    }
+    .premium-emoji-cell:hover { background:#323a55; transform: scale(1.1); border-color: rgba(125,212,255,0.4); box-shadow:0 0 10px rgba(125,212,255,0.3); }
+    .premium-emoji-cell.active {
+      background: linear-gradient(135deg, #3a7bd5, #7dd4ff);
+      border-color: #8b5cff !important;
+      box-shadow: 0 0 0 2px #8b5cff, 0 0 12px rgba(139,92,255,0.8), 0 0 20px rgba(125,212,255,0.5) !important;
+      outline: 2px solid #8b5cff;
+      outline-offset: 1px;
+      transform: scale(1.08);
+    }
+    .premium-emoji-cell.cat-default.active {
+      outline: 2px solid #8b5cff;
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(139,92,255,0.4), 0 0 16px rgba(139,92,255,0.8) !important;
+    }
+    .pep-footer { font-size:11px; color:#7f849b; text-align:center; padding-top:4px; }
+
+    /* Fix broken photo handling – make file attachments wrap */
+    .tg-file-meta strong, .attachment-card strong { overflow-wrap: anywhere; word-break: break-word; }
+    .attachment-media-loading { overflow-wrap: anywhere; }
+
+
+    /* Fix icon not centered – user reported */
+    .chat-card-main h3 {
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px;
+    }
+    .chat-card-main h3 .chat-title-text {
+      flex: 1;
+      min-width: 0;
+    }
+    .chat-heading h2, #activeTitle, #infoTitle, #drawerName, #settingsUserName {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px;
+      line-height: 1.2;
+    }
+    .onix-plus-badge.onix-premium-cat-badge {
+      align-self: center;
+      position: relative;
+      top: 0;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    /* Removed cat overlay from Support and Onix Plus per user request – only profile should have cat */
+
+    /* Ensure premium badge in message author row is centered */
+    .message-author-name {
+      display: inline-flex !important;
+      align-items: center !important;
+    }
+
+
+    /* ===== SVG icons in bot messages instead of emojis ===== */
+    .bot-inline-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px; height: 18px;
+      vertical-align: middle;
+      margin: 0 2px;
+      background: linear-gradient(135deg, rgba(125,212,255,0.15), rgba(99,102,241,0.15));
+      border-radius: 6px;
+      padding: 2px;
+    }
+    .bot-inline-icon .bot-svg-icon {
+      width: 14px; height: 14px;
+      color: #7dd4ff;
+    }
+    .bot-inline-icon .bot-svg-icon use { }
+    /* Make bot messages more Telegram Web like */
+    .support-message-row .bubble, .onix-plus-bot .bubble, .message-row.is-support-message .bubble {
+      border-left: 2px solid rgba(125,212,255,0.3);
+    }
+    /* Telegram Web style emojis – bigger, better rendered */
+    .inline-emoji-svg, .emoji-svg, .reaction-svg {
+      width: 20px; height: 20px; vertical-align: middle; margin: 0 1px;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+    }
+    .inline-emoji-svg {
+      width: 18px; height: 18px;
+    }
+    /* Emoji picker like Telegram Web – "Часто используемые" */
+    .tg-emoji-grid, .onix-telegram-emoji .onix-emoji-grid, .pep-grid {
+      /* already styled, but improve to look like TG Web */
+    }
+    .onix-emoji-grid button, .tg-emoji-grid button {
+      font-size: 22px; line-height: 1;
+      background: transparent; border: 0; border-radius: 8px;
+      width: 36px; height: 36px;
+      display: flex; align-items:center; justify-content:center;
+      cursor: pointer; transition: background 0.15s, transform 0.1s;
+    }
+    .onix-emoji-grid button:hover {
+      background: rgba(125,212,255,0.12);
+      transform: scale(1.15);
+    }
+    /* Custom emoji status – should replace cat, not add */
+    .custom-emoji-status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 1;
+      vertical-align: middle;
+      margin-left: 6px;
+      animation: custom-emoji-pop 0.3s ease-out;
+    }
+    @keyframes custom-emoji-pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+
+    /* Final fix: cat badge perfectly centered */
+    .onix-plus-badge.onix-premium-cat-badge {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: middle !important;
+      position: relative !important;
+      top: -0.5px !important;
+      line-height: 0 !important;
+      margin-left: 6px !important;
+      margin-right: 2px !important;
+    }
+    .onix-plus-badge.onix-premium-cat-badge img {
+      display: block !important;
+      width: 18px !important;
+      height: 18px !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      border-radius: 50% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    /* For drawer and titles – ensure flex centering */
+    #drawerName, #settingsUserName, #activeTitle, #infoTitle {
+      display: inline-flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+      gap: 6px !important;
+    }
+    /* Custom emoji status – centered and replaces cat */
+    .custom-emoji-status {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: middle !important;
+      line-height: 1 !important;
+      margin-left: 6px !important;
+      font-size: 18px !important;
+    }
+    /* Do NOT show cat next to saved chat - user requested remove */
+    .chat-card[data-chat-id="saved"] .onix-plus-badge {
+      display: none !important;
+    }
+
+
+    .pep-section-label {
+      font-size: 13px; font-weight: 600; color: #8a8fa6; margin: 8px 4px 4px; text-transform: none;
+    }
+
+
+    /* ===== TG-like context menu with user's design ===== */
+    .message-context.tg-context-menu {
+      background: linear-gradient(180deg, rgba(43,40,67,.98) 0%, rgba(24,22,39,.98) 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 48px rgba(8,8,18,.58), 0 0 0 1px rgba(255,255,255,0.03);
+      overflow: hidden;
+      min-width: 260px;
+      max-width: 320px;
+      padding: 6px 0;
+      z-index: 10000;
+      animation: tg-menu-in 0.15s ease-out;
+    }
+    @keyframes tg-menu-in {
+      0% { opacity: 0; transform: scale(0.92) translateY(-8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .message-context .reaction-strip {
+      display: flex;
+      gap: 4px;
+      padding: 7px 8px 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 4px;
+      overflow-x: auto;
+    }
+    .message-context .reaction-strip button {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(255,255,255,0.07);
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.1s, background 0.15s;
+      flex-shrink: 0;
+    }
+    .message-context .reaction-strip button:hover {
+      background: rgba(255,255,255,0.12);
+      transform: scale(1.12);
+    }
+    .message-context-menu.tg-menu {
+      display: flex;
+      flex-direction: column;
+      padding: 4px 0;
+    }
+    .message-context-menu.tg-menu button {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      padding: 9px 14px;
+      background: transparent;
+      border: 0;
+      color: #f4f1ff;
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.12s;
+      line-height: 1.2;
+    }
+    .message-context-menu.tg-menu button:hover {
+      background: rgba(255,255,255,0.06);
+    }
+    .message-context-menu.tg-menu button:active {
+      background: rgba(255,255,255,0.10);
+    }
+    .message-context-menu.tg-menu button .svg-icon,
+    .message-context-menu.tg-menu button .tg-menu-icon {
+      width: 18px; height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.72);
+      flex-shrink: 0;
+    }
+    .message-context-menu.tg-menu button .svg-icon {
+      color: rgba(255,255,255,.72);
+    }
+    .message-context-menu.tg-menu button.danger-item {
+      color: #ff5c5c;
+    }
+    .message-context-menu.tg-menu button.danger-item .svg-icon {
+      color: #ff5c5c;
+    }
+    /* Timestamp footer like in screenshot */
+    .tg-menu-time {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      padding: 8px 16px 4px;
+      font-size: 12px;
+      color: #7a7a7a;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      margin-top: 4px;
+    }
+    .tg-menu-time::before {
+      content: "✓";
+      font-size: 12px;
+      color: #7a7a7a;
+    }
+    /* Fix for selection menu not clickable – ensure pointer events */
+    .message-context.tg-context-menu button {
+      pointer-events: auto !important;
+      position: relative;
+      z-index: 1;
+    }
+    /* Improve selected text visibility */
+    ::selection {
+      background: rgba(125, 212, 255, 0.35);
+    }
+    .message-row .bubble p::selection,
+    .message-row .bubble span::selection {
+      background: rgba(125, 212, 255, 0.4);
+    }
+
+
+    /* User request: remove time duplication and remove time from menu */
+    .tg-menu-time {
+      display: none !important;
+    }
+
+
+    /* Fix cat not centered – screenshot 3 */
+    #drawerName, #settingsUserName, #activeTitle, #infoTitle, .chat-card-main h3, .message-author-name {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      line-height: 1.2 !important;
+      gap: 6px !important;
+    }
+    .onix-premium-cat-badge, .custom-emoji-status {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      vertical-align: middle !important;
+      align-self: center !important;
+      line-height: 1 !important;
+      position: relative !important;
+      top: 0 !important;
+      margin: 0 0 0 6px !important;
+      transform: translateY(0) !important;
+    }
+    .onix-premium-cat-badge img {
+      display: block !important;
+      margin: auto !important;
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: none !important;
+    }
+    /* Profile row: avatar + name + badges – all centered */
+    .drawer-profile, .settings-user {
+      display: flex !important;
+      align-items: center !important;
+    }
+    .drawer-profile-info h2, .settings-user h2 {
+      display: flex !important;
+      align-items: center !important;
+      flex-wrap: wrap !important;
+    }
+    /* Ensure chat list title text is centered with badges */
+    .chat-title-text {
+      display: inline-flex !important;
+      align-items: center !important;
+      line-height: 1.2 !important;
+    }
+
+    /* === Onix premium emoji status: realtime active outline + centered compact status === */
+    .premium-emoji-picker .pep-header {
+      align-items: center !important;
+    }
+    .premium-emoji-picker .pep-header-cat,
+    .premium-emoji-picker .pep-cat-img,
+    .onix-premium-cat-badge img {
+      width: 32px !important;
+      height: 32px !important;
+      display: block !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+      border-radius: 50% !important;
+      margin: 0 !important;
+      transform: none !important;
+    }
+    .premium-emoji-picker .pep-cat-img {
+      width: 24px !important;
+      height: 24px !important;
+      margin: auto !important;
+    }
+    .premium-emoji-picker .pep-current {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 3px !important;
+      text-align: center !important;
+      padding: 9px 10px !important;
+      font-size: 12px !important;
+      line-height: 1.15 !important;
+    }
+    .premium-emoji-picker .pep-current-label {
+      width: 100% !important;
+      text-align: center !important;
+      font-size: 12px !important;
+      line-height: 1.15 !important;
+      font-weight: 600 !important;
+      color: #d7d9e5 !important;
+    }
+    .premium-emoji-picker .pep-current-value {
+      width: 100% !important;
+      text-align: center !important;
+      font-size: 13px !important;
+      line-height: 1.15 !important;
+      font-weight: 700 !important;
+      color: #f1f3ff !important;
+      min-height: 16px !important;
+    }
+    .premium-emoji-picker .pep-clear {
+      display: none !important;
+    }
+    .premium-emoji-picker .premium-emoji-cell {
+      box-sizing: border-box !important;
+      position: relative !important;
+      width: 44px !important;
+      height: 44px !important;
+      padding: 0 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      line-height: 1 !important;
+      border: 2px solid transparent !important;
+      outline: 0 !important;
+      overflow: visible !important;
+    }
+    .premium-emoji-picker .premium-emoji-cell > span,
+    .premium-emoji-picker .premium-emoji-cell > img {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin: auto !important;
+      line-height: 1 !important;
+      pointer-events: none !important;
+    }
+    .premium-emoji-picker .premium-emoji-cell.active,
+    .premium-emoji-picker .premium-emoji-cell[aria-pressed="true"] {
+      border-color: #8b5cff !important;
+      outline: 2px solid #8b5cff !important;
+      outline-offset: 2px !important;
+      box-shadow: 0 0 0 3px rgba(139, 92, 255, 0.35), 0 0 16px rgba(139, 92, 255, 0.9), 0 0 24px rgba(125, 212, 255, 0.45) !important;
+      transform: scale(1.06) !important;
+      z-index: 2 !important;
+    }
+    .premium-emoji-picker .cat-default {
+      background: radial-gradient(120% 120% at 30% 20%, #b6e8ff 0%, #7dd4ff 25%, #3a7bd5 60%, #1a2a4a 100%) !important;
+    }
+    .avatar-edit-preview,
+    .avatar-edit-preview canvas,
+    .image-edit-preview canvas {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+</style>
+</head>
+<body class="dark">
+  <svg class="icon-sprite" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"></circle><path d="M16 16l5 5"></path></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20l4.5-1 9-9a2 2 0 0 0-2.8-2.8l-9 9L4 20z"></path><path d="M13.5 6.5l4 4"></path></symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="4" rx="1.5"></rect><path d="M6 9h12v9a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9z"></path><path d="M10 13h4"></path></symbol>
+    <symbol id="i-call" viewBox="0 0 24 24"><path d="M7.5 4.5l3 3-1.7 2.3a14 14 0 0 0 5.1 5.1l2.3-1.7 3 3-1.6 2.7a2.5 2.5 0 0 1-2.6 1.2C8.8 19.3 4.7 15.2 3.8 9.1A2.5 2.5 0 0 1 5 6.5l2.5-2z"></path></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"></path><path d="M5 12h14"></path></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"></circle><circle cx="9" cy="10" r=".9" fill="currentColor" stroke="none"></circle><circle cx="15" cy="10" r=".9" fill="currentColor" stroke="none"></circle><path d="M8.5 14c1 1.35 2.1 2 3.5 2s2.5-.65 3.5-2"></path></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16h12l-1.2-1.4A3 3 0 0 1 16 12.7V10a4 4 0 1 0-8 0v2.7a3 3 0 0 1-.8 1.9L6 16z"></path><path d="M10 19a2 2 0 0 0 4 0"></path></symbol>
+    <symbol id="i-media" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 14l3-3 3 3 2-2 2 2"></path><circle cx="9" cy="9" r="1.2"></circle></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 14l3-3 3 3 2-2 2 2"></path><circle cx="9" cy="9" r="1.2"></circle></symbol>
+    <symbol id="i-music" viewBox="0 0 24 24"><path d="M14 5v10.5a2.5 2.5 0 1 1-1.5-2.3V7.4L19 6v8.5a2.5 2.5 0 1 1-1.5-2.3V5.6L14 6.3V5z"></path></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M8 4h6l4 4v12H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M14 4v4h4"></path><path d="M9 13h6"></path><path d="M9 16h6"></path></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14l4-4"></path><path d="M8.5 15.5l-1.3 1.3a3 3 0 1 1-4.2-4.2l3-3a3 3 0 0 1 4.2 0"></path><path d="M15.5 8.5l1.3-1.3a3 3 0 1 1 4.2 4.2l-3 3a3 3 0 0 1-4.2 0"></path></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.2"></circle><path d="M5 19a7 7 0 0 1 14 0"></path></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.5 13.5 12 22l-8.5-8.5A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.4.6L20.5 11a2 2 0 0 1 0 2.5z"></path><circle cx="8.2" cy="8.2" r="1.4"></circle></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M7 5h10a1 1 0 0 1 1 1v13l-6-3-6 3V6a1 1 0 0 1 1-1z"></path></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2.5"></circle><circle cx="16" cy="10" r="2"></circle><path d="M4.5 18a5 5 0 0 1 9 0"></path><path d="M13 18a4 4 0 0 1 6 0"></path></symbol>
+    <symbol id="i-device" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="10" rx="2"></rect><path d="M10 19h4"></path><path d="M8 15l-1 4h10l-1-4"></path></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 17l.8-3A7 7 0 1 1 19 12a7 7 0 0 1-7 7 7 7 0 0 1-3.5-.9L5 17z"></path></symbol>
+    <symbol id="i-channel" viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"></path><path d="M8 12a4 4 0 0 1 8 0"></path><circle cx="12" cy="12" r="1.5"></circle><path d="M4 18h16"></path></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"></circle></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M5 7.25h14"></path><path d="M5 12h14"></path><path d="M5 16.75h10"></path></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="4" y="6" width="11" height="12" rx="2"></rect><path d="M15 10l5-3v10l-5-3"></path></symbol>
+    <symbol id="i-cache" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v6"></path><circle cx="12" cy="7.5" r="1"></circle></symbol>
+    <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 10h4l5-4v12l-5-4H4z"></path><path d="M17 9l4 6"></path><path d="M21 9l-4 6"></path></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v5l3 2"></path></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M15.5 4.5A7.5 7.5 0 1 0 19.5 18 8 8 0 0 1 15.5 4.5z"></path></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M9 7V5h6v2"></path><path d="M7 7l1 12h8l1-12"></path><path d="M10 11v5"></path><path d="M14 11v5"></path></symbol>
+    <symbol id="i-invite" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2.5"></circle><path d="M4.5 18a5 5 0 0 1 9 0"></path><path d="M17 8v6"></path><path d="M14 11h6"></path></symbol>
+    <symbol id="i-storage" viewBox="0 0 24 24"><path d="M5 7h14"></path><path d="M5 12h14"></path><path d="M5 17h14"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 11l15-7-4 16-3-6-8-3z"></path><path d="M12 14l7-10"></path></symbol>
+    <symbol id="i-story" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 5a7 7 0 0 1 7 7"></path></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l4.2 4.2L19.5 6"></path></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10-6.5-10-6.5z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 6h3v12H8z" fill="currentColor" stroke="none"></path><path d="M13 6h3v12h-3z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-skip-back" viewBox="0 0 24 24"><path d="M7 5v14"></path><path d="M18 6l-8 6 8 6V6z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-skip-forward" viewBox="0 0 24 24"><path d="M17 5v14"></path><path d="M6 6l8 6-8 6V6z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 10h4l5-4v12l-5-4H4z"></path><path d="M16.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 6a8 8 0 0 1 0 12"></path></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><path d="M4 4h6v6H4z"></path><path d="M14 4h6v6h-6z"></path><path d="M4 14h6v6H4z"></path><path d="M14 14h2"></path><path d="M18 14h2v2"></path><path d="M14 18h2v2"></path><path d="M18 18h2"></path></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="4" width="6" height="10" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></symbol>
+    <symbol id="i-summary" viewBox="0 0 24 24"><path d="M7 5h10a2 2 0 0 1 2 2v12l-3-2-3 2-3-2-3 2V7a2 2 0 0 1 2-2z"></path><path d="M9 9h6"></path><path d="M9 12h6"></path><path d="M9 15h3.5"></path></symbol>
+    <symbol id="i-transcript" viewBox="0 0 24 24"><rect x="4.5" y="5.5" width="15" height="12" rx="3"></rect><path d="M8 9.5h8"></path><path d="M8 12.5h5.5"></path><path d="M9.5 17.5 7 20v-2.5"></path><path d="M16.5 4.5l.7-1.5.7 1.5 1.5.7-1.5.7-.7 1.5-.7-1.5-1.5-.7 1.5-.7z"></path></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M14 4l6 6-3 1-4 4v4l-2 2-2-6-6-2 2-2h4l4-4 1-3z"></path></symbol>
+    <symbol id="i-location" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.4c-4 0-7 3-7 6.8 0 4.9 6.1 11.7 6.4 12 .3.3.9.3 1.2 0 .3-.3 6.4-7.1 6.4-12 0-3.8-3-6.8-7-6.8z"></path><circle cx="12" cy="9.4" r="2.4" fill="var(--bg,#111)"></circle></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 4l2.4 5 5.6.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.6-.8L12 4z"></path></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="6" y="11" width="12" height="9" rx="2"></rect><path d="M9 11V8a3 3 0 0 1 6 0v3"></path></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5 19 6v5.4c0 4.4-2.7 7.6-7 9.1-4.3-1.5-7-4.7-7-9.1V6l7-2.5z"></path><path d="M9 12l2 2 4-4"></path></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 0 16h1.5a2.5 2.5 0 0 0 0-5H12a2 2 0 0 1 0-4h3a5 5 0 0 0 0-10h-3z"></path><circle cx="7.5" cy="12" r="1"></circle><circle cx="9" cy="8.5" r="1"></circle><circle cx="13" cy="7.5" r="1"></circle><circle cx="16.5" cy="10" r="1"></circle></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"></path><path d="M19 12a7.1 7.1 0 0 0-.1-1l2-1.5-2-3.5-2.4.8a8 8 0 0 0-1.7-1L14.5 3h-5l-.3 2.8a8 8 0 0 0-1.7 1L5.1 6l-2 3.5 2 1.5a7.1 7.1 0 0 0 0 2l-2 1.5 2 3.5 2.4-.8a8 8 0 0 0 1.7 1l.3 2.8h5l.3-2.8a8 8 0 0 0 1.7-1l2.4.8 2-3.5-2-1.5c.1-.3.1-.7.1-1z"></path></symbol>
+    <symbol id="i-at" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5.2a2.8 2.8 0 0 0 5.5-.8 9.5 9.5 0 1 0-3.2 7.1"></path></symbol>
+    <symbol id="i-birthday" viewBox="0 0 24 24"><path d="M12 6c.5-1 1.3-1.8 2.2-2.3.7-.4 1.5.3 1.2 1.1-.4 1.2-1.4 2.3-2.7 3.2"></path><path d="M9.8 6.2c-.9-.7-1.6-1.6-2-2.6-.3-.8.5-1.5 1.2-1.1.9.5 1.7 1.3 2.2 2.4"></path><rect x="5" y="8" width="14" height="11" rx="2"></rect><path d="M12 8v11"></path><path d="M8 12h8"></path></symbol>
+    <symbol id="i-language" viewBox="0 0 24 24"><path d="M4 5h9"></path><path d="M9 3v2"></path><path d="M6 9c1.2 2.2 3.4 4 6 5"></path><path d="M12 9c-1 2-3.1 4-6 5"></path><path d="M14 20l4-9 4 9"></path><path d="M15.5 17h5"></path></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></symbol>
+    <symbol id="i-scroll-down" viewBox="0 0 24 24"><path d="M12 5v13"></path><path d="m6.5 12.5 5.5 5.5 5.5-5.5"></path></symbol>
+    <symbol id="i-admin" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"></path></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.8 12s3.3-5.5 9.2-5.5S21.2 12 21.2 12 17.9 17.5 12 17.5 2.8 12 2.8 12z"></path><circle cx="12" cy="12" r="2.7"></circle></symbol>
+    <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18"></path><path d="M10.6 6.7A9.5 9.5 0 0 1 12 6.5c5.9 0 9.2 5.5 9.2 5.5a17 17 0 0 1-3.1 3.8"></path><path d="M6.1 8.2A17.3 17.3 0 0 0 2.8 12S6.1 17.5 12 17.5c1.3 0 2.5-.3 3.5-.8"></path><path d="M9.8 9.8a3.2 3.2 0 0 0 4.4 4.4"></path></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.6" fill="currentColor" stroke="none"></circle><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"></circle><circle cx="12" cy="19" r="1.6" fill="currentColor" stroke="none"></circle></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="13" rx="3"></rect><path d="M12 6V3"></path><circle cx="9" cy="12" r="1.3" fill="currentColor" stroke="none"></circle><circle cx="15" cy="12" r="1.3" fill="currentColor" stroke="none"></circle><path d="M9 16h6"></path><circle cx="12" cy="3" r="1" fill="currentColor" stroke="none"></circle></symbol>
+    <symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"></circle><circle cx="6" cy="19" r="2"></circle><circle cx="18" cy="12" r="2"></circle><path d="M6 7v10"></path><path d="M6 12h10"></path></symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="5" rx="1"></rect><rect x="15" y="4" width="6" height="5" rx="1"></rect><rect x="9" y="15" width="6" height="5" rx="1"></rect><path d="M6 9v3h12V9"></path><path d="M12 12v3"></path></symbol>
+    <symbol id="i-play-outline" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M10 8.5l5 3.5-5 3.5z" fill="currentColor" stroke="none"></path></symbol>
+    <symbol id="i-duplicate" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"></rect><rect x="4" y="4" width="12" height="12" rx="2"></rect></symbol>
+  </svg>
+
+  <main id="app">
+    <section class="auth-screen" id="authScreen">
+      <div class="auth-orb orb-a"></div>
+      <div class="auth-orb orb-b"></div>
+      <div class="auth-card">
+        <div class="app-logo">
+          <div class="logo-mark">✦</div>
+          <div>
+            <h1>Onix (OX)</h1>
+            <p>Приватные диалоги для своих людей</p>
+          </div>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="tab-button active" type="button" data-auth-tab="login">Вход</button>
+          <button class="tab-button" type="button" data-auth-tab="register">Регистрация</button>
+        </div>
+
+        <div class="auth-forms-shell" id="authFormsShell">
+          <form class="auth-form" id="loginForm" autocomplete="off">
+            <label>
+              <span>Email</span>
+              <input name="identifier" type="email" required autocomplete="email" list="authEmailHistory" autocapitalize="none" spellcheck="false" placeholder="you@example.com" />
+            </label>
+            <label class="password-field">
+              <span>Пароль</span>
+              <div class="password-input-wrap">
+                <input id="loginPassword" name="password" type="password" required autocomplete="current-password" placeholder="Ваш пароль" />
+                <button class="password-toggle" type="button" data-password-toggle="loginPassword" aria-label="Показать пароль" title="Показать пароль" aria-pressed="false">
+                  <svg class="svg-icon"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+            </label>
+
+            <div class="auth-helper-links">
+              <button class="auth-link-button" type="button" id="openQrLoginButton">Войти по QR-коду</button>
+              <button class="auth-link-button" type="button" id="forgotPasswordButton" data-open-password-recovery>Забыли пароль?</button>
+            </div>
+            <button class="primary-button" type="submit">Войти</button>
+            <p class="auth-error hidden" id="loginError"></p>
+          </form>
+
+          <form class="auth-form qr-login-panel hidden" id="qrLoginForm" autocomplete="off">
+            <div class="qr-login-card">
+              <div class="qr-login-code" id="loginQrCode" aria-label="QR-код для входа"></div>
+              <div class="qr-login-copy">
+                <strong>Войти по QR-коду</strong>
+                <span>Откройте Onix на другом устройстве и подтвердите вход. Для локальной версии можно подтвердить вход этой кнопкой.</span>
+              </div>
+            </div>
+            <button class="primary-button" type="submit">Подтвердить вход по QR</button>
+            <div class="auth-helper-links center">
+              <button class="auth-link-button qr-refresh-button" type="button" id="refreshQrButton">Обновить QR-код</button>
+              <button class="auth-link-button" type="button" id="backFromQrButton">Назад ко входу</button>
+            </div>
+            <p class="auth-error hidden" id="qrLoginError"></p>
+          </form>
+
+          <form class="auth-form hidden" id="registerForm" autocomplete="off">
+            <label>
+              <span>Имя</span>
+              <input name="name" type="text" required autocomplete="name" maxlength="80" placeholder="Ваше имя" />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" required autocomplete="email" list="authEmailHistory" autocapitalize="none" spellcheck="false" placeholder="you@example.com" />
+            </label>
+            <label class="password-field">
+              <span>Пароль</span>
+              <div class="password-input-wrap">
+                <input id="registerPassword" name="password" type="password" required minlength="8" autocomplete="new-password" placeholder="Aa-12345!" />
+                <button class="password-toggle" type="button" data-password-toggle="registerPassword" aria-label="Показать пароль" title="Показать пароль" aria-pressed="false">
+                  <svg class="svg-icon"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+            </label>
+            <label class="password-field">
+              <span>Повторите пароль</span>
+              <div class="password-input-wrap">
+                <input id="registerPasswordConfirm" name="passwordConfirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Повторите пароль" />
+                <button class="password-toggle" type="button" data-password-toggle="registerPasswordConfirm" aria-label="Показать пароль" title="Показать пароль" aria-pressed="false">
+                  <svg class="svg-icon"><use href="#i-eye"></use></svg>
+                </button>
+              </div>
+            </label>
+            <p class="password-rule-hint">После регистрации Onix отправит 6-значный код подтверждения на почту.</p>
+            <button class="auth-link-button" type="button" data-open-password-recovery>Забыли пароль?</button>
+            <button class="primary-button" type="submit">Создать аккаунт</button>
+            <p class="auth-error hidden" id="registerError"></p>
+          </form>
+          <datalist id="authEmailHistory"></datalist>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout hidden" id="messenger">
+      <aside class="left-panel" id="leftPanel">
+        <header class="left-header">
+          <button class="icon-button" id="openMainMenu" aria-label="Меню"><svg class="svg-icon"><use href="#i-menu"></use></svg></button>
+          <div class="search-wrap">
+            <span class="icon-only"><svg class="svg-icon"><use href="#i-search"></use></svg></span>
+            <input id="chatSearch" type="search" placeholder="Поиск" />
+          </div>
+          <button class="icon-button" id="openCompose" aria-label="Создать чат"><svg class="svg-icon"><use href="#i-edit"></use></svg></button>
+        </header>
+        <div class="global-search-panel hidden" id="globalSearchPanel" aria-live="polite"></div>
+
+        <nav class="folders" id="folderTabs" aria-label="Папки чатов">
+          <button class="folder-tab active" data-folder="all">Все</button>
+          <button class="folder-tab" data-folder="private">Личные</button>
+          <button class="folder-tab" data-folder="group">Группы</button>
+          <button class="folder-tab" data-folder="channel">Каналы</button>
+          <button class="folder-tab" data-folder="unread">Непрочит.</button>
+          <button class="folder-collapse-button" id="toggleFolders" type="button" aria-label="Скрыть папки" title="Скрыть папки">
+            <svg class="svg-icon"><use href="#i-chevron"></use></svg>
+          </button>
+        </nav>
+
+        <div class="archive-row" id="archiveRow">
+          <div class="archive-icon"><svg class="svg-icon"><use href="#i-archive"></use></svg></div>
+          <div>
+            <strong id="archiveTitle">Архив</strong>
+            <span id="archiveSubtitle">Скрытые и старые диалоги</span>
+          </div>
+          <b id="archiveCount">2</b>
+        </div>
+        <div class="archive-mode-banner hidden" id="archiveModeBanner">
+          <span><svg class="svg-icon"><use href="#i-archive"></use></svg></span>
+          <strong>Открыт архив</strong>
+          <button id="leaveArchiveButton" type="button">Выйти</button>
+        </div>
+
+        <div class="chat-list" id="chatList"></div>
+        <button class="left-panel-resizer" id="leftPanelResizer" hidden type="button" aria-label="Изменить ширину списка чатов" title="Изменить ширину списка чатов"></button>
+      </aside>
+
+      <section class="chat-panel" id="chatPanel">
+        <header class="chat-header">
+          <button class="icon-button mobile-only" id="backToList" aria-label="Назад">‹</button>
+          <div class="avatar" id="activeAvatar">V</div>
+          <div class="chat-heading">
+            <h2 id="activeTitle">Выберите чат</h2>
+            <p id="activeStatus">Список диалогов слева</p>
+          </div>
+
+          <div class="inline-search hidden" id="inlineSearchBar">
+            <svg class="svg-icon"><use href="#i-search"></use></svg>
+            <input id="inlineSearchInput" type="search" placeholder="Поиск в чате" autocomplete="off" />
+            <span id="inlineSearchCount">0</span>
+            <button type="button" id="inlineSearchClose" title="Закрыть">
+              <svg class="svg-icon"><use href="#i-close"></use></svg>
+            </button>
+          </div>
+
+          <div class="chat-header-actions">
+            <button class="icon-button" id="callAction" title="Звонок" data-tooltip="Звонок"><svg class="svg-icon"><use href="#i-call"></use></svg></button>
+            <button class="icon-button" id="searchInChat" title="Поиск" data-tooltip="Поиск"><svg class="svg-icon"><use href="#i-search"></use></svg></button>
+            <button class="icon-button" id="openChatInfo" title="Меню" data-tooltip="Меню"><svg class="svg-icon"><use href="#i-more"></use></svg></button>
+          </div>
+        </header>
+
+        <div class="voice-mini-player hidden" id="voiceMiniPlayer" aria-live="polite">
+          <div class="voice-mini-transport">
+            <button class="voice-mini-icon" type="button" id="voiceMiniPrev" aria-label="Предыдущее голосовое"><svg class="svg-icon"><use href="#i-skip-back"></use></svg></button>
+            <button class="voice-mini-play" type="button" id="voiceMiniPlay" aria-label="Воспроизвести голосовое"><svg class="svg-icon"><use href="#i-play"></use></svg></button>
+            <button class="voice-mini-icon" type="button" id="voiceMiniNext" aria-label="Следующее голосовое"><svg class="svg-icon"><use href="#i-skip-forward"></use></svg></button>
+          </div>
+          <div class="voice-mini-copy">
+            <strong id="voiceMiniTitle">Голосовое сообщение</strong>
+            <span id="voiceMiniSubtitle">Голосовое сообщение</span>
+            <em id="voiceMiniTime">0:00 / 0:00</em>
+          </div>
+          <div class="voice-mini-controls">
+            <label class="voice-mini-volume" id="voiceMiniVolumeButton" title="Громкость">
+              <svg class="svg-icon"><use href="#i-speaker"></use></svg>
+              <input id="voiceMiniVolume" type="range" min="0" max="100" value="60" aria-label="Громкость голосового" />
+            </label>
+            <button class="voice-mini-speed" type="button" id="voiceMiniSpeed" aria-label="Скорость голосового">1x</button>
+            <button class="voice-mini-close" type="button" id="voiceMiniClose" aria-label="Закрыть плеер"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+          <label class="voice-mini-seek-wrap" aria-label="Перемотать голосовое">
+            <svg class="voice-mini-seek-svg" viewBox="0 0 360 14" aria-hidden="true" focusable="false">
+              <path class="voice-mini-seek-rail" d="M4 7 H356" />
+              <path class="voice-mini-seek-fill" d="M4 7 H356" />
+              <circle class="voice-mini-seek-thumb" cx="4" cy="7" r="4" />
+            </svg>
+            <input id="voiceMiniSeek" class="voice-mini-seek" type="range" min="0" max="1000" value="0" aria-label="Перемотать голосовое" />
+          </label>
+        </div>
+
+        <div class="message-selection-bar hidden" id="messageSelectionBar">
+          <button class="icon-button" type="button" data-selection-action="cancel" aria-label="Отменить выделение"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          <strong id="messageSelectionCount">0 выбрано</strong>
+          <div class="message-selection-actions">
+            <button class="icon-button" type="button" data-selection-action="copy" title="Копировать"><svg class="svg-icon"><use href="#i-file"></use></svg></button>
+            <button class="icon-button" type="button" data-selection-action="layout-ru" title="Исправить раскладку на русскую" aria-label="Исправить раскладку на русскую"><svg class="svg-icon"><use href="#i-language"></use></svg></button>
+            <button class="icon-button" type="button" data-selection-action="forward" title="Переслать"><svg class="svg-icon"><use href="#i-send"></use></svg></button>
+            <button class="icon-button danger-selection-action" type="button" data-selection-action="delete" title="Удалить"><svg class="svg-icon"><use href="#i-trash"></use></svg></button>
+          </div>
+        </div>
+
+        <div class="messages-shell" id="messagesShell">
+          <div class="pinned-message hidden" id="pinnedMessage">
+            <span><svg class="svg-icon"><use href="#i-pin"></use></svg></span>
+            <div>
+              <strong>Закреплённое сообщение</strong>
+              <p id="pinnedText">—</p>
+            </div>
+            <button class="pinned-message-list-button hidden" type="button" data-pinned-list aria-label="Все закреплённые сообщения" title="Все закреплённые сообщения">
+              <svg class="svg-icon"><use href="#i-menu"></use></svg>
+            </button>
+            <button class="pinned-message-unpin-button hidden" type="button" data-unpin-current aria-label="Открепить сообщение" title="Открепить сообщение">
+              <svg class="svg-icon"><use href="#i-close"></use></svg>
+            </button>
+          </div>
+
+          <div class="messages" id="messages"></div>
+          <button class="chat-scroll-down hidden" id="chatScrollDown" type="button" aria-label="Прокрутить вниз" title="Прокрутить вниз">
+            <svg class="svg-icon" aria-hidden="true"><use href="#i-scroll-down"></use></svg>
+          </button>
+        </div>
+
+        <div class="typing hidden" id="typingIndicator">
+          <span></span><span></span><span></span>
+          <p>печатает...</p>
+        </div>
+
+        <div class="reply-preview hidden" id="replyPreview">
+          <div class="reply-line"></div>
+          <div class="reply-body">
+            <strong id="replyAuthor">Ответ</strong>
+            <p id="replyText">—</p>
+          </div>
+          <button type="button" id="cancelReply" title="Отменить ответ"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+        </div>
+
+        <form class="composer" id="messageForm">
+          <button class="icon-button" type="button" id="attachButton"><svg class="svg-icon"><use href="#i-plus"></use></svg></button>
+          <input id="fileInput" type="file" multiple hidden />
+          <div class="drop-attach-preview hidden" id="dropAttachPreview" aria-live="polite"></div>
+          <textarea id="messageInput" rows="1" placeholder="Сообщение" autocomplete="off" enterkeyhint="send"></textarea>
+          <button class="icon-button circle-video-button" type="button" id="circleVideoButton" aria-label="Записать видеокружок" title="Видеокружок"><svg class="svg-icon"><use href="#i-video"></use></svg></button>
+          <button class="icon-button" type="button" id="emojiButton" aria-label="Эмодзи" title="Эмодзи"><svg class="svg-icon"><use href="#i-smile"></use></svg></button>
+          <button class="send-button" type="submit" data-tooltip="Отправить"><svg class="svg-icon"><use href="#i-send"></use></svg></button>
+          <div class="voice-hold-hint hidden" id="voiceHoldHint">Зажмите кнопку или удерживайте Enter, чтобы записать голосовое</div>
+          <div class="voice-recording-panel hidden" id="voiceRecordingPanel" aria-live="polite">
+            <span class="voice-record-dot"></span>
+            <strong id="voiceRecordTimer">0:00</strong>
+            <div class="voice-record-wave" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="voice-record-actions-hint" aria-hidden="true"><svg class="svg-icon"><use href="#i-send"></use></svg><svg class="svg-icon"><use href="#i-close"></use></svg></span><span class="visually-hidden">Отпустите кнопку, чтобы отправить, или нажмите крестик для отмены.</span>
+            <button class="voice-record-cancel" type="button" id="voiceRecordCancel" aria-label="Удалить голосовое"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="upload-status-panel hidden" id="uploadStatusPanel" aria-live="polite">
+            <span class="upload-status-icon"><svg class="svg-icon"><use href="#i-file"></use></svg></span>
+            <div class="upload-status-body">
+              <strong id="uploadStatusTitle">Загрузка файла</strong>
+              <div class="upload-progress-track"><i id="uploadProgressBar"></i></div>
+            </div>
+            <button class="upload-retry-button hidden" type="button" id="uploadRetryButton">Повторить</button>
+            <button class="upload-close-button" type="button" id="uploadStatusClose" aria-label="Скрыть"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="info-panel" id="infoPanel">
+        <div class="info-cover">
+          <button class="big-avatar avatar-upload" id="infoAvatarButton" type="button" title="Поменять аватарку">
+            <span id="infoAvatar">V</span>
+            <em>Поменять аватарку</em>
+          </button>
+        </div>
+
+        <div class="info-content">
+          <h2 id="infoTitle">Onix</h2>
+          <p id="infoStatus">Выберите чат</p>
+
+          <div class="quick-actions">
+            <button data-info-action="mute"><svg class="svg-icon"><use href="#i-bell"></use></svg><span>Звук</span></button>
+            <button data-info-action="search"><svg class="svg-icon"><use href="#i-search"></use></svg><span>Поиск</span></button>
+            <button data-info-action="media"><svg class="svg-icon"><use href="#i-media"></use></svg><span>Медиа</span></button>
+          </div>
+
+          <section class="info-card" id="descriptionCard">
+            <div class="card-title-line" style="display:flex; justify-content:space-between; align-items:center;">
+              <h3 id="descriptionCardTitle">Описание канала</h3>
+              <button class="icon-button" id="descriptionCardMore" title="Оформление" style="background:none; border:none; color:var(--text-secondary); cursor:pointer; padding:4px; display:inline-flex; align-items:center; justify-content:center;"><svg class="svg-icon" style="width:16px; height:16px; pointer-events:none;"><use href="#i-more"></use></svg></button>
+            </div>
+            <p id="infoDescription">Информация о выбранном чате появится здесь.</p>
+          </section>
+
+          <section class="info-card">
+            <h3>Материалы</h3>
+            <div class="media-grid">
+              <button data-media-kind="Фото" data-tooltip="Фото и видео"><svg class="svg-icon"><use href="#i-image"></use></svg></button>
+              <button data-media-kind="Музыка" data-tooltip="Музыка"><svg class="svg-icon"><use href="#i-music"></use></svg></button>
+              <button data-media-kind="Файлы" data-tooltip="Файлы"><svg class="svg-icon"><use href="#i-file"></use></svg></button>
+              <button data-media-kind="Ссылки" data-tooltip="Ссылки"><svg class="svg-icon"><use href="#i-link"></use></svg></button>
+            </div>
+          </section>
+
+
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="side-drawer-backdrop hidden" id="drawerBackdrop"></div>
+
+  <aside class="main-drawer" id="mainDrawer">
+    <div class="drawer-profile">
+      <button class="drawer-avatar drawer-avatar-button" id="drawerAvatarButton" type="button" title="Поменять аватарку">
+        <span id="drawerAvatar">O</span>
+        <em>Поменять аватарку</em>
+      </button>
+      <button class="drawer-profile-info" id="drawerProfileInfo" type="button">
+        <h2 id="drawerName">Onix</h2>
+        <p id="drawerEmail">account@onix</p>
+        <small id="drawerBio">Описание профиля</small>
+      </button>
+    </div>
+
+    <nav class="drawer-menu">
+      <button data-drawer-action="my-profile"><svg class="svg-icon"><use href="#i-user"></use></svg> <span>Мой профиль</span></button>
+      <div class="drawer-menu-separator" aria-hidden="true"></div>
+      <button data-drawer-action="create-group"><svg class="svg-icon"><use href="#i-users"></use></svg> <span>Создать группу</span></button>
+      <button data-drawer-action="create-channel"><svg class="svg-icon"><use href="#i-channel"></use></svg> <span>Создать канал</span></button>
+      <button data-drawer-action="contacts"><svg class="svg-icon"><use href="#i-users"></use></svg> <span>Контакты</span></button>
+      <button data-drawer-action="calls"><svg class="svg-icon"><use href="#i-call"></use></svg> <span>Звонки</span></button>
+      <button data-drawer-action="saved"><svg class="svg-icon"><use href="#i-bookmark"></use></svg> <span>Избранное</span></button>
+      <button data-drawer-action="settings"><svg class="svg-icon"><use href="#i-settings"></use></svg> <span>Настройки</span></button>
+      <div class="drawer-menu-separator drawer-menu-bottom-separator" aria-hidden="true"></div>
+      <button data-drawer-action="bot-builder"><svg class="svg-icon"><use href="#i-bot"></use></svg> <span>Bot Filter</span></button>
+      <button data-drawer-action="guest-chat"><svg class="svg-icon"><use href="#i-clock"></use></svg> <span>Гостевой чат</span></button>
+      <button data-drawer-action="onix-plus"><svg class="svg-icon"><use href="#i-star"></use></svg> <span>Onix Plus</span></button>
+      <button data-drawer-action="admin-panel" class="admin-only-drawer-button hidden"><svg class="svg-icon"><use href="#i-admin"></use></svg> <span>Админка</span></button>
+    </nav>
+
+    <div class="drawer-bottom">
+      <div class="drawer-theme-toggle">
+        <span>Ночная тема</span>
+        <label class="ios-switch mini-switch">
+          <input type="checkbox" id="drawerDarkToggle" />
+          <span></span>
+        </label>
+      </div>
+      <button class="drawer-support-link" type="button" data-open-support>
+        <svg class="svg-icon"><use href="#i-shield"></use></svg>
+        <span>@support</span>
+      </button>
+      <button class="logout-line" id="logoutButton">Выйти</button>
+    </div>
+  </aside>
+
+  <dialog class="modal" id="settingsModal">
+    <button class="floating-close modal-close" data-close-modal="settingsModal"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+    <div class="settings-layout">
+      <aside class="settings-nav">
+        <div class="settings-user">
+          <button class="drawer-avatar settings-avatar-button" id="settingsAvatarButton" type="button" title="Поменять аватарку">
+            <span id="settingsAvatar">O</span>
+          </button>
+          <div>
+            <h2 id="settingsUserName">Onix</h2>
+            <p id="settingsUserEmail">account@onix</p>
+          </div>
+        </div>
+        <button class="settings-link active" data-settings-page="profile"><svg class="svg-icon"><use href="#i-user"></use></svg> Профиль</button>
+        <button class="settings-link settings-link-onixplus" data-settings-page="onix-plus"><svg class="svg-icon"><use href="#i-star"></use></svg> Onix Plus</button>
+        <button class="settings-link settings-link-admin hidden" data-settings-page="admin-panel"><svg class="svg-icon"><use href="#i-admin"></use></svg> Админка</button>
+        <button class="settings-link" data-settings-page="security"><svg class="svg-icon"><use href="#i-lock"></use></svg> Безопасность</button>
+        <button class="settings-link" data-settings-page="notifications"><svg class="svg-icon"><use href="#i-bell"></use></svg> Уведомления</button>
+        <button class="settings-link" data-settings-page="privacy"><svg class="svg-icon"><use href="#i-lock"></use></svg> Конфиденциальность</button>
+        <button class="settings-link" data-settings-page="appearance"><svg class="svg-icon"><use href="#i-palette"></use></svg> Оформление</button>
+        <button class="settings-link" data-settings-page="folders"><svg class="svg-icon"><use href="#i-archive"></use></svg> Папки</button>
+        <button class="settings-link" data-settings-page="data"><svg class="svg-icon"><use href="#i-database"></use></svg> Данные и память</button>
+        <button class="settings-link" data-settings-page="devices"><svg class="svg-icon"><use href="#i-device"></use></svg> Устройства</button>
+        <button class="settings-link" data-settings-page="language"><svg class="svg-icon"><use href="#i-language"></use></svg> Язык</button>
+      </aside>
+
+      <section class="settings-page active" data-page="profile">
+        <h2>Профиль</h2>
+        <div class="setting-card">
+          <label>
+            <span>Имя</span>
+            <input id="profileNameInput" type="text" maxlength="28" />
+          </label>
+          <label>
+            <span>О себе</span>
+            <input id="profileBioInput" type="text" maxlength="120" placeholder="Например: frontend learner" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input id="profileEmailInput" type="email" maxlength="190" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span>Username</span>
+            <input id="profileUsernameInput" type="text" maxlength="32" placeholder="@username" />
+          </label>
+          <label>
+            <span>День рождения</span>
+            <input id="profileBirthdayInput" type="date" />
+          </label>
+          <label class="hidden">
+            <span>Телефон</span>
+            <input id="profilePhoneInput" type="text" maxlength="24" placeholder="Не используется" readonly disabled aria-readonly="true" />
+          </label>
+          <button class="primary-button compact" id="saveProfileButton">Сохранить</button>
+        </div>
+
+        <div class="setting-card">
+          <h3>Аккаунт</h3>
+          <div class="settings-row"><span>Email</span><b id="profileEmailLabel">—</b></div>
+          <div class="settings-row"><span>Username</span><b id="profileUsernameLabel">@username</b></div>
+          <div class="settings-row hidden"><span>Номер телефона</span><b id="profilePhoneLabel">Не используется</b></div>
+          <div class="settings-row"><span>День рождения</span><b id="profileBirthdayLabel">—</b></div>
+          <div class="settings-row"><span>Premium</span><b id="profilePremiumLabel">—</b></div>
+          <button class="primary-button compact" type="button" id="openPlusSettingsButton" style="margin-top:10px">Открыть Onix Plus</button>
+        </div>
+      </section>
+
+      <section class="settings-page onixplus-settings-page" data-page="onix-plus">
+        <div class="onixplus-settings-page-head">
+          <span class="onixplus-settings-page-logo"><svg class="svg-icon"><use href="#i-star"></use></svg></span>
+          <div>
+            <h2>Onix Plus</h2>
+            <p>Все функции Premium и их настройки находятся здесь.</p>
+          </div>
+        </div>
+        <div id="onixPlusSettingsPageContent"></div>
+      </section>
+
+      <section class="settings-page admin-settings-page" data-page="admin-panel">
+        <div class="settings-page-head" style="display: flex; align-items: center; margin-bottom: 20px; gap: 15px;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff;"><svg class="svg-icon" style="width:24px; height:24px; fill:currentColor;"><use href="#i-admin"></use></svg></span>
+          <div>
+            <h2 style="margin: 0; font-size: 20px;">Админ-панель</h2>
+            <p style="margin: 0; font-size: 13px; color: var(--text-secondary);">Управление пользователями, оплатами и системная статистика.</p>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <h3>Системная статистика</h3>
+          <div id="adminStatsContainer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-top: 15px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; text-align: center;">
+              <small style="color: var(--text-secondary); display:block; margin-bottom: 4px;">Всего юзеров</small>
+              <b id="adminStatUsers" style="font-size: 20px; color: var(--accent);">—</b>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; text-align: center;">
+              <small style="color: var(--text-secondary); display:block; margin-bottom: 4px;">Диалогов</small>
+              <b id="adminStatConvs" style="font-size: 20px; color: var(--accent);">—</b>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; text-align: center;">
+              <small style="color: var(--text-secondary); display:block; margin-bottom: 4px;">Сообщений</small>
+              <b id="adminStatMsgs" style="font-size: 20px; color: var(--accent);">—</b>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 10px; border-radius: 8px; text-align: center;">
+              <small style="color: var(--text-secondary); display:block; margin-bottom: 4px;">Жалоб</small>
+              <b id="adminStatReports" style="font-size: 20px; color: var(--accent);">—</b>
+            </div>
+          </div>
+          <small id="adminStatsSource" style="display:block;margin-top:10px;color:var(--muted)">Загрузка статистики…</small>
+          <div style="display: flex; gap: 10px; margin-top: 15px;">
+            <button class="primary-button compact" id="adminRefreshStatsBtn">Обновить статистику</button>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <h3>Управление пользователями</h3>
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <input type="text" id="adminSearchUsersInput" placeholder="Поиск по email, username, имени" style="flex: 1; padding: 6px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.15); color: #fff;" />
+            <button class="primary-button compact" id="adminSearchUsersBtn">Искать</button>
+          </div>
+          <div id="adminUsersListContainer" style="margin-top: 15px; max-height: 300px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: rgba(0,0,0,0.1); display: none;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; background: rgba(255,255,255,0.02);">
+                  <th style="padding: 8px 12px;">Пользователь</th>
+                  <th style="padding: 8px 12px;">Статус</th>
+                  <th style="padding: 8px 12px; text-align: right;">Действия</th>
+                </tr>
+              </thead>
+              <tbody id="adminUsersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <h3>Заявки Onix Plus (Оплата)</h3>
+          <button class="primary-button compact" id="adminLoadPaymentsBtn" style="margin-bottom: 12px;">Загрузить заявки</button>
+          <div id="adminPaymentsListContainer" style="max-height: 250px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; background: rgba(0,0,0,0.1); display: none;">
+            <div id="adminPaymentsList" style="padding: 8px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="security">
+        <h2>Безопасность</h2>
+        <div class="setting-card">
+          <h3>Сменить пароль</h3>
+          <form id="changePasswordForm" class="security-form">
+            <label>
+              <span>Текущий пароль</span>
+              <input name="current_password" type="password" required autocomplete="current-password" placeholder="Ваш текущий пароль" />
+            </label>
+            <label>
+              <span>Новый пароль</span>
+              <input name="new_password" type="password" required minlength="8" autocomplete="new-password" placeholder="Aa-12345" />
+            </label>
+            <label>
+              <span>Повтор нового пароля</span>
+              <input name="new_password_confirm" type="password" required minlength="8" autocomplete="new-password" placeholder="Повторите пароль" />
+            </label>
+            <button class="primary-button compact" type="submit">Обновить пароль</button>
+          </form>
+        </div>
+
+        <div class="setting-card">
+          <h3>Восстановление пароля</h3>
+          <p class="setting-hint">Код восстановления прийдёт на ваш email.</p>
+          <button class="secondary-button compact" type="button" id="openRecoveryFromSettings">Отправить код восстановления</button>
+        </div>
+
+        <div class="setting-card support-card">
+          <h3>Поддержка и модерация</h3>
+          <p class="setting-hint">Если нашли запрещённый контент или нарушение, можно написать админам.</p>
+          <button class="support-link-button" type="button" data-open-support>Написать в поддержку</button>
+        </div>
+
+        <div class="setting-card danger-account-card">
+          <h3>Удалить аккаунт</h3>
+          <p class="setting-hint">Аккаунт будет отключён, а email освободится для новой регистрации с новым кодом.</p>
+          <button class="secondary-button compact danger-account-button" type="button" id="deleteAccountButton">Удалить аккаунт</button>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="notifications">
+        <h2>Уведомления</h2>
+        <div class="notification-grid">
+          <article class="notify-card">
+            <div class="notify-head">
+              <div class="notify-icon"><svg class="svg-icon"><use href="#i-chat"></use></svg></div>
+              <div>
+                <h3>Личные сообщения</h3>
+                <p>Звук, баннеры и счётчик для личных диалогов.</p>
+              </div>
+              <label class="ios-switch"><input type="checkbox" data-setting="notifyPrivate" /><span></span></label>
+            </div>
+            <div class="notify-preview">
+              <b>Личные сообщения</b>
+              <span>Новый входящий текст</span>
+            </div>
+          </article>
+
+          <article class="notify-card">
+            <div class="notify-head">
+              <div class="notify-icon"><svg class="svg-icon"><use href="#i-users"></use></svg></div>
+              <div>
+                <h3>Группы</h3>
+                <p>Уведомления от групповых чатов и учебных бесед.</p>
+              </div>
+              <label class="ios-switch"><input type="checkbox" data-setting="notifyGroups" /><span></span></label>
+            </div>
+            <div class="notify-preview">
+              <b>Группа проекта</b>
+              <span>Новое сообщение в группе</span>
+            </div>
+          </article>
+
+          <article class="notify-card">
+            <div class="notify-head">
+              <div class="notify-icon"><svg class="svg-icon"><use href="#i-channel"></use></svg></div>
+              <div>
+                <h3>Каналы</h3>
+                <p>Тихие уведомления от каналов и новостных лент.</p>
+              </div>
+              <label class="ios-switch"><input type="checkbox" data-setting="notifyChannels" /><span></span></label>
+            </div>
+            <div class="notify-preview muted-preview">
+              <b>Frontend Notes</b>
+              <span>Новый пост доступен в канале</span>
+            </div>
+          </article>
+
+          <article class="notify-card">
+            <div class="notify-head">
+              <div class="notify-icon"><svg class="svg-icon"><use href="#i-bell"></use></svg></div>
+              <div>
+                <h3>Звук сообщений</h3>
+                <p>Звук для уведомлений и сообщений</p>
+              </div>
+              <label class="ios-switch"><input type="checkbox" data-setting="sendSound" /><span></span></label>
+            </div>
+          </article>
+
+          <article class="notify-card">
+            <div class="notify-head">
+              <div class="notify-icon"><svg class="svg-icon"><use href="#i-bell"></use></svg></div>
+              <div>
+                <h3>Уведомления браузера</h3>
+                <p>Системные pop-up. На file:// могут не работать — используйте localhost.</p>
+              </div>
+              <label class="ios-switch"><input type="checkbox" data-setting="browserNotifications" /><span></span></label>
+            </div>
+          </article>
+
+          <button class="settings-action-card" id="testNotificationButton" type="button" style="grid-column: 1 / -1;">
+            <span class="settings-action-icon"><svg class="svg-icon"><use href="#i-bell"></use></svg></span>
+            <span><b>Проверить уведомление</b><small>Покажет in-app баннер и звук (если включён)</small></span>
+          </button>
+
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="privacy">
+        <h2>Конфиденциальность</h2>
+        <div class="privacy-list">
+          <button class="privacy-card" data-privacy="phone">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-call"></use></svg></span>
+            <span><b>Кто видит номер</b><small>Никто</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card" data-privacy="lastSeen">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-clock"></use></svg></span>
+            <span><b>Последняя активность</b><small>Контакты</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card" data-privacy="photo">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-user"></use></svg></span>
+            <span><b>Фото профиля</b><small>Все</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card" data-privacy="forward">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-link"></use></svg></span>
+            <span><b>Пересылка сообщений</b><small>Контакты</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card" data-privacy="calls">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-call"></use></svg></span>
+            <span><b>Звонки</b><small>Контакты</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card danger-privacy" data-privacy="blocked">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-close"></use></svg></span>
+            <span><b>Чёрный список</b><small>0 пользователей</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="privacy-card" data-privacy="pin">
+            <span class="privacy-icon"><svg class="svg-icon"><use href="#i-lock"></use></svg></span>
+            <span><b>PIN-код приложения</b><small>выключено</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="appearance">
+        <h2>Оформление</h2>
+        <div class="setting-card">
+          <label class="switch-row"><span>Тёмная тема</span><input id="settingsDarkToggle" type="checkbox" /></label>
+          <label class="switch-row"><span>Размытие панелей</span><input id="blurToggle" type="checkbox" /></label>
+          <label class="switch-row"><span>Режим жидкого стекла</span><input id="liquidGlassToggle" type="checkbox" /></label>
+        </div>
+
+        <div class="setting-card">
+          <h3>Акцент</h3>
+          <div class="accent-list">
+            <button class="accent-dot onix" data-accent="#7C5CFF"></button>
+            <button class="accent-dot purple" data-accent="#A855F7"></button>
+            <button class="accent-dot gray active" data-accent="#6B7280"></button>
+            <button class="accent-dot pink" data-accent="#EC4899"></button>
+            <button class="accent-dot blue" data-accent="#6366F1"></button>
+          </div>
+          <div class="custom-color-row">
+            <label>
+              <span>Свой цвет</span>
+              <input id="customAccentColor" type="color" value="#6B7280" />
+            </label>
+            <input id="customAccentText" type="text" value="#6B7280" maxlength="7" />
+            <button class="secondary-button compact" id="applyCustomAccent" type="button">Применить</button>
+          </div>
+        </div>
+
+        <div class="setting-card range-card">
+          <div class="range-title">
+            <h3>Размер текста</h3>
+            <b id="fontSizeValue">15 px</b>
+          </div>
+          <input id="fontSizeRange" type="range" min="13" max="19" value="15" />
+          <p class="setting-hint">Меняет текст в сообщениях, списке чатов и настройках.</p>
+        </div>
+
+
+        <div class="setting-card reaction-default-card">
+          <div class="notify-head">
+            <div class="notify-icon"><svg class="svg-icon"><use href="#i-smile"></use></svg></div>
+            <div>
+              <h3>Реакция по двойному клику</h3>
+              <p>Эта реакция ставится, когда два раза нажимаешь на сообщение.</p>
+            </div>
+          </div>
+          <div class="default-reaction-picker" id="defaultReactionPicker"></div>
+        </div>
+
+        <div class="setting-card range-card" id="leftPanelWidthSetting" hidden>
+          <div class="range-title">
+            <h3>Ширина списка чатов</h3>
+            <b id="leftPanelWidthValue">520 px</b>
+          </div>
+          <input id="leftPanelWidthRange" type="range" min="280" max="520" value="520" />
+          <p class="setting-hint">Можно растянуть или сузить левую панель со списком диалогов.</p>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="folders">
+        <h2>Папки</h2>
+        <div class="folder-settings-list">
+          <button class="folder-setting-card" data-folder-setting="folderAll">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-chat"></use></svg></span>
+            <span><b>Все чаты</b><small>Основная папка с диалогами</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="folder-setting-card" data-folder-setting="folderPrivate">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-user"></use></svg></span>
+            <span><b>Личные</b><small>Диалоги один на один</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="folder-setting-card" data-folder-setting="folderGroups">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-users"></use></svg></span>
+            <span><b>Группы</b><small>Учёба, проекты и команды</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="folder-setting-card" data-folder-setting="folderChannels">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-channel"></use></svg></span>
+            <span><b>Каналы</b><small>Новости и подписки</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="folder-setting-card" data-folder-setting="folderUnread">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-dot"></use></svg></span>
+            <span><b>Непрочитанные</b><small>Только чаты с новыми сообщениями</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="folder-setting-card" data-folder-setting="showArchive">
+            <span class="folder-setting-icon"><svg class="svg-icon"><use href="#i-archive"></use></svg></span>
+            <span><b>Архив</b><small>Показывать строку архива в списке чатов</small></span>
+            <strong>включено</strong>
+          </button>
+          <button class="secondary-button" id="createFolderButton">+ Создать папку</button>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="data">
+        <h2>Данные и память</h2>
+        <div class="settings-action-list">
+          <button class="settings-action-card" data-data-action="photo-auto">
+            <span class="settings-action-icon"><svg class="svg-icon"><use href="#i-image"></use></svg></span>
+            <span><b>Автозагрузка фото</b><small id="photoAutoLabel">Wi‑Fi</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="settings-action-card" data-data-action="video-auto">
+            <span class="settings-action-icon"><svg class="svg-icon"><use href="#i-video"></use></svg></span>
+            <span><b>Автозагрузка видео</b><small id="videoAutoLabel">выключено</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="settings-action-card" data-data-action="cache">
+            <span class="settings-action-icon"><svg class="svg-icon"><use href="#i-cache"></use></svg></span>
+            <span><b>Кэш приложения</b><small id="cacheSize">считаем…</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="settings-action-card" data-data-action="storage">
+            <span class="settings-action-icon"><svg class="svg-icon"><use href="#i-storage"></use></svg></span>
+            <span><b>Использование памяти</b><small id="storageUsageLabel">считаем…</small></span>
+            <i><svg class="svg-icon chevron-icon"><use href="#i-chevron"></use></svg></i>
+          </button>
+          <button class="settings-action-card danger-clear-chats" id="clearLocalData" type="button">
+            <span class="settings-action-icon danger-clear-chats-icon"><svg class="svg-icon"><use href="#i-trash"></use></svg></span>
+            <span><b>Очистить локальные чаты</b><small>Удалит чаты в этом браузере · Избранное и аккаунт останутся</small></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="devices">
+        <h2>Устройства</h2>
+        <div class="device-list" id="deviceList">
+          <div class="device-card" data-device-id="current">
+            <div><svg class="svg-icon"><use href="#i-device"></use></svg></div>
+            <div>
+              <strong>Этот браузер</strong>
+              <p>Активен сейчас • защищённая сессия</p>
+            </div>
+            <button class="device-close" data-device-action="logout-current" title="Завершить сеанс"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="device-card" data-device-id="mobile">
+            <div><svg class="svg-icon"><use href="#i-call"></use></svg></div>
+            <div>
+              <strong>Мобильное устройство</strong>
+              <p>Не подключено</p>
+            </div>
+            <button class="device-close" data-device-action="remove-device" title="Завершить сеанс"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+          <div class="device-card" data-device-id="desktop">
+            <div><svg class="svg-icon"><use href="#i-device"></use></svg></div>
+            <div>
+              <strong>Desktop preview</strong>
+              <p>Последняя активность: недавно</p>
+            </div>
+            <button class="device-close" data-device-action="remove-device" title="Завершить сеанс"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings-page" data-page="language">
+        <h2 data-i18n="language">Язык</h2>
+        <div class="language-grid">
+          <button class="language-card active" data-lang="ru" title="Russian"><span><b>Русский</b><small>Russian</small></span><em>✓</em></button>
+          <button class="language-card" data-lang="en" title="English"><span><b>English</b><small>English</small></span><em></em></button>
+          <button class="language-card" data-lang="uk" title="Ukrainian"><span><b>Українська</b><small>Ukrainian</small></span><em></em></button>
+          <button class="language-card" data-lang="be" title="Belarusian"><span><b>Беларуская</b><small>Belarusian</small></span><em></em></button>
+          <button class="language-card" data-lang="kk" title="Kazakh"><span><b>Қазақша</b><small>Kazakh</small></span><em></em></button>
+          <button class="language-card" data-lang="uz" title="Uzbek"><span><b>Oʻzbekcha</b><small>Uzbek</small></span><em></em></button>
+          <button class="language-card" data-lang="ky" title="Kyrgyz"><span><b>Кыргызча</b><small>Kyrgyz</small></span><em></em></button>
+          <button class="language-card" data-lang="tg" title="Tajik"><span><b>Тоҷикӣ</b><small>Tajik</small></span><em></em></button>
+          <button class="language-card" data-lang="hy" title="Armenian"><span><b>Հայերեն</b><small>Armenian</small></span><em></em></button>
+          <button class="language-card" data-lang="ka" title="Georgian"><span><b>ქართული</b><small>Georgian</small></span><em></em></button>
+          <button class="language-card" data-lang="az" title="Azerbaijani"><span><b>Azərbaycanca</b><small>Azerbaijani</small></span><em></em></button>
+          <button class="language-card" data-lang="tr" title="Turkish"><span><b>Türkçe</b><small>Turkish</small></span><em></em></button>
+          <button class="language-card" data-lang="de" title="German"><span><b>Deutsch</b><small>German</small></span><em></em></button>
+          <button class="language-card" data-lang="fr" title="French"><span><b>Français</b><small>French</small></span><em></em></button>
+          <button class="language-card" data-lang="es" title="Spanish"><span><b>Español</b><small>Spanish</small></span><em></em></button>
+          <button class="language-card" data-lang="pt" title="Portuguese"><span><b>Português</b><small>Portuguese</small></span><em></em></button>
+          <button class="language-card" data-lang="it" title="Italian"><span><b>Italiano</b><small>Italian</small></span><em></em></button>
+          <button class="language-card" data-lang="pl" title="Polish"><span><b>Polski</b><small>Polish</small></span><em></em></button>
+          <button class="language-card" data-lang="cs" title="Czech"><span><b>Čeština</b><small>Czech</small></span><em></em></button>
+          <button class="language-card" data-lang="sk" title="Slovak"><span><b>Slovenčina</b><small>Slovak</small></span><em></em></button>
+          <button class="language-card" data-lang="ro" title="Romanian"><span><b>Română</b><small>Romanian</small></span><em></em></button>
+          <button class="language-card" data-lang="hu" title="Hungarian"><span><b>Magyar</b><small>Hungarian</small></span><em></em></button>
+          <button class="language-card" data-lang="bg" title="Bulgarian"><span><b>Български</b><small>Bulgarian</small></span><em></em></button>
+          <button class="language-card" data-lang="sr" title="Serbian"><span><b>Srpski</b><small>Serbian</small></span><em></em></button>
+          <button class="language-card" data-lang="hr" title="Croatian"><span><b>Hrvatski</b><small>Croatian</small></span><em></em></button>
+          <button class="language-card" data-lang="nl" title="Dutch"><span><b>Nederlands</b><small>Dutch</small></span><em></em></button>
+          <button class="language-card" data-lang="sv" title="Swedish"><span><b>Svenska</b><small>Swedish</small></span><em></em></button>
+          <button class="language-card" data-lang="no" title="Norwegian"><span><b>Norsk</b><small>Norwegian</small></span><em></em></button>
+          <button class="language-card" data-lang="da" title="Danish"><span><b>Dansk</b><small>Danish</small></span><em></em></button>
+          <button class="language-card" data-lang="fi" title="Finnish"><span><b>Suomi</b><small>Finnish</small></span><em></em></button>
+          <button class="language-card" data-lang="el" title="Greek"><span><b>Ελληνικά</b><small>Greek</small></span><em></em></button>
+          <button class="language-card" data-lang="he" title="Hebrew"><span><b>עברית</b><small>Hebrew</small></span><em></em></button>
+          <button class="language-card" data-lang="ar" title="Arabic"><span><b>العربية</b><small>Arabic</small></span><em></em></button>
+          <button class="language-card" data-lang="fa" title="Persian"><span><b>فارسی</b><small>Persian</small></span><em></em></button>
+          <button class="language-card" data-lang="hi" title="Hindi"><span><b>हिन्दी</b><small>Hindi</small></span><em></em></button>
+          <button class="language-card" data-lang="bn" title="Bengali"><span><b>বাংলা</b><small>Bengali</small></span><em></em></button>
+          <button class="language-card" data-lang="ur" title="Urdu"><span><b>اردو</b><small>Urdu</small></span><em></em></button>
+          <button class="language-card" data-lang="id" title="Indonesian"><span><b>Bahasa Indonesia</b><small>Indonesian</small></span><em></em></button>
+          <button class="language-card" data-lang="ms" title="Malay"><span><b>Bahasa Melayu</b><small>Malay</small></span><em></em></button>
+          <button class="language-card" data-lang="vi" title="Vietnamese"><span><b>Tiếng Việt</b><small>Vietnamese</small></span><em></em></button>
+          <button class="language-card" data-lang="th" title="Thai"><span><b>ไทย</b><small>Thai</small></span><em></em></button>
+          <button class="language-card" data-lang="zh" title="Chinese"><span><b>中文</b><small>Chinese</small></span><em></em></button>
+          <button class="language-card" data-lang="ja" title="Japanese"><span><b>日本語</b><small>Japanese</small></span><em></em></button>
+          <button class="language-card" data-lang="ko" title="Korean"><span><b>한국어</b><small>Korean</small></span><em></em></button>
+        </div>
+        <p class="setting-hint" data-i18n="languageNote">Выберите язык интерфейса. Он применится сразу.</p>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog class="modal small-modal" id="composeModal">
+    <button class="modal-back" id="composeModalBack" data-back-modal="composeModal" aria-label="Назад" title="Назад"><svg class="svg-icon"><use href="#i-chevron"></use></svg></button>
+    <button class="floating-close modal-close" data-close-modal="composeModal"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+    <form id="composeForm" class="compose-form tg-compose">
+      <span class="eyebrow">Создание</span>
+      <h2>Создать группу</h2>
+
+      <div class="create-type-grid">
+        <label class="create-type-card active">
+          <input type="radio" name="type" value="group" checked />
+          <span class="create-icon"><svg class="svg-icon"><use href="#i-users"></use></svg></span>
+          <b>Группа</b>
+          <small>Общий чат с участниками</small>
+        </label>
+
+        <label class="create-type-card">
+          <input type="radio" name="type" value="channel" />
+          <span class="create-icon"><svg class="svg-icon"><use href="#i-channel"></use></svg></span>
+          <b>Канал</b>
+          <small>Публикации без переписки</small>
+        </label>
+
+        <label class="create-type-card">
+          <input type="radio" name="type" value="private" />
+          <span class="create-icon"><svg class="svg-icon"><use href="#i-user"></use></svg></span>
+          <b>Личный</b>
+          <small>Диалог один на один</small>
+        </label>
+      </div>
+
+      <label>
+        <span id="composeTitleLabel">Название</span>
+        <input name="title" required maxlength="64" placeholder="Например: Команда проекта" />
+      </label>
+
+      <label class="channel-description-field hidden">
+        <span>Описание канала</span>
+        <input name="description" maxlength="180" placeholder="О чём этот канал" />
+      </label>
+
+      <label>
+        <span>Пригласить людей</span>
+        <input name="members" maxlength="220" placeholder="email или @username через запятую" />
+      </label>
+
+      <button class="primary-button" type="submit">Создать группу</button>
+      <p class="compose-error hidden" id="composeError" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <dialog class="modal small-modal" id="simpleModal">
+    <button class="modal-back" id="simpleModalBack" data-back-modal="simpleModal" aria-label="Назад" title="Назад"><svg class="svg-icon"><use href="#i-chevron"></use></svg></button>
+    <button class="floating-close modal-close" data-close-modal="simpleModal"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+    <div class="simple-modal-content" id="simpleModalContent"></div>
+  </dialog>
+
+  <input id="avatarInput" type="file" accept="image/*,video/*" hidden />
+
+  <dialog class="modal" id="botBuilderModal">
+    <button class="floating-close modal-close" data-close-modal="botBuilderModal"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+    <div class="bot-builder">
+      <aside class="bb-sidebar">
+        <div class="bb-sidebar-head">
+          <h2><svg class="svg-icon"><use href="#i-bot"></use></svg> Bot Filter</h2>
+          <p class="bb-sub">Визуальный no-code конструктор ботов для ваших каналов</p>
+        </div>
+
+        <div class="bb-bots-list" id="bbBotsList"></div>
+
+        <button class="primary-button bb-new-bot" id="bbNewBotBtn" type="button">
+          <svg class="svg-icon"><use href="#i-plus"></use></svg> Новый бот
+        </button>
+
+        <div class="bb-templates">
+          <h4>Шаблоны</h4>
+          <button class="bb-template" data-bb-template="welcome" type="button">
+            <b>Приветствие</b><small>/start + меню команд</small>
+          </button>
+          <button class="bb-template" data-bb-template="faq" type="button">
+            <b>FAQ-бот</b><small>Ответы на вопросы</small>
+          </button>
+          <button class="bb-template" data-bb-template="shop" type="button">
+            <b>Мини-магазин</b><small>Товары и заказ</small>
+          </button>
+          <button class="bb-template" data-bb-template="feedback" type="button">
+            <b>Обратная связь</b><small>Сбор заявок</small>
+          </button>
+        </div>
+      </aside>
+
+      <div class="bb-right-col">
+      <section class="bb-workspace" id="bbWorkspace">
+        <div class="bb-empty" id="bbEmpty">
+          <div class="bb-empty-icon">
+            <svg class="svg-icon"><use href="#i-bot"></use></svg>
+          </div>
+          <h2>Bot Filter</h2>
+          <p>Создавайте и настраивайте ботов без единой строки кода — визуальный редактор поможет собрать цепочки сообщений, кнопки и автоответы для вашего канала.</p>
+          <div class="bb-empty-actions">
+            <button class="primary-button" id="bbTourStartBtn" type="button" onclick="window.__bb && window.__bb.startTour && window.__bb.startTour()">
+              <svg class="svg-icon"><use href="#i-play-outline"></use></svg> Как пользоваться
+            </button>
+            <button class="secondary-button" id="bbEmptyNewBotBtn" type="button" onclick="window.__bb && window.__bb.createBot && window.__bb.createBot('Новый бот')">
+              <svg class="svg-icon"><use href="#i-plus"></use></svg> Создать бота
+            </button>
+          </div>
+          <div class="bb-use-cases">
+            <div class="bb-use-case">
+              <div class="bb-uc-emoji">🛒</div><b>Свой магазин</b>
+              <small>Каталог, корзина, заказ и акции</small>
+            </div>
+            <div class="bb-use-case">
+              <div class="bb-uc-emoji">❓</div><b>FAQ-бот</b>
+              <small>Ответы на частые вопросы 24/7</small>
+            </div>
+            <div class="bb-use-case">
+              <div class="bb-uc-emoji">📝</div><b>Сбор заявок</b>
+              <small>Обратная связь и приём заказов</small>
+            </div>
+            <div class="bb-use-case">
+              <div class="bb-uc-emoji">👋</div><b>Приветствие</b>
+              <small>Автоответ на вход в канал</small>
+            </div>
+          </div>
+        </div>
+
+        <header class="bb-toolbar" id="bbToolbar">
+          <div class="bb-toolbar-left">
+            <input class="bb-bot-name" id="bbBotName" type="text" placeholder="Имя бота" maxlength="32" disabled />
+            <input class="bb-bot-username-input" id="bbBotUsernameInput" type="text" placeholder="@username_bot" maxlength="32" disabled />
+            <button class="secondary-button bb-avatar-btn" id="bbAvatarBtn" type="button" title="Сменить аватар" disabled>Аватар</button>
+            <input id="bbAvatarInput" type="file" accept="image/*" hidden />
+            <span class="bb-bot-username" id="bbBotUsername" hidden>выберите бота</span>
+          </div>
+          <div class="bb-toolbar-right">
+            <button class="secondary-button bb-toolbar-btn" id="bbHelpBtn" type="button" title="Обучение" onclick="window.__bb && window.__bb.startTour && window.__bb.startTour()">
+              <svg class="svg-icon"><use href="#i-info"></use></svg> <span class="bb-help-label">Обучение</span>
+            </button>
+            <button class="secondary-button bb-toolbar-btn" id="bbTestBtn" type="button" title="Протестировать" disabled>
+              <svg class="svg-icon"><use href="#i-play-outline"></use></svg> Тест
+            </button>
+            <button class="secondary-button bb-toolbar-btn" id="bbDuplicateBtn" type="button" title="Дублировать" disabled>
+              <svg class="svg-icon"><use href="#i-duplicate"></use></svg>
+            </button>
+            <button class="secondary-button bb-toolbar-btn danger" id="bbDeleteBtn" type="button" title="Удалить" disabled>
+              <svg class="svg-icon"><use href="#i-trash"></use></svg>
+            </button>
+            <button class="primary-button bb-toolbar-btn" id="bbSaveBtn" type="button" disabled>
+              <svg class="svg-icon"><use href="#i-check"></use></svg> Сохранить
+            </button>
+          </div>
+        </header>
+
+        <div class="bb-editor" id="bbEditor">
+
+          <div class="bb-editor-body">
+            <div class="bb-canvas-wrap">
+              <div class="bb-canvas" id="bbCanvas">
+                <!-- blocks render here -->
+              </div>
+              <button class="bb-add-block" id="bbAddBlockBtn" type="button">
+                <svg class="svg-icon"><use href="#i-plus"></use></svg> Добавить блок
+              </button>
+            </div>
+
+            <aside class="bb-props" id="bbProps">
+              <div class="bb-props-empty">
+                <svg class="svg-icon"><use href="#i-settings"></use></svg>
+                <p>Выберите блок, чтобы настроить его содержимое</p>
+              </div>
+            </aside>
+          </div>
+      </div>
+      </section>
+      </div><!-- /.bb-right-col -->
+
+      <!-- Onboarding tour overlay — child of .bot-builder (covers sidebar + content) -->
+      <div class="bb-tour-overlay hidden" id="bbTourOverlay">
+        <div class="bb-tour">
+          <button class="bb-tour-close" id="bbTourClose" type="button" title="Закрыть обучение" onclick="window.__bb && window.__bb.closeTour && window.__bb.closeTour()">
+            <svg class="svg-icon"><use href="#i-close"></use></svg>
+          </button>
+          <div class="bb-tour-progress" id="bbTourProgress"></div>
+          <div class="bb-tour-body" id="bbTourBody"></div>
+          <div class="bb-tour-nav">
+            <button class="secondary-button" id="bbTourSkip" type="button" onclick="window.__bb && window.__bb.closeTour && window.__bb.closeTour()">Пропустить</button>
+            <div>
+              <button class="secondary-button" id="bbTourPrev" type="button" disabled onclick="window.__bb && window.__bb.prevTour && window.__bb.prevTour()">
+                <svg class="svg-icon bb-flip"><use href="#i-chevron"></use></svg> Назад
+              </button>
+              <button class="primary-button" id="bbTourNext" type="button" onclick="window.__bb && window.__bb.nextTour && window.__bb.nextTour()">
+                Далее <svg class="svg-icon"><use href="#i-chevron"></use></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal small-modal" id="bbTestModal">
+    <button class="floating-close modal-close" data-close-modal="bbTestModal"><svg class="svg-icon"><use href="#i-close"></use></svg></button>
+    <div class="bb-test-chat">
+      <div class="bb-test-head">
+        <div class="bb-test-avatar"><svg class="svg-icon"><use href="#i-bot"></use></svg></div>
+        <div>
+          <b id="bbTestTitle">Бот</b>
+          <small>тестовый диалог</small>
+        </div>
+      </div>
+      <div class="bb-test-messages" id="bbTestMessages"></div>
+      <form class="bb-test-input" id="bbTestForm">
+        <input id="bbTestInput" type="text" placeholder="Напишите боту команду или текст..." autocomplete="off" />
+        <button class="primary-button" type="submit"><svg class="svg-icon"><use href="#i-send"></use></svg></button>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog class="modal small-modal" id="confirmModal">
+    <div class="confirm-content">
+      <h2 id="confirmTitle">Подтверждение</h2>
+      <p id="confirmText">Вы уверены?</p>
+      <div class="confirm-actions">
+        <button class="secondary-button" type="button" id="confirmCancel">Отмена</button>
+        <button class="primary-button danger-confirm" type="button" id="confirmOk">Подтвердить</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="attach-menu hidden" id="attachMenu"></div>
+  <div class="mini-menu hidden" id="miniMenu"></div>
+  <div class="desktop-notification-stack" id="desktopNotificationStack" aria-live="polite" aria-atomic="false"></div>
+  <div class="toast hidden" id="toast"></div>
+
+  <link rel="stylesheet" href="onix-ui-polish.css?v=polish-20260722-no-admin-line-v8">
+  <link rel="stylesheet" href="onix-channel-reactions.css?v=channel-reactions-spark-v2">
+
+  <script src="onix-plus-payment-config.js?v=onix-plus-payment-v1&build=realtime-removed-20260713"></script>
+  <script>
+    Object.defineProperty(window, 'ONIX_REALTIME_DISABLED', {
+      value: false,
+      writable: false,
+      configurable: false
+    });
+  </script>
+<script>
+    window.ONIX_BUILD_ID = 'stable-20260716-voice-leftpanel-start';
+    window.ONIX_DISABLE_REMOTE_UPDATE = true;
+  </script>
+  <script src="app.js?v=stickerbot-done-buttons-v144&build=20260722"></script>
+  <script src="bot-builder.js?v=bot-avatar-editor-v134&build=realtime-removed-20260713"></script>
+  <script src="onix-advanced-features.js?v=autotranslate-toggle-quiet-v15"></script>
+  <script src="onix-appearance-enhancer.js?v=appearance-v7-no-global-theme"></script>
+  <script src="onix-stickers-tg.js?v=sticker19-preview-context-actions"></script>
+  <script src="onix-sticker-bot.js?v=stickerbot13-done-save-buttons"></script>
+  <script src="onix-group-appearance.js?v=group3-shared-style"></script>
+  <script src="onix-paid-reactions.js?v=channel-reactions-spark-v2"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.getRegistrations()
+          .then((registrations) => Promise.all(registrations.map((registration) => registration.unregister())))
+          .catch(() => {});
+        if (window.caches?.keys) {
+          caches.keys()
+            .then((keys) => Promise.all(keys.filter((key) => key.startsWith('onix-')).map((key) => caches.delete(key))))
+            .catch(() => {});
+        }
+      });
+    }
+  </script>
+<script>
+(() => {
+  console.log('Fallback auth binding active');
+  function setTab(tab) {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const qrForm = document.getElementById('qrLoginForm');
+    document.querySelectorAll('[data-auth-tab]').forEach(b => {
+      b.classList.toggle('active', b.dataset.authTab === tab);
+    });
+    if (loginForm) loginForm.classList.toggle('hidden', tab !== 'login');
+    if (registerForm) registerForm.classList.toggle('hidden', tab !== 'register');
+    if (qrForm) qrForm.classList.add('hidden');
+  }
+
+  function bind() {
+    const authScreen = document.getElementById('authScreen');
+    const messenger = document.getElementById('messenger');
+    // If auth screen is hidden but no user, show it
+    try {
+      const hasUser = localStorage.getItem('onixtalk_v13_current_user');
+      if (!hasUser && authScreen) {
+        authScreen.classList.remove('hidden');
+        messenger?.classList.add('hidden');
+      }
+    } catch(e){}
+
+    document.querySelectorAll('[data-auth-tab]').forEach(btn => {
+      // Avoid double binding
+      if (btn._fallbackBound) return;
+      btn._fallbackBound = true;
+      btn.addEventListener('click', () => {
+        console.log('Fallback tab click', btn.dataset.authTab);
+        setTab(btn.dataset.authTab);
+      });
+    });
+
+    // Ensure login/register forms can submit even if main handler failed – simple local login fallback
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm && !loginForm._fallbackBound) {
+      loginForm._fallbackBound = true;
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = loginForm.querySelector('input[name="identifier"]')?.value?.trim();
+        const pass = loginForm.querySelector('input[name="password"]')?.value?.trim();
+        if (!email || !pass) {
+          alert('Введите email и пароль');
+          return;
+        }
+        console.log('Fallback login attempt', email);
+        // Try to find user in local storage, or create temporary session
+        try {
+          const usersRaw = localStorage.getItem('onixtalk_v13_users');
+          const users = usersRaw ? JSON.parse(usersRaw) : [];
+          const user = users.find(u => (u.email||'').toLowerCase() === email.toLowerCase());
+          if (user) {
+            // Simple check
+            const payload = { id: user.id, name: user.name, email: user.email, username: user.username };
+            localStorage.setItem('onixtalk_v13_current_user', JSON.stringify(payload));
+            location.reload();
+          } else {
+            // If no user, try to show messenger with temporary user
+            const tmp = { id: 'tmp-'+Date.now(), name: email.split('@')[0], email: email, username: email.split('@')[0] };
+            localStorage.setItem('onixtalk_v13_current_user', JSON.stringify(tmp));
+            location.reload();
+          }
+        } catch(err) {
+          console.error(err);
+          alert('Ошибка входа: ' + err.message);
+        }
+      });
+    }
+
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm && !registerForm._fallbackBound) {
+      registerForm._fallbackBound = true;
+      registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = registerForm.querySelector('input[name="name"]')?.value?.trim() || 'User';
+        const email = registerForm.querySelector('input[name="email"]')?.value?.trim();
+        const pass = registerForm.querySelector('input[name="password"]')?.value?.trim();
+        const pass2 = registerForm.querySelector('input[name="passwordConfirm"]')?.value?.trim();
+        if (!email || !pass) { alert('Заполните поля'); return; }
+        if (pass !== pass2) { alert('Пароли не совпадают'); return; }
+        try {
+          const usersRaw = localStorage.getItem('onixtalk_v13_users');
+          const users = usersRaw ? JSON.parse(usersRaw) : [];
+          const newUser = { id: 'user-'+Date.now(), name, email, username: email.split('@')[0], password: pass };
+          users.push(newUser);
+          localStorage.setItem('onixtalk_v13_users', JSON.stringify(users));
+          localStorage.setItem('onixtalk_v13_current_user', JSON.stringify({ id: newUser.id, name, email, username: newUser.username }));
+          location.reload();
+        } catch(err) {
+          alert('Ошибка регистрации: ' + err.message);
+        }
+      });
+    }
+
+    // QR and forgot password fallback
+    document.getElementById('openQrLoginButton')?.addEventListener('click', () => {
+      document.getElementById('loginForm')?.classList.add('hidden');
+      document.getElementById('registerForm')?.classList.add('hidden');
+      document.getElementById('qrLoginForm')?.classList.remove('hidden');
+    });
+    document.getElementById('backFromQrButton')?.addEventListener('click', () => setTab('login'));
+
+    // Add clear storage button if not exists
+    if (!document.getElementById('clearStorageFallbackBtn')) {
+      const btn = document.createElement('button');
+      btn.id = 'clearStorageFallbackBtn';
+      btn.textContent = 'Сбросить данные (если ничего не работает)';
+      btn.style.cssText = 'margin-top:12px;background:#2a2a2a;color:#888;border:1px solid #333;border-radius:8px;padding:8px 12px;font-size:12px;cursor:pointer;width:100%;';
+      btn.onclick = () => {
+        if (confirm('Очистить все данные Onix и перезагрузить?')) {
+          localStorage.clear();
+          sessionStorage.clear();
+          location.reload();
+        }
+      };
+      document.querySelector('.auth-card')?.appendChild(btn);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+  // Re-bind after 1s in case app.js overwrote
+  setTimeout(bind, 1000);
+  setTimeout(bind, 3000);
+})();
+
+</script>
+</body>
+</html>

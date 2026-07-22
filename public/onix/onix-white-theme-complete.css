@@ -1,0 +1,719 @@
+/* Onix White Theme Complete Fix — loaded last, fixes all hardcoded dark overrides */
+html, body, #app {
+  background-color: unset !important;
+}
+body:not(.dark) {
+  --bg: #E8E5F0;
+  --bg-2: #D7D2E7;
+  --panel: rgba(255,255,255,0.88);
+  --panel-solid: #FFFFFF;
+  --panel-strong: #FFFFFF;
+  --text: #1A1C24;
+  --muted: #6B7280;
+  --line: rgba(0,0,0,0.08);
+  --bubble-me: #4a8eff;
+  --bubble-other: #ffffff;
+  color-scheme: light;
+  color: var(--text);
+  background: radial-gradient(circle at 18% 12%, rgba(124,92,255,0.18), transparent 36rem),
+              radial-gradient(circle at 86% 8%, rgba(167,139,250,0.14), transparent 28rem),
+              linear-gradient(135deg, var(--bg), var(--bg-2)) !important;
+}
+body:not(.dark) #app {
+  background: transparent !important;
+}
+body:not(.dark) .layout {
+  background: rgba(255,255,255,0.55) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 24px 80px rgba(42,36,61,0.18) !important;
+}
+body:not(.dark) .left-panel,
+body:not(.dark) .info-panel,
+body:not(.dark) .chat-header,
+body:not(.dark) .composer,
+body:not(.dark) .main-drawer,
+body:not(.dark) .auth-card,
+body:not(.dark) .modal,
+body:not(.dark) #simpleModal,
+body:not(.dark) #simpleModal.small-modal,
+body:not(.dark) #settingsModal .settings-nav {
+  background: var(--panel-solid) !important;
+  backdrop-filter: blur(22px) saturate(1.12) !important;
+}
+body:not(.dark) .left-panel {
+  background: rgba(255,255,255,0.92) !important;
+  border-right: 1px solid rgba(0,0,0,0.07) !important;
+}
+body:not(.dark) .chat-panel {
+  background: #F0F2F5 !important;
+}
+/* Only default theme gets the light E4E6EB background — custom chat themes must be allowed to override */
+body:not(.dark) .layout[data-chat-theme="default"] #messages.messages,
+body:not(.dark) .layout[data-chat-theme="default"] .messages#messages,
+body:not(.dark) .layout[data-chat-theme="default"] #messages,
+body:not(.dark) .layout:not([data-chat-theme]) #messages.messages,
+body:not(.dark) .layout:not([data-chat-theme]) .messages#messages,
+body:not(.dark) .layout:not([data-chat-theme]) #messages {
+  background: #E4E6EB !important;
+  background-image: 
+    radial-gradient(circle at 20% 20%, rgba(124,92,255,0.05), transparent 55%),
+    radial-gradient(circle at 80% 70%, rgba(124,92,255,0.04), transparent 50%) !important;
+}
+body:not(.dark) #messages.messages,
+body:not(.dark) .messages#messages,
+body:not(.dark) #messages {
+  /* fallback when no data-chat-theme attr yet — will be overridden by inline !important themes */
+  background: #E4E6EB;
+}
+body:not(.dark) #messages .day-divider,
+body:not(.dark) .messages .day-divider,
+body:not(.dark) #messages .system-badge,
+body:not(.dark) .system-badge {
+  background: rgba(0,0,0,0.08) !important;
+  color: rgba(0,0,0,0.55) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
+}
+
+/* Message bubbles — light theme */
+body:not(.dark) #messages .message-row:not(.system-message) .bubble,
+body:not(.dark) #messages .message-row.me:not(.system-message) .bubble,
+body:not(.dark) #messages .message-row:not(.me):not(.system-message) .bubble,
+body:not(.dark) #messages .message-row.channel-post-row:not(.system-message) .bubble,
+body:not(.dark) .message-row .bubble {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+  border: 1px solid rgba(0,0,0,0.06) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) #messages .message-row.me:not(.system-message) .bubble {
+  background: linear-gradient(135deg, #4a8eff 0%, #3a78ee 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+body:not(.dark) #messages .message-row .bubble p,
+body:not(.dark) #messages .message-row.me .bubble p,
+body:not(.dark) #messages .message-row:not(.me) .bubble p {
+  color: inherit !important;
+}
+body:not(.dark) #messages .message-row.me .bubble .bubble-footer {
+  color: rgba(255,255,255,0.85) !important;
+}
+body:not(.dark) #messages .message-row:not(.me) .bubble .bubble-footer {
+  color: rgba(0,0,0,0.45) !important;
+}
+body:not(.dark) #messages .message-row .bubble .bubble-footer .read-receipt.is-read {
+  color: #4a8eff !important;
+}
+body:not(.dark) #messages .message-row .bubble .bubble-footer .read-receipt.is-sent {
+  color: rgba(0,0,0,0.35) !important;
+}
+
+/* Composer — light */
+body:not(.dark) #messageForm,
+body:not(.dark) .composer,
+body:not(.dark) .message-form {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) #messageInput,
+body:not(.dark) .composer input,
+body:not(.dark) #messageInput::placeholder {
+  background: #F0F2F5 !important;
+  border-color: rgba(0,0,0,0.06) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) #messageInput {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .composer .icon-button,
+body:not(.dark) #messageForm .icon-button {
+  background: transparent !important;
+  color: rgba(0,0,0,0.5) !important;
+  border-color: transparent !important;
+}
+body:not(.dark) .composer .icon-button:hover {
+  background: rgba(0,0,0,0.06) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .send-button {
+  background: linear-gradient(135deg, #4a8eff, #3a78ee) !important;
+  color: #fff !important;
+}
+
+/* Chat header — light */
+body:not(.dark) .chat-header,
+body:not(.dark) #chatHeader,
+body:not(.dark) .chat-panel-header {
+  background: #ffffff !important;
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) .chat-heading h2 {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .chat-heading p {
+  color: rgba(0,0,0,0.5) !important;
+}
+
+/* Left header search */
+body:not(.dark) .search-wrap {
+  background: #F0F2F5 !important;
+  border-color: rgba(0,0,0,0.06) !important;
+}
+body:not(.dark) .search-wrap input {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .folder-tab {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: rgba(0,0,0,0.6) !important;
+}
+body:not(.dark) .folder-tab.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+body:not(.dark) .chat-card {
+  color: var(--text) !important;
+}
+body:not(.dark) .chat-card:hover {
+  background: rgba(0,0,0,0.04) !important;
+}
+body:not(.dark) .chat-card.active {
+  background: rgba(74, 142, 255, 0.12) !important;
+}
+body:not(.dark) .chat-card-main p {
+  color: rgba(0,0,0,0.5) !important;
+}
+body:not(.dark) .chat-meta {
+  color: rgba(0,0,0,0.45) !important;
+}
+body:not(.dark) .archive-row {
+  background: rgba(0,0,0,0.05) !important;
+}
+body:not(.dark) .archive-icon {
+  background: #ffffff !important;
+}
+
+/* Info panel — light */
+body:not(.dark) .info-panel {
+  background: #ffffff !important;
+  border-left: 1px solid rgba(0,0,0,0.07) !important;
+}
+body:not(.dark) .info-cover {
+  background: linear-gradient(135deg, #9AA0B8, var(--accent)) !important;
+}
+body:not(.dark) .info-card,
+body:not(.dark) .setting-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) .quick-actions button {
+  background: #F8F9FB !important;
+  border-color: rgba(0,0,0,0.06) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .media-grid button {
+  background: rgba(74,142,255,0.10) !important;
+  color: #1A1D24 !important;
+}
+
+/* Drawer — light */
+body:not(.dark) .main-drawer {
+  background: #ffffff !important;
+  box-shadow: 20px 0 60px rgba(0,0,0,0.15) !important;
+}
+body:not(.dark) .drawer-profile {
+  background: linear-gradient(135deg, #8B93AF, var(--accent)) !important;
+}
+body:not(.dark) .drawer-menu button {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .drawer-menu button:hover {
+  background: rgba(0,0,0,0.06) !important;
+}
+body:not(.dark) .drawer-bottom {
+  border-top-color: rgba(0,0,0,0.08) !important;
+  background: #ffffff !important;
+}
+
+/* Modals — light */
+body:not(.dark) dialog::backdrop,
+body:not(.dark) #simpleModal::backdrop {
+  background: rgba(0,0,0,0.35) !important;
+}
+body:not(.dark) .modal,
+body:not(.dark) #simpleModal,
+body:not(.dark) #simpleModal.small-modal {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.22) !important;
+}
+body:not(.dark) .settings-layout {
+  background: #ffffff !important;
+}
+body:not(.dark) .settings-nav {
+  background: #F8F9FB !important;
+  border-right-color: rgba(0,0,0,0.07) !important;
+}
+body:not(.dark) .settings-link {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .settings-link:hover {
+  background: rgba(0,0,0,0.06) !important;
+}
+body:not(.dark) .settings-link.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+body:not(.dark) .settings-page h2 {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .settings-row {
+  border-bottom-color: rgba(0,0,0,0.07) !important;
+}
+body:not(.dark) .settings-row span {
+  color: rgba(0,0,0,0.55) !important;
+}
+body:not(.dark) .settings-row b {
+  color: #1A1D24 !important;
+}
+
+/* Auth — light */
+body:not(.dark) .auth-screen {
+  background: linear-gradient(135deg, #E8E5F0, #D7D2E7) !important;
+}
+body:not(.dark) .auth-card {
+  background: rgba(255,255,255,0.90) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) .app-logo h1 {
+  color: #1A1D24 !important;
+}
+body:not(.dark) input,
+body:not(.dark) select,
+body:not(.dark) textarea {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+  border-color: rgba(0,0,0,0.10) !important;
+}
+body:not(.dark) .tab-button.active {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+}
+
+/* Profile sheets — light */
+body:not(.dark) #simpleModal:has(.tg-desktop-profile-sheet) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.td-profile) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.profile-preview-compact) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.community-profile-view) .simple-modal-content,
+body:not(.dark) .tg-desktop-profile-sheet,
+body:not(.dark) .td-profile,
+body:not(.dark) .profile-preview,
+body:not(.dark) .community-profile-view {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) .tg-desktop-profile-head h3,
+body:not(.dark) .td-profile-title-block h3,
+body:not(.dark) .profile-preview h3,
+body:not(.dark) .tg-profile-title-wrap h3 {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .tg-desktop-profile-head p,
+body:not(.dark) .td-profile-title-block p,
+body:not(.dark) .tg-desktop-profile-row-text b,
+body:not(.dark) .td-profile-row-text b {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .tg-desktop-profile-row-text small,
+body:not(.dark) .td-profile-row-text small {
+  color: rgba(0,0,0,0.55) !important;
+}
+body:not(.dark) .tg-desktop-profile-info,
+body:not(.dark) .td-profile-section,
+body:not(.dark) .td-profile-about,
+body:not(.dark) .profile-description-block-tg,
+body:not(.dark) .community-profile-card {
+  background: #F8F9FB !important;
+  border-color: rgba(0,0,0,0.07) !important;
+}
+body:not(.dark) .tg-desktop-action,
+body:not(.dark) .td-profile-row,
+body:not(.dark) .profile-action-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .tg-desktop-action:hover {
+  background: rgba(74,142,255,0.08) !important;
+}
+
+/* Voice messages — light */
+body:not(.dark) #messages .message-row.voice-message-row .bubble,
+body:not(.dark) #messages .message-row.me.voice-message-row .bubble {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) #messages .message-row.me.voice-message-row .bubble {
+  background: linear-gradient(135deg, #4a8eff, #3a78ee) !important;
+  color: #fff !important;
+}
+
+/* File cards — light */
+body:not(.dark) #messages .tg-file-card,
+body:not(.dark) #messages .attachment-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) #messages .message-row .bubble:has(.tg-file-card) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Context menus — light */
+body:not(.dark) .message-context,
+body:not(.dark) .mini-menu,
+body:not(.dark) #miniMenu,
+body:not(.dark) .attach-menu {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.15) !important;
+}
+body:not(.dark) .message-context .message-context-menu button,
+body:not(.dark) .mini-menu button {
+  color: #1A1D24 !important;
+}
+body:not(.dark) .message-context .message-context-menu button:hover,
+body:not(.dark) .mini-menu button:hover {
+  background: rgba(0,0,0,0.06) !important;
+}
+
+/* Empty states — light */
+body:not(.dark) .empty-card,
+body:not(.dark) .empty-history-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .empty-card p,
+body:not(.dark) .empty-history-card p {
+  color: rgba(0,0,0,0.55) !important;
+}
+
+/* Channel posts — light */
+body:not(.dark) #messages .message-row.channel-post-row .bubble {
+  background: #ffffff !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) #messages .message-row.channel-post-row .channel-author-name {
+  color: var(--accent) !important;
+}
+
+/* Bot inline buttons — light */
+body:not(.dark) #messages .bot-inline-btn {
+  background: #ffffff !important;
+  border-color: rgba(74,142,255,0.25) !important;
+  color: #1a73c7 !important;
+}
+body:not(.dark) #messages .bot-inline-btn:hover {
+  background: #eef6ff !important;
+}
+
+/* Toast — light */
+body:not(.dark) .toast {
+  background: #1A1D24 !important;
+  color: #ffffff !important;
+}
+
+/* Scrollbars — light */
+body:not(.dark) ::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15) !important;
+}
+body:not(.dark) ::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Wallpaper overlay — light needs softer overlay */
+body:not(.dark).has-chat-wallpaper #messages.messages {
+  background-color: rgba(255,255,255,0.55) !important;
+}
+body:not(.dark).has-chat-wallpaper #messages.messages::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.55);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fix for saved messages etc */
+body:not(.dark) .premium-emoji-picker .pep-header,
+body:not(.dark) .premium-emoji-picker .pep-current,
+body:not(.dark) .premium-emoji-picker .pep-grid {
+  background: #F8F9FB !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+body:not(.dark) .premium-emoji-picker .premium-emoji-cell {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.06) !important;
+}
+
+/* Fix select/text input placeholder */
+body:not(.dark) ::placeholder {
+  color: rgba(0,0,0,0.35) !important;
+}
+
+/* Ensure chat list width variable works light */
+body:not(.dark) .layout {
+  --left-panel-width: clamp(280px, 28vw, 520px);
+}
+
+/* Fix composer drag/drop preview — light */
+body:not(.dark) .drop-attach-preview {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.10) !important;
+  color: #1A1D24 !important;
+}
+
+/* Fix language grid, privacy cards, folder cards — light */
+body:not(.dark) .language-card,
+body:not(.dark) .privacy-card,
+body:not(.dark) .folder-setting-card,
+body:not(.dark) .notify-card,
+body:not(.dark) .settings-action-card,
+body:not(.dark) .device-card {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .language-card small,
+body:not(.dark) .privacy-card small,
+body:not(.dark) .folder-setting-card small {
+  color: rgba(0,0,0,0.5) !important;
+}
+
+/* =========================================
+   APPEARANCE CUSTOMIZER — wallpaper & themes UI
+   ========================================= */
+.appearance-wallpaper-card {
+  display: grid;
+  gap: 12px;
+}
+.wallpaper-preview-area {
+  width: 100%;
+  height: 160px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  position: relative;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(124,92,255,0.18), transparent 50%),
+    linear-gradient(135deg, var(--panel-strong), var(--panel-solid));
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+}
+.wallpaper-preview-area.has-image {
+  background-size: cover !important;
+  background-position: center !important;
+}
+.wallpaper-preview-area span.preview-label {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  backdrop-filter: blur(8px);
+}
+.wallpaper-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.wallpaper-presets {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+  margin-top: 4px;
+}
+.wallpaper-preset {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.wallpaper-preset:hover {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
+.wallpaper-preset.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,92,255,0.25);
+}
+.wallpaper-preset.default-preset {
+  background: linear-gradient(135deg, #171520, #211D2D);
+}
+body:not(.dark) .wallpaper-preset.default-preset {
+  background: linear-gradient(135deg, #E8E5F0, #D7D2E7);
+}
+.wallpaper-preset.preset-1 {
+  background: linear-gradient(135deg, #1e3a5f, #2a5ca8);
+}
+.wallpaper-preset.preset-2 {
+  background: linear-gradient(135deg, #1b3a24, #2d6a3f);
+}
+.wallpaper-preset.preset-3 {
+  background: linear-gradient(135deg, #4c1d24, #8b2a3a);
+}
+.wallpaper-preset.preset-4 {
+  background: linear-gradient(135deg, #3c1e5a, #6a3ba0);
+}
+.wallpaper-preset.preset-5 {
+  background: linear-gradient(135deg, #0f172a, #334155);
+}
+.wallpaper-preset.preset-6 {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+.wallpaper-preset.preset-7 {
+  background-image: url('https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?w=200&h=200&fit=crop');
+}
+.wallpaper-preset.preset-8 {
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=200&h=200&fit=crop');
+}
+
+.theme-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+.theme-option-card {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 2px solid transparent;
+  background: var(--panel-strong);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  min-height: 84px;
+  place-items: center;
+}
+.theme-option-card:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+.theme-option-card.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 3px rgba(124,92,255,0.2);
+}
+.theme-option-preview {
+  width: 100%;
+  height: 38px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+}
+.theme-option-card b {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text);
+}
+body:not(.dark) .theme-option-card {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+}
+
+/* Has wallpaper global state - оптимизировано для производительности, без fixed */
+body.has-chat-wallpaper #messages.messages,
+body.has-chat-wallpaper .messages#messages,
+body.has-chat-wallpaper #messages {
+  position: relative;
+  will-change: auto !important;
+  transform: translateZ(0);
+}
+body.has-chat-wallpaper #messages.messages {
+  background-image: var(--chat-wallpaper-image) !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-attachment: scroll !important; /* fixed лагает на кастомных обоях */
+  background-repeat: no-repeat !important;
+}
+body.has-chat-wallpaper #messages.messages::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,0.32) !important; /* легче, было 0.42 */
+  pointer-events: none !important;
+  z-index: 0 !important;
+  display: block !important;
+  flex: none !important;
+  backdrop-filter: none !important;
+}
+body.has-chat-wallpaper #messages.messages > * {
+  position: relative;
+  z-index: 1;
+}
+body:not(.dark).has-chat-wallpaper #messages.messages::before {
+  background: rgba(255,255,255,0.28) !important;
+}
+/* Когда кастомные обои (data:), отключаем тяжелые эффекты для производительности */
+body.has-chat-wallpaper.has-custom-wallpaper #messages.messages {
+  background-attachment: scroll !important;
+}
+body.has-chat-wallpaper.has-custom-wallpaper .message-row .bubble {
+  backdrop-filter: none !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.18) !important;
+}
+
+/* Chat theme banner — improve light */
+body:not(.dark) .chat-theme-banner,
+body:not(.dark) .pinned-message:not(.hidden) {
+  background: rgba(74,142,255,0.10) !important;
+  border-bottom-color: rgba(0,0,0,0.06) !important;
+}
+
+/* Fix empty state card in favorites — as per screenshot */
+body .empty-chat .empty-card {
+  background: var(--panel) !important;
+  backdrop-filter: blur(14px) !important;
+}
+body:not(.dark) .empty-chat .empty-card {
+  background: rgba(255,255,255,0.92) !important;
+}
+
+/* Fix message selection bar — light */
+body:not(.dark) .message-selection-bar {
+  background: #ffffff !important;
+  border-bottom-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Fix call UI etc */
+body:not(.dark) .call-card-large {
+  background: #ffffff !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+
+/* Make appearance card more prominent */
+.appearance-enhanced-hint {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}

@@ -1,0 +1,142 @@
+/* ===== Текст посередине — как просил ===== */
+.empty-chat,
+.empty-history,
+.empty-card,
+.empty-history-card {
+  text-align: center !important;
+  justify-items: center !important;
+  place-items: center !important;
+}
+.empty-card div,
+.empty-history-card div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+.empty-card h3,
+.empty-history-card h3,
+.empty-card p,
+.empty-history-card p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Блок "Ничего не найдено" в левом списке */
+.chat-list .empty-chat,
+.chat-list .empty-search,
+#chatList .empty-card,
+#globalSearchPanel .empty-card {
+  text-align: center !important;
+}
+
+/* Сообщения — системные и day-divider уже по центру, делаем текст внутри пузырьков по центру когда он короткий или это избранное */
+#messages .message-row.text-only-message .bubble p {
+  text-align: left; /* оставим left как в ТГ, но если хочешь центр — поменяй на center */
+}
+/* А вот пустой стейт "Сообщений пока нет" — строго по центру экрана */
+#messages .empty-chat .empty-card {
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  margin: auto !important;
+}
+
+/* Заголовок Избранное — по центру с иконкой */
+.chat-heading, .chat-heading h2, .chat-heading p {
+  text-align: left;
+}
+@media (max-width: 760px) {
+  .chat-heading {
+    text-align: center;
+  }
+}
+
+/* ===== Войс — значок не наезжает, а в облачке рядом как в ТГ ===== */
+#messages .message-row.voice-message-row .bubble {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  padding: 10px 12px 28px 12px !important; /* место снизу для времени */
+  min-width: 260px !important;
+  max-width: min(360px, 78%) !important;
+  border-radius: 18px !important;
+}
+
+/* Время и галочки — внутри облачка, справа внизу, как в ТГ, не наезжает на волну */
+#messages .message-row.voice-message-row .bubble-footer,
+#messages .message-row.voice-message-row .bubble > .bubble-footer {
+  position: absolute !important;
+  right: 10px !important;
+  bottom: 6px !important;
+  left: auto !important;
+  top: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 11px !important;
+  line-height: 1 !important;
+  opacity: 0.85 !important;
+  z-index: 2 !important;
+}
+
+/* Иконка расшифровки — теперь рядом с волной, а не поверх */
+#messages .message-row.voice-message-row .voice-transcribe-btn {
+  position: absolute !important;
+  right: 54px !important; /* рядом с временем, но не наезжает */
+  bottom: 6px !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 3 !important;
+  min-width: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: rgba(74,142,255,0.18) !important;
+  border: 1px solid rgba(74,142,255,0.28) !important;
+  display: grid !important;
+  place-items: center !important;
+}
+#messages .message-row.voice-message-row .voice-transcribe-btn span {
+  display: none !important; /* только иконка, как в ТГ */
+}
+#messages .message-row.voice-message-row .voice-transcribe-btn .svg-icon {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Когда есть транскрипт — кнопка прячется, транскрипт снизу */
+#messages .message-row.voice-message-row .voice-transcript {
+  margin-top: 8px !important;
+  margin-bottom: 18px !important; /* место для футера */
+}
+
+/* Плеер — занимает всю ширину, не сжимается */
+#messages .message-row.voice-message-row .compact-voice-message,
+#messages .message-row.voice-message-row .vk-voice-message,
+#messages .message-row.voice-message-row .voice-message {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Время волны — не наезжает */
+#messages .message-row.voice-message-row .voice-meta b {
+  margin-right: auto !important;
+}
+
+/* На мобиле тоже ровно */
+@media (max-width: 760px) {
+  #messages .message-row.voice-message-row .bubble {
+    padding-bottom: 26px !important;
+  }
+  #messages .message-row.voice-message-row .voice-transcribe-btn {
+    right: 48px !important;
+    bottom: 5px !important;
+  }
+}

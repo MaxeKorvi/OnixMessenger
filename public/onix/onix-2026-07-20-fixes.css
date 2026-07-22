@@ -1,0 +1,211 @@
+/* Onix fixes 2026-07-20 — pinned button + sticker fallback */
+
+.pinned-message-list-button,
+html body .pinned-message-list-button {
+  position: absolute !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  min-height: 34px !important;
+  border: 1px solid rgba(124, 92, 255, .30) !important;
+  border-radius: 12px !important;
+  color: #b39bff !important;
+  background: rgba(124, 92, 255, .10) !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.pinned-message-list-button:hover,
+html body .pinned-message-list-button:hover {
+  background: rgba(124, 92, 255, .22) !important;
+}
+.pinned-message-list-button .svg-icon,
+html body .pinned-message-list-button .svg-icon,
+.pinned-message-list-button .svg-icon use,
+html body .pinned-message-list-button .svg-icon use {
+  width: 18px !important;
+  height: 18px !important;
+  stroke: #b39bff !important;
+  fill: none !important;
+  color: #b39bff !important;
+}
+body:not(.dark) .pinned-message-list-button,
+html body:not(.dark) .pinned-message-list-button {
+  border: 1px solid rgba(0, 0, 0, .10) !important;
+  background: rgba(255, 255, 255, .85) !important;
+  color: #4a8eff !important;
+}
+body:not(.dark) .pinned-message-list-button:hover,
+html body:not(.dark) .pinned-message-list-button:hover {
+  background: rgba(255, 255, 255, 1) !important;
+}
+body:not(.dark) .pinned-message-list-button .svg-icon,
+html body:not(.dark) .pinned-message-list-button .svg-icon,
+body:not(.dark) .pinned-message-list-button .svg-icon use,
+html body:not(.dark) .pinned-message-list-button .svg-icon use {
+  stroke: #4a8eff !important;
+  color: #4a8eff !important;
+}
+
+/* === Полностью прозрачная полоска закреплённого сообщения === */
+.pinned-message:not(.hidden),
+body .pinned-message:not(.hidden),
+body.dark .pinned-message:not(.hidden),
+.chat-panel .pinned-message:not(.hidden) {
+  background: transparent !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+.pinned-message::before,
+.pinned-message::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Bots never expose a call action. */
+body:has(#callAction[aria-hidden="true"]) #callAction {
+  display: none !important;
+}
+
+/* Keep the pinned strip transparent: only its message content is visible. */
+.pinned-message:not(.hidden),
+body:not(.dark) .pinned-message:not(.hidden),
+body.dark .pinned-message:not(.hidden),
+body.has-chat-wallpaper .pinned-message:not(.hidden) {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border-top: 0 !important;
+}
+
+/* Symbols and icon glyphs must remain readable on the light surface. */
+body:not(.dark) .icon-button,
+body:not(.dark) .chat-header button,
+body:not(.dark) .composer button,
+body:not(.dark) .sidebar button {
+  color: #202433 !important;
+}
+body:not(.dark) .icon-button .svg-icon,
+body:not(.dark) .chat-header .svg-icon,
+body:not(.dark) .composer .svg-icon,
+body:not(.dark) .sidebar .svg-icon {
+  color: currentColor !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  opacity: 1 !important;
+}
+
+/* Liquid glass: consistent translucent surfaces instead of opaque white blocks. */
+body.liquid-glass:not(.dark) .sidebar,
+body.liquid-glass:not(.dark) .chat-header,
+body.liquid-glass:not(.dark) .composer,
+body.liquid-glass:not(.dark) .attach-menu,
+body.liquid-glass:not(.dark) .modal-card,
+body.liquid-glass:not(.dark) .pinned-message {
+  background: rgba(255, 255, 255, .62) !important;
+  border-color: rgba(255, 255, 255, .72) !important;
+  box-shadow: 0 14px 36px rgba(49, 55, 84, .12), inset 0 1px 0 rgba(255,255,255,.78) !important;
+  backdrop-filter: blur(24px) saturate(1.35) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.35) !important;
+}
+
+/* === Стикеры в чате как в Telegram — крупно, без пузыря и рамок === */
+#messages .message-row .sticker-attachment,
+#messages .message-row.sticker-message-row .sticker-attachment,
+html body #messages .message-row .sticker-attachment {
+  display: block !important;
+  width: 160px !important;
+  height: 160px !important;
+  max-width: min(160px, calc(100vw - 90px)) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  clip-path: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+#messages .message-row .sticker-attachment .attachment-image-preview,
+#messages .message-row .sticker-attachment .sticker-message-preview,
+html body #messages .message-row .sticker-attachment .attachment-image-preview {
+  display: block !important;
+  width: 160px !important;
+  height: 160px !important;
+  max-width: min(160px, calc(100vw - 90px)) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  clip-path: none !important;
+}
+#messages .message-row .sticker-attachment img.sticker-image,
+#messages .message-row .sticker-image,
+#messages .message-row.sticker-message-row .sticker-image,
+html body #messages .message-row .sticker-image {
+  display: block !important;
+  width: 160px !important;
+  height: 160px !important;
+  max-width: min(160px, calc(100vw - 90px)) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  padding: 7px !important;
+  overflow: visible !important;
+  clip-path: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.18)) !important;
+  cursor: pointer !important;
+}
+#messages .message-row:has(.sticker-attachment) .bubble,
+#messages .message-row:has(.sticker-image) .bubble,
+#messages .message-row.sticker-message-row .bubble,
+#messages .message-row.sticker-message-row .bubble:has(.sticker-image) {
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: min(180px, calc(100vw - 92px)) !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+#messages .message-row.sticker-message-row .bubble-footer,
+#messages .message-row.sticker-message-row .bubble > .bubble-footer {
+  display: none !important;
+}
+
+#messages .sticker-message-preview:focus,
+#messages .sticker-message-preview:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* === CRITICAL BUGFIX: Ensure pinned message banner is completely hidden when it has the .hidden class === */
+body .pinned-message.hidden,
+body.dark .pinned-message.hidden,
+body:not(.dark) .pinned-message.hidden,
+body.has-chat-wallpaper .pinned-message.hidden,
+.messages-shell > #pinnedMessage.pinned-message.hidden,
+#pinnedMessage.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}

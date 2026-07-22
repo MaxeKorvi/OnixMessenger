@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Onix Plus — оплата</title>
+  <style>
+    :root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:20px;background:#0b0d12;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}.wrap{width:min(860px,100%);margin:auto}.card{background:#171b24;border:1px solid #2a3040;border-radius:24px;padding:clamp(18px,4vw,30px);box-shadow:0 20px 60px rgba(0,0,0,.3)}h1{margin:0 0 18px;text-align:center}.plus{color:#9b73ff}.grid{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:20px}.box{background:#222938;border-radius:18px;padding:18px}.qr{width:min(100%,270px);display:block;margin:auto;background:#fff;padding:10px;border-radius:16px}.row{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid #363e50}.row:last-child{border-bottom:0}.row span{color:#aab1c0}.row b{text-align:right}a,button{width:100%;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:14px;border:0;background:#8b5cff;color:white;text-align:center;text-decoration:none;margin-top:12px;cursor:pointer;font-weight:800;font-size:15px}.secondary{background:#30384a}.upload{display:block;margin-top:18px;padding:18px;border:2px dashed #424b60;border-radius:16px;text-align:center;cursor:pointer}.upload input{display:none}.note{opacity:.75;font-size:13px;line-height:1.5}.status{min-height:20px;margin-top:10px;font-size:13px}@media(max-width:680px){body{padding:10px}.grid{grid-template-columns:1fr}.card{border-radius:18px}.qr{width:min(72vw,250px)}}
+  </style>
+</head>
+<body>
+  <main class="wrap"><section class="card">
+    <h1>Onix <span class="plus">Plus</span></h1>
+    <div class="grid">
+      <div class="box"><img id="qr" class="qr" alt="QR-код оплаты"></div>
+      <div class="box">
+        <div class="row"><span>Подписка</span><b>30 дней</b></div>
+        <div class="row"><span>Сумма</span><b id="amount">199 ₽</b></div>
+        <div class="row"><span>Получение</span><b id="bank">Банк ВТБ</b></div>
+        <a id="pay" target="_blank" rel="noopener noreferrer">Оплатить</a>
+        <button id="copy" class="secondary" type="button">Скопировать ссылку</button>
+        <p class="note">После оплаты прикрепите скриншот чека. Никому не сообщайте пароль, PIN или код из СМС.</p>
+      </div>
+    </div>
+    <label class="upload">📎 <b id="fileName">Прикрепить скриншот перевода</b><input id="file" type="file" accept="image/jpeg,image/png,image/webp" capture="environment"></label>
+    <button id="send" type="button" disabled>Подготовить чек для отправки в Onix</button>
+    <div id="status" class="status"></div>
+  </section></main>
+  <script src="onix-plus-payment-config.js"></script>
+  <script>
+    const cfg=window.ONIX_PLUS_PAYMENT_CONFIG||{};
+    const pay=document.getElementById('pay'),qr=document.getElementById('qr'),file=document.getElementById('file'),send=document.getElementById('send'),status=document.getElementById('status');
+    pay.href=cfg.paymentUrl; pay.textContent=`Оплатить ${Number(cfg.amountRub||199)} ₽`; qr.src=cfg.qrImage; document.getElementById('amount').textContent=`${Number(cfg.amountRub||199)} ₽`; document.getElementById('bank').textContent=`Банк ${cfg.bank||'ВТБ'}`;
+    document.getElementById('copy').onclick=async()=>{await navigator.clipboard.writeText(cfg.paymentUrl);status.textContent='Ссылка скопирована.'};
+    file.onchange=()=>{const f=file.files[0];if(!f)return;if(f.size>10*1024*1024){file.value='';status.textContent='Файл больше 10 МБ.';return;}document.getElementById('fileName').textContent=f.name;send.disabled=false;status.textContent='Чек выбран. Для отправки откройте эту оплату внутри приложения Onix.'};
+    send.onclick=()=>{status.textContent='Откройте Onix → чат Onix Plus → /buy → прикрепите этот же чек. В приложении заявка отправляется администратору.'};
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* =====================================================================
+   Onix Messenger — Light Theme Minimal Fixes v4
+   ONLY fixes things you asked for. Does NOT touch:
+   - send button icon (keeps original)
+   - chat panel layout
+   - other styles
+   ===================================================================== */
+
+/* =====================================================================
+   FIX 1: Chat wallpapers in LIGHT theme
+   (problem: when switching to light theme, custom wallpaper disappears)
+   ===================================================================== */
+
+body:not(.dark).has-chat-wallpaper .chat-panel {
+  background:
+    linear-gradient(rgba(255, 255, 255, .42), rgba(255, 255, 255, .42)),
+    var(--chat-wallpaper-image) center center / cover no-repeat,
+    #f5f4fa !important;
+}
+
+body:not(.dark).has-chat-wallpaper .chat-panel .messages,
+body:not(.dark).has-chat-wallpaper .chat-panel #messages,
+body:not(.dark).has-chat-wallpaper #messages,
+body:not(.dark).has-chat-wallpaper #messages.messages {
+  background:
+    linear-gradient(rgba(255, 255, 255, .30), rgba(255, 255, 255, .30)),
+    var(--chat-wallpaper-image) center center / cover no-repeat !important;
+}
+
+body:not(.dark).has-chat-wallpaper .chat-header,
+body:not(.dark).has-chat-wallpaper .composer,
+body:not(.dark).has-chat-wallpaper .pinned-message:not(.hidden) {
+  background: rgba(255, 255, 255, .82) !important;
+  backdrop-filter: blur(18px) saturate(1.15) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.15) !important;
+}
+
+/* Wallpaper keeps bubbles readable in light theme */
+body:not(.dark).has-chat-wallpaper #messages .message-row:not(.me) .bubble,
+body:not(.dark).has-chat-wallpaper #messages .message-row:not(.me):not(.system-message) .bubble {
+  background: rgba(255, 255, 255, .92) !important;
+  border: 1px solid rgba(0, 0, 0, .06) !important;
+  color: #1a1d24 !important;
+}
+
+body:not(.dark).has-chat-wallpaper #messages .message-row.me .bubble,
+body:not(.dark).has-chat-wallpaper #messages .message-row.me:not(.system-message) .bubble {
+  background: linear-gradient(135deg, #4a8eff 0%, #3a78ee 100%) !important;
+  color: #ffffff !important;
+  border: 0 !important;
+}
+
+body:not(.dark).has-chat-wallpaper #messages .day-divider,
+body:not(.dark).has-chat-wallpaper #messages .system-badge {
+  background: rgba(255, 255, 255, .86) !important;
+  color: #1a1d24 !important;
+}
+
+/* =====================================================================
+   FIX 2: Voice transcription button in LIGHT theme
+   (problem: light-blue button on white background = invisible)
+   ===================================================================== */
+
+body:not(.dark) .voice-transcribe-btn,
+body:not(.dark) #messages .voice-transcribe-btn,
+body:not(.dark) #messages .message-row.voice-message-row .voice-transcribe-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  min-width: 60px !important;
+  height: 26px !important;
+  padding: 0 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(74, 142, 255, .45) !important;
+  background: rgba(74, 142, 255, .14) !important;
+  color: #1a73d4 !important;
+  font-size: 11.5px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+}
+
+body:not(.dark) .voice-transcribe-btn .svg-icon,
+body:not(.dark) .voice-transcribe-btn svg {
+  color: #1a73d4 !important;
+  stroke: #1a73d4 !important;
+  fill: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 13px !important;
+  height: 13px !important;
+}
+
+/* =====================================================================
+   FIX 3: Pinned message list button — make it visible in BOTH themes
+   (problem: looked like a solid black square in dark theme)
+   ===================================================================== */
+
+/* DARK theme: keep the original purple background, white icon */
+body.dark .pinned-message-list-button,
+html body.dark .pinned-message-list-button {
+  background: rgba(124, 92, 255, .22) !important;
+  border: 1px solid rgba(255, 255, 255, .10) !important;
+  color: #fff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+body.dark .pinned-message-list-button .svg-icon,
+html body.dark .pinned-message-list-button .svg-icon {
+  color: #fff !important;
+  stroke: #fff !important;
+  fill: none !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* LIGHT theme: white-ish background, dark icon */
+body:not(.dark) .pinned-message-list-button,
+html body:not(.dark) .pinned-message-list-button {
+  background: rgba(255, 255, 255, .85) !important;
+  border: 1px solid rgba(0, 0, 0, .08) !important;
+  color: #4a8eff !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+body:not(.dark) .pinned-message-list-button .svg-icon,
+html body:not(.dark) .pinned-message-list-button .svg-icon {
+  color: #4a8eff !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Pinned message text label should be readable in both themes */
+body:not(.dark) .pinned-message strong {
+  color: #1a73d4 !important;
+}
+body.dark .pinned-message strong {
+  color: #9ad4ff !important;
+}
+
+/* =====================================================================
+   FIX 4: Stickers in LIGHT theme — keep panel consistent
+   (you said "стикеры не видно" — make sure they render properly)
+   ===================================================================== */
+
+body:not(.dark) .onix-stickers-grid .sticker-cell {
+  background: rgba(0, 0, 0, .04) !important;
+  border: 1px solid rgba(0, 0, 0, .04) !important;
+}
+
+body:not(.dark) .onix-stickers-grid .sticker-cell:hover {
+  background: rgba(74, 142, 255, .14) !important;
+  border-color: rgba(74, 142, 255, .28) !important;
+}
+
+body:not(.dark) .sticker-preview-stage {
+  background: rgba(0, 0, 0, .04) !important;
+  border-color: rgba(0, 0, 0, .08) !important;
+}
+
+/* Sticker message bubbles stay TG-like transparent in both themes */
+#messages .message-row .bubble:has(.sticker-image),
+#messages .message-row.sticker-message-row .bubble {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 180px !important;
+}
+
+#messages .message-row .sticker-image {
+  width: 160px !important;
+  height: 160px !important;
+  object-fit: contain !important;
+  display: block !important;
+  cursor: pointer !important;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .18)) !important;
+}
+
+body:not(.dark) #messages .message-row .sticker-image {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .22)) !important;
+}

@@ -1,0 +1,228 @@
+/* ===== Voice Recording Clean UI - убираем фигню при записи ГС, не ломая hidden ===== */
+.voice-record-actions-hint {
+  display: none !important;
+}
+#voiceRecordingPanel:not(.hidden) {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 10px 14px !important;
+  min-height: 44px !important;
+  background: rgba(28,24,40,0.96) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.28) !important;
+  will-change: auto !important;
+  backdrop-filter: none !important;
+}
+#voiceRecordingPanel:not(.hidden) #voiceRecordTimer {
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  min-width: 36px !important;
+}
+#voiceRecordingPanel:not(.hidden) .voice-record-dot {
+  width: 10px !important;
+  height: 10px !important;
+  background: #ff3b30 !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  animation: pulseDot 1.2s infinite ease-in-out !important;
+  flex: 0 0 10px !important;
+}
+@keyframes pulseDot {
+  0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.2)}
+}
+#voiceRecordingPanel:not(.hidden) .voice-record-wave {
+  flex: 1 !important;
+  max-width: 120px !important;
+  justify-content: center !important;
+  opacity: .65 !important;
+}
+#voiceRecordingPanel:not(.hidden) .voice-record-wave i {
+  background: rgba(255,255,255,0.55) !important;
+  height: 12px !important;
+}
+#voiceRecordingPanel:not(.hidden) .voice-record-cancel {
+  margin-left: auto !important;
+  background: rgba(255,59,48,0.15) !important;
+  color: #ff3b30 !important;
+  border: 1px solid rgba(255,59,48,0.25) !important;
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  border-radius: 50% !important;
+}
+body:not(.dark) #voiceRecordingPanel:not(.hidden) {
+  background: rgba(255,255,255,0.96) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+}
+.voice-hold-hint {
+  background: rgba(28,24,40,0.92) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+body:not(.dark) .voice-hold-hint {
+  background: rgba(255,255,255,0.92) !important;
+  color: #1A1D24 !important;
+}
+.composer.voice-recording-active .voice-hold-hint {
+  display: none !important;
+}
+
+/* ===== Voice messages - фикс иконки расшифровки ===== */
+#messages .message-row.voice-message-row .bubble {
+  min-width: 260px !important;
+  max-width: min(360px, 78%) !important;
+  padding: 10px 12px 8px !important;
+  border-radius: 18px !important;
+}
+#messages .message-row.voice-message-row .voice-message,
+#messages .message-row.voice-message-row .vk-voice-message,
+#messages .message-row.voice-message-row .compact-voice-message {
+  display: grid !important;
+  grid-template-columns: 40px minmax(0,1fr) !important;
+  gap: 10px !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+#messages .message-row.voice-message-row .voice-play-button {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  flex: 0 0 40px !important;
+  border-radius: 50% !important;
+  display: grid !important;
+  place-items: center !important;
+  background: linear-gradient(135deg, #4a8eff, #3a78ee) !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(74,142,255,0.35) !important;
+}
+#messages .message-row.voice-message-row .voice-main {
+  display: grid !important;
+  grid-template-rows: 18px 16px !important;
+  gap: 3px !important;
+  min-width: 0 !important;
+}
+#messages .message-row.voice-message-row .voice-wave {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2px !important;
+  height: 18px !important;
+  cursor: pointer !important;
+}
+#messages .message-row.voice-message-row .voice-wave i {
+  width: 3px !important;
+  min-width: 3px !important;
+  border-radius: 2px !important;
+  background: rgba(255,255,255,0.42) !important;
+}
+body:not(.dark) #messages .message-row.voice-message-row .voice-wave i {
+  background: rgba(0,0,0,0.22) !important;
+}
+#messages .message-row.voice-message-row .voice-wave i.played {
+  background: #4a8eff !important;
+}
+#messages .message-row.voice-message-row .voice-meta,
+#messages .message-row.voice-message-row .vk-voice-meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  height: 16px !important;
+}
+#messages .message-row.voice-message-row .voice-meta b {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  flex: 0 0 auto !important;
+}
+#messages .message-row.voice-message-row .voice-transcribe-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  min-width: 60px !important;
+  height: 22px !important;
+  padding: 0 8px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(74,142,255,0.28) !important;
+  background: rgba(74,142,255,0.12) !important;
+  color: #4a8eff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  white-space: nowrap !important;
+  flex: 0 0 auto !important;
+  cursor: pointer !important;
+  line-height: 1 !important;
+}
+#messages .message-row.voice-message-row .voice-transcribe-btn:hover {
+  background: rgba(74,142,255,0.20) !important;
+}
+#messages .message-row.voice-message-row .voice-transcribe-btn .svg-icon {
+  width: 12px !important;
+  height: 12px !important;
+}
+#messages .message-row.voice-message-row .voice-transcript {
+  margin: 6px 0 0 !important;
+  padding: 8px 10px !important;
+  border-radius: 10px !important;
+  background: rgba(0,0,0,0.18) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+body:not(.dark) #messages .message-row.voice-message-row .voice-transcript {
+  background: rgba(0,0,0,0.04) !important;
+  color: rgba(0,0,0,0.70) !important;
+}
+#messages .message-row.voice-message-row .bubble-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 4px 0 0 !important;
+  font-size: 11px !important;
+}
+
+/* ===== Темы чата — теперь реально меняются ===== */
+.layout[data-chat-theme="blue"] #messages.messages,
+.layout[data-chat-theme="blue"] #messages {
+  background: radial-gradient(circle at center, #1e3a5f 0%, #0f1e36 100%) !important;
+  background-image: radial-gradient(circle at center, #1e3a5f 0%, #0f1e36 100%) !important;
+}
+.layout[data-chat-theme="green"] #messages {
+  background: radial-gradient(circle at center, #1b3a24 0%, #0d1f14 100%) !important;
+  background-image: radial-gradient(circle at center, #1b3a24 0%, #0d1f14 100%) !important;
+}
+.layout[data-chat-theme="red"] #messages {
+  background: radial-gradient(circle at center, #4c1d24 0%, #2b0f14 100%) !important;
+  background-image: radial-gradient(circle at center, #4c1d24 0%, #2b0f14 100%) !important;
+}
+.layout[data-chat-theme="purple"] #messages {
+  background: radial-gradient(circle at center, #3c1e5a 0%, #1f0f30 100%) !important;
+  background-image: radial-gradient(circle at center, #3c1e5a 0%, #1f0f30 100%) !important;
+}
+.layout[data-chat-theme="light"] #messages {
+  background: #f0f2f5 !important;
+  background-image: none !important;
+}
+body:not(.dark).layout[data-chat-theme="light"] #messages {
+  background: #f0f2f5 !important;
+}
+
+/* ===== Лаг фикс — убираем тяжелые фильтры везде где не нужно ===== */
+.left-panel, .chat-header, .composer, .info-panel, .main-drawer, .auth-card, .modal {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+body:not(.dark) .left-panel,
+body:not(.dark) .chat-header,
+body:not(.dark) .composer,
+body:not(.dark) .info-panel {
+  backdrop-filter: none !important;
+}
+/* Оставляем blur только там где нужно */
+#simpleModal::backdrop, dialog::backdrop {
+  backdrop-filter: blur(8px) !important;
+}

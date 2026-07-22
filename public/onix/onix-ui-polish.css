@@ -1,0 +1,1843 @@
+/* Final UI consistency layer. Keep this file last in the stylesheet order. */
+
+/* Icons keep their intended geometry and never inherit text fill. */
+.icon-button,
+.chat-header button,
+.composer button,
+.attach-menu button,
+.pinned-message-list-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* === Active pinned overlay only; the broader v20260721 layout remains rolled back. === */
+.chat-panel {
+  overflow: hidden !important;
+}
+
+.messages-shell {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+.messages-shell > #messages.messages {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding: 20px 22px !important;
+  scroll-padding-top: 84px !important;
+}
+
+.messages-shell:has(#pinnedMessage:not(.hidden)) > #messages.messages {
+  padding-top: 84px !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body.dark .messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body:not(.dark) .messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body.has-chat-wallpaper .messages-shell > #pinnedMessage.pinned-message:not(.hidden) {
+  position: absolute !important;
+  inset: 8px 0 auto !important;
+  z-index: 12 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 54px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  pointer-events: auto !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message.hidden {
+  display: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message > span,
+.messages-shell > #pinnedMessage.pinned-message strong {
+  display: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message > div {
+  display: block !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: min(520px, 100%) !important;
+  margin: 0 !important;
+  padding: 10px 17px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 17px !important;
+  color: #fff !important;
+  background: rgba(77,58,145,.88) !important;
+  background-image: none !important;
+  box-shadow: 0 8px 22px rgba(18,14,36,.16) !important;
+  backdrop-filter: blur(14px) saturate(1.15) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.15) !important;
+  pointer-events: auto !important;
+}
+
+.messages-shell > #pinnedMessage #pinnedText {
+  display: block !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage.pinned-message > div {
+  color: #202433 !important;
+  background: rgba(255,255,255,.92) !important;
+  border-color: rgba(72,87,128,.16) !important;
+  box-shadow: 0 8px 22px rgba(50,60,100,.12) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button {
+  position: absolute !important;
+  top: 50% !important;
+  right: 15px !important;
+  z-index: 1 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  color: #b9a9ff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage .pinned-message-list-button {
+  color: #337edc !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button:hover,
+.messages-shell > #pinnedMessage .pinned-message-list-button:focus-visible {
+  background: color-mix(in srgb, currentColor 11%, transparent) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button.hidden {
+  display: none !important;
+}
+
+.messages-shell > #chatScrollDown.chat-scroll-down {
+  position: absolute !important;
+  right: 16px !important;
+  bottom: 14px !important;
+  z-index: 14 !important;
+}
+
+@media (max-width: 820px) {
+  .messages-shell > #messages.messages {
+    padding: 14px 10px !important;
+  }
+
+  .messages-shell:has(#pinnedMessage:not(.hidden)) > #messages.messages {
+    padding-top: 76px !important;
+  }
+
+  .messages-shell > #pinnedMessage.pinned-message {
+    top: 7px !important;
+    padding: 0 48px !important;
+  }
+}
+.icon-button .svg-icon,
+.chat-header button .svg-icon,
+.composer button .svg-icon,
+.attach-menu button .svg-icon,
+.pinned-message-list-button .svg-icon {
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  flex: 0 0 18px !important;
+  margin: 0 !important;
+  transform: none !important;
+  stroke: currentColor !important;
+  fill: none !important;
+  opacity: 1 !important;
+}
+
+/* Light theme contrast: text, metadata and controls remain legible. */
+body:not(.dark) {
+  color: #202433 !important;
+}
+body:not(.dark) #messages .message-row:not(.system-message):not(.sticker-message-row):not(.photo-only-message) .bubble,
+body:not(.dark) #messages .message-row.me:not(.system-message):not(.sticker-message-row):not(.photo-only-message) .bubble,
+body:not(.dark) #messages .message-row.force-left:not(.system-message):not(.sticker-message-row):not(.photo-only-message) .bubble {
+  color: #202433 !important;
+  background: rgba(255,255,255,.96) !important;
+  border: 1px solid rgba(40,46,65,.10) !important;
+  box-shadow: 0 6px 18px rgba(45,52,78,.10) !important;
+}
+body:not(.dark) #messages .message-row .bubble > p,
+body:not(.dark) #messages .message-row .message-author-name,
+body:not(.dark) #messages .message-row .forwarded-label,
+body:not(.dark) #messages .message-row .reply-quote {
+  color: #202433 !important;
+  opacity: 1 !important;
+}
+body:not(.dark) #messages .bubble-footer,
+body:not(.dark) #messages .voice-meta,
+body:not(.dark) #messages .edited-label {
+  color: #687087 !important;
+  opacity: 1 !important;
+}
+
+#messages .voice-transcribe-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  min-width: 58px !important;
+  height: 25px !important;
+  padding: 0 9px !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, transparent) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  background: color-mix(in srgb, var(--accent) 28%, rgba(20,24,34,.52)) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+body:not(.dark) #messages .voice-transcribe-btn {
+  color: #1d65bd !important;
+  background: rgba(57,132,226,.12) !important;
+}
+body:not(.dark) .attach-menu,
+body:not(.dark) #attachMenu[data-menu-type="emoji"] {
+  color: #202433 !important;
+  background: rgba(250,252,255,.96) !important;
+  border-color: rgba(40,46,65,.12) !important;
+}
+body:not(.dark) #attachMenu[data-menu-type="emoji"] h4,
+body:not(.dark) #attachMenu[data-menu-type="emoji"] button,
+body:not(.dark) #attachMenu[data-menu-type="emoji"] small {
+  color: #202433 !important;
+}
+body:not(.dark) #attachMenu .onix-emoji-tabs {
+  border-bottom-color: rgba(40,46,65,.10) !important;
+}
+body:not(.dark) #attachMenu .onix-emoji-tabs button {
+  color: #343a4d !important;
+  background: rgba(48,58,88,.06) !important;
+  border-color: rgba(48,58,88,.12) !important;
+}
+body:not(.dark) #attachMenu .onix-emoji-tabs button.active {
+  color: #fff !important;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+body:not(.dark) .attach-menu > button,
+body:not(.dark) .attach-menu [data-attach-action] {
+  color: #252a3a !important;
+  background: transparent !important;
+}
+body:not(.dark) .attach-menu > button:hover,
+body:not(.dark) .attach-menu [data-attach-action]:hover {
+  background: rgba(48,108,210,.10) !important;
+}
+
+/* Pinned message: transparent strip with one compact message glass pill. */
+#pinnedMessage.pinned-message:not(.hidden),
+body.dark #pinnedMessage.pinned-message:not(.hidden),
+body:not(.dark) #pinnedMessage.pinned-message:not(.hidden),
+body.has-chat-wallpaper #pinnedMessage.pinned-message:not(.hidden) {
+  display: flex !important;
+  min-height: 62px !important;
+  padding: 8px 58px 8px 16px !important;
+  justify-content: center !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+#pinnedMessage.pinned-message.hidden { display: none !important; }
+#pinnedMessage.pinned-message > div {
+  display: grid !important;
+  width: fit-content !important;
+  max-width: min(520px, calc(100vw - 132px)) !important;
+  padding: 8px 15px !important;
+  gap: 2px !important;
+  justify-items: center !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 16px !important;
+  color: #fff !important;
+  background: rgba(77,58,145,.76) !important;
+  box-shadow: 0 8px 24px rgba(18,14,36,.16) !important;
+  backdrop-filter: blur(18px) saturate(1.25) !important;
+}
+body:not(.dark) #pinnedMessage.pinned-message > div {
+  color: #202433 !important;
+  background: rgba(255,255,255,.72) !important;
+  border-color: rgba(75,93,150,.16) !important;
+  box-shadow: 0 8px 24px rgba(50,60,100,.12) !important;
+}
+#pinnedMessage strong,
+#pinnedMessage p {
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+#pinnedMessage strong { color: #9fd2ff !important; font-size: 11px !important; }
+body:not(.dark) #pinnedMessage strong { color: #2674d9 !important; }
+#pinnedMessage .pinned-message-list-button {
+  right: 16px !important;
+  top: 50% !important;
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 12%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent) !important;
+}
+
+/* Cleaner liquid glass on both themes. */
+body.liquid-glass .left-panel,
+body.liquid-glass .chat-header,
+body.liquid-glass .composer,
+body.liquid-glass .attach-menu,
+body.liquid-glass .modal-card {
+  background: color-mix(in srgb, var(--panel-strong) 68%, transparent) !important;
+  border-color: color-mix(in srgb, #fff 28%, transparent) !important;
+  box-shadow: 0 16px 44px rgba(20,24,42,.16), inset 0 1px 0 rgba(255,255,255,.20) !important;
+  backdrop-filter: blur(28px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(1.4) !important;
+}
+
+body:not(.dark) .search-box,
+body:not(.dark) #messageInput,
+body:not(.dark) .composer-input-wrap {
+  color: #202433 !important;
+  background: rgba(244,247,252,.92) !important;
+  border-color: rgba(48,58,88,.12) !important;
+}
+body:not(.dark) #messageInput::placeholder,
+body:not(.dark) input::placeholder,
+body:not(.dark) textarea::placeholder {
+  color: #7a8297 !important;
+  opacity: 1 !important;
+}
+
+/* Sticker picker stays within its panel and uses predictable cells. */
+#attachMenu .onix-stickers-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 6px !important;
+}
+#attachMenu .sticker-cell {
+  width: 100% !important;
+  min-width: 0 !important;
+  aspect-ratio: 1 !important;
+  padding: 4px !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+}
+#attachMenu .sticker-cell img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  transform: none !important;
+}
+
+@media (max-width: 520px) {
+  #pinnedMessage.pinned-message { padding-left: 8px !important; padding-right: 50px !important; }
+  #attachMenu .onix-stickers-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+/* === final voice/sticker alignment fix, loaded last === */
+#messages .message-row:not(.system-message),
+#messages .message-row.force-left:not(.system-message),
+#messages .message-row.mine-left:not(.system-message),
+#messages .message-row.peer-left:not(.system-message),
+#messages .message-row.voice-message-row:not(.system-message),
+#messages .message-row.text-only-message:not(.system-message),
+#messages .message-row.sticker-message-row:not(.system-message) {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: flex-end !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin: 0 0 6px !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+#messages .message-row:not(.system-message) .message-avatar {
+  flex: 0 0 38px !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  margin: 0 0 2px !important;
+}
+
+#messages .message-row:not(.system-message) .message-stack,
+#messages .message-row.voice-message-row:not(.system-message) .message-stack,
+#messages .message-row.sticker-message-row:not(.system-message) .message-stack {
+  flex: 0 1 auto !important;
+  width: fit-content !important;
+  max-width: min(700px, calc(100% - 54px)) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+#messages .message-row.sticker-message-row .bubble,
+#messages .message-row.sticker-message-row .bubble.mine-left-bubble,
+#messages .message-row.sticker-message-row .attachments,
+#messages .message-row.sticker-message-row .sticker-attachment,
+#messages .message-row.sticker-message-row .sticker-message-preview,
+body:not(.dark) #messages .message-row.sticker-message-row .bubble,
+body:not(.dark) #messages .message-row.sticker-message-row .bubble.mine-left-bubble,
+body:not(.dark) #messages .message-row.sticker-message-row .attachments,
+body:not(.dark) #messages .message-row.sticker-message-row .sticker-attachment,
+body:not(.dark) #messages .message-row.sticker-message-row .sticker-message-preview {
+  display: inline-grid !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 190px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  place-items: center !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  overflow: visible !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+#messages .message-row.sticker-message-row .bubble::before,
+#messages .message-row.sticker-message-row .bubble::after,
+#messages .message-row.sticker-message-row .sticker-message-preview::before,
+#messages .message-row.sticker-message-row .sticker-message-preview::after {
+  content: none !important;
+  display: none !important;
+}
+
+#messages .message-row.sticker-message-row .bubble-footer,
+body:not(.dark) #messages .message-row.sticker-message-row .bubble-footer {
+  display: none !important;
+}
+
+#messages .message-row.sticker-message-row .sticker-image,
+#messages .message-row.sticker-message-row img.sticker-image,
+body:not(.dark) #messages .message-row.sticker-message-row .sticker-image,
+body:not(.dark) #messages .message-row.sticker-message-row img.sticker-image {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 170px !important;
+  max-height: 170px !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 9px 13px rgba(0,0,0,.22)) !important;
+}
+
+#messages .message-row.voice-message-row .bubble,
+#messages .message-row.voice-message-row .bubble.mine-left-bubble,
+#messages .message-row.me.voice-message-row .bubble,
+#messages .message-row[data-from="me"].voice-message-row .bubble {
+  position: relative !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 246px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+#messages .message-row.voice-message-row .voice-message,
+#messages .message-row.voice-message-row .vk-voice-message {
+  box-sizing: border-box !important;
+  width: 246px !important;
+  min-width: 246px !important;
+  max-width: 246px !important;
+  margin: 0 !important;
+  padding: 7px 9px 18px !important;
+  border-radius: 14px !important;
+  background: linear-gradient(180deg, rgba(89, 101, 116, .98), rgba(73, 84, 99, .98)) !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,.16) !important;
+}
+
+#messages .message-row.voice-message-row .compact-voice-message,
+#messages .message-row.voice-message-row .voice-player-row {
+  display: grid !important;
+  grid-template-columns: 39px minmax(0, 1fr) 32px !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  min-height: 39px !important;
+}
+
+#messages .message-row.voice-message-row .voice-main {
+  grid-column: 2 !important;
+  display: grid !important;
+  grid-template-rows: 24px 14px !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-wave {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: 24px !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-meta {
+  width: 100% !important;
+  height: 14px !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcribe-btn,
+#messages .message-row.voice-message-row .voice-transcribe-button {
+  display: inline-grid !important;
+  place-items: center !important;
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  inset: auto !important;
+  justify-self: end !important;
+  align-self: center !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  z-index: 1 !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcribe-btn span,
+#messages .message-row.voice-message-row .voice-transcribe-button span {
+  display: none !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-message,
+body:not(.dark) #messages .message-row.voice-message-row .vk-voice-message {
+  background: rgba(255,255,255,.96) !important;
+  border-color: rgba(116, 130, 158, .18) !important;
+  box-shadow: 0 8px 18px rgba(80, 92, 123, .10) !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-wave i {
+  background: rgba(93, 110, 137, .54) !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta,
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta b,
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta span,
+body:not(.dark) #messages .message-row.voice-message-row .bubble-footer {
+  color: #536174 !important;
+}
+
+body:not(.dark) #messages .message-row .bubble p,
+body:not(.dark) #messages .message-row.text-only-message .bubble p,
+body:not(.dark) #messages .message-row .message-text {
+  color: #172033 !important;
+}
+
+body:not(.dark) #messages .message-row.me .bubble p,
+body:not(.dark) #messages .message-row.mine-left .bubble p,
+body:not(.dark) #messages .message-row[data-from="me"] .bubble p {
+  color: #fff !important;
+}
+
+body:not(.dark) .folder-collapse-button,
+body:not(.dark) #toggleFolders,
+body:not(.dark) .folder-collapse-button .svg-icon,
+body:not(.dark) #toggleFolders .svg-icon,
+body:not(.dark) .chevron-holder,
+body:not(.dark) .chevron-holder .svg-icon,
+body:not(.dark) .chevron-icon {
+  color: #293244 !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+}
+
+/* Saved can be cleared; pinned strip is only bubbles, and voice transcript sits on the wave line. */
+#messages .message-row.voice-message-row .compact-voice-message,
+#messages .message-row.voice-message-row .voice-player-row {
+  display: grid !important;
+  grid-template-columns: 39px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+#messages .message-row.voice-message-row .voice-main {
+  display: grid !important;
+  grid-template-rows: 24px 14px !important;
+  gap: 0 !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-wave-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 30px !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  height: 24px !important;
+}
+
+#messages .message-row.voice-message-row .voice-wave {
+  grid-column: 1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 24px !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcribe-btn,
+#messages .message-row.voice-message-row .voice-transcribe-button {
+  display: inline-grid !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  position: static !important;
+  inset: auto !important;
+  place-items: center !important;
+  align-self: center !important;
+  justify-self: end !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcribe-btn span,
+#messages .message-row.voice-message-row .voice-transcribe-button span {
+  display: none !important;
+}
+
+#messages .message-row.voice-message-row .voice-message,
+#messages .message-row.voice-message-row .vk-voice-message {
+  width: 246px !important;
+  min-width: 246px !important;
+  max-width: 246px !important;
+  overflow: hidden !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcript {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 7px 0 0 !important;
+  padding: 7px 8px !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,.92) !important;
+  background: rgba(255,255,255,.08) !important;
+}
+
+#messages .message-row.voice-message-row .voice-transcript-text,
+#messages .message-row.voice-message-row .voice-transcript p {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 12.5px !important;
+  line-height: 1.32 !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  text-shadow: none !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-transcript {
+  color: #172033 !important;
+  background: rgba(37, 99, 235, .08) !important;
+  border: 1px solid rgba(37, 99, 235, .10) !important;
+}
+
+#messages .message-row .bubble p,
+#messages .message-row.text-only-message .bubble p,
+#messages .message-row .message-text,
+#messages .message-row .message-text-content {
+  font-weight: 500 !important;
+}
+
+#messages .message-row.me .bubble p,
+#messages .message-row.mine-left .bubble p,
+#messages .message-row[data-from="me"] .bubble p,
+#messages .message-row.me .message-text,
+#messages .message-row.mine-left .message-text,
+#messages .message-row[data-from="me"] .message-text {
+  font-weight: 550 !important;
+}
+
+#pinnedMessage.pinned-message:not(.hidden),
+body.dark #pinnedMessage.pinned-message:not(.hidden),
+body:not(.dark) #pinnedMessage.pinned-message:not(.hidden),
+body.has-chat-wallpaper #pinnedMessage.pinned-message:not(.hidden) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 56px !important;
+  padding: 7px 58px 7px 12px !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+#pinnedMessage.pinned-message.hidden {
+  display: none !important;
+}
+
+#pinnedMessage.pinned-message > span {
+  display: none !important;
+}
+
+#pinnedMessage.pinned-message > div {
+  display: grid !important;
+  width: fit-content !important;
+  max-width: min(420px, calc(100vw - 118px)) !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 9px 16px !important;
+  gap: 0 !important;
+  justify-items: center !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  color: #fff !important;
+  background: rgba(77,58,145,.78) !important;
+  box-shadow: 0 8px 22px rgba(18,14,36,.16) !important;
+  backdrop-filter: blur(18px) saturate(1.2) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(1.2) !important;
+}
+
+#pinnedMessage strong {
+  display: none !important;
+}
+
+#pinnedMessage p,
+#pinnedText {
+  display: block !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 14px !important;
+  line-height: 1.15 !important;
+  font-weight: 650 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body:not(.dark) #pinnedMessage.pinned-message > div {
+  color: #202433 !important;
+  background: rgba(255,255,255,.78) !important;
+  border-color: rgba(75,93,150,.16) !important;
+  box-shadow: 0 8px 22px rgba(50,60,100,.12) !important;
+}
+
+#pinnedMessage .pinned-message-list-button {
+  position: absolute !important;
+  right: 16px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 13px !important;
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 12%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent) !important;
+  box-shadow: none !important;
+}
+
+#pinnedMessage .pinned-message-list-button.hidden {
+  display: none !important;
+}
+
+@media (max-width: 0px) {
+/* === disabled rollback: v20260721 single authoritative messenger layout layer === */
+
+/* The message viewport owns its wallpaper. Overlays never create another strip. */
+.chat-panel {
+  overflow: hidden !important;
+}
+
+.messages-shell {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+.messages-shell > #messages.messages {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding: 20px 22px !important;
+  scroll-padding-top: 84px !important;
+}
+
+.messages-shell:has(#pinnedMessage:not(.hidden)) > #messages.messages {
+  padding-top: 84px !important;
+}
+
+/* Pinned message: no panel, no stripe, only the message cloud and SVG menu. */
+.messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body.dark .messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body:not(.dark) .messages-shell > #pinnedMessage.pinned-message:not(.hidden),
+body.has-chat-wallpaper .messages-shell > #pinnedMessage.pinned-message:not(.hidden) {
+  position: absolute !important;
+  inset: 8px 0 auto !important;
+  z-index: 12 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 54px !important;
+  border: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  pointer-events: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message.hidden {
+  display: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message > span,
+.messages-shell > #pinnedMessage.pinned-message strong {
+  display: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message > div {
+  display: block !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: min(520px, 100%) !important;
+  margin: 0 !important;
+  padding: 10px 17px !important;
+  border: 1px solid rgba(255,255,255,.14) !important;
+  border-radius: 17px !important;
+  color: #fff !important;
+  background: rgba(77,58,145,.88) !important;
+  background-image: none !important;
+  box-shadow: 0 8px 22px rgba(18,14,36,.16) !important;
+  backdrop-filter: blur(14px) saturate(1.15) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.15) !important;
+  pointer-events: auto !important;
+}
+
+.messages-shell > #pinnedMessage #pinnedText {
+  display: block !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage.pinned-message > div {
+  color: #202433 !important;
+  background: rgba(255,255,255,.92) !important;
+  border-color: rgba(72,87,128,.16) !important;
+  box-shadow: 0 8px 22px rgba(50,60,100,.12) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button {
+  position: absolute !important;
+  top: 50% !important;
+  right: 15px !important;
+  z-index: 1 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  color: #b9a9ff !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage .pinned-message-list-button {
+  color: #337edc !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button:hover,
+.messages-shell > #pinnedMessage .pinned-message-list-button:focus-visible {
+  background: color-mix(in srgb, currentColor 11%, transparent) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button.hidden {
+  display: none !important;
+}
+
+/* One message axis for text, media, stickers and voice notes. */
+#messages .message-row:not(.system-message) {
+  display: grid !important;
+  grid-template-columns: 38px minmax(0, auto) !important;
+  justify-content: start !important;
+  align-items: end !important;
+  column-gap: 8px !important;
+  width: 100% !important;
+  margin: 0 0 7px !important;
+  padding: 0 !important;
+  transform: none !important;
+}
+
+#messages .message-row:not(.system-message) > .message-avatar {
+  grid-column: 1 !important;
+  align-self: end !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  margin: 0 0 2px !important;
+}
+
+#messages .message-row:not(.system-message) > .message-stack {
+  grid-column: 2 !important;
+  align-self: end !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: min(var(--bubble-max, 520px), calc(100vw - 116px)) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
+}
+
+#messages .message-row:not(.system-message) .bubble {
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+#messages .message-row .message-text,
+#messages .message-row .bubble > p,
+#messages .message-row .message-text-content {
+  font-weight: 400 !important;
+  line-height: 1.36 !important;
+  letter-spacing: 0 !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+#messages .message-row .message-author-name,
+#messages .message-row .forwarded-label,
+#messages .message-row .reply-quote strong {
+  font-weight: 600 !important;
+}
+
+#messages .message-row .bubble-footer,
+#messages .message-row .voice-meta,
+#messages .message-row .edited-label {
+  font-weight: 500 !important;
+}
+
+/* Light theme has separate, readable incoming and outgoing surfaces. */
+body:not(.dark) #messages .message-row:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row):not(.mine-left):not([data-from="me"]) .bubble {
+  color: #202433 !important;
+  background: rgba(255,255,255,.96) !important;
+  border: 1px solid rgba(40,46,65,.10) !important;
+  box-shadow: 0 6px 18px rgba(45,52,78,.10) !important;
+}
+
+body:not(.dark) #messages .message-row.mine-left:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row) .bubble,
+body:not(.dark) #messages .message-row[data-from="me"]:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row) .bubble {
+  color: #fff !important;
+  background: linear-gradient(180deg, #7c5cff, #624bd6) !important;
+  border: 1px solid rgba(94,67,195,.22) !important;
+  box-shadow: 0 6px 18px rgba(93,69,183,.18) !important;
+}
+
+body:not(.dark) #messages .message-row.mine-left .bubble .message-text,
+body:not(.dark) #messages .message-row[data-from="me"] .bubble .message-text,
+body:not(.dark) #messages .message-row.mine-left .bubble > p,
+body:not(.dark) #messages .message-row[data-from="me"] .bubble > p {
+  color: inherit !important;
+}
+
+body:not(.dark) #messages .message-row.mine-left .bubble-footer,
+body:not(.dark) #messages .message-row[data-from="me"] .bubble-footer {
+  color: rgba(255,255,255,.80) !important;
+}
+
+/* Stickers never inherit photo or message-card chrome. */
+#messages .message-row.sticker-message-row .message-stack,
+#messages .message-row.sticker-message-row .bubble,
+#messages .message-row.sticker-message-row .attachments,
+#messages .message-row.sticker-message-row .sticker-attachment,
+#messages .message-row.sticker-message-row .sticker-message-preview,
+body:not(.dark) #messages .message-row.sticker-message-row .message-stack,
+body:not(.dark) #messages .message-row.sticker-message-row .bubble,
+body:not(.dark) #messages .message-row.sticker-message-row .attachments,
+body:not(.dark) #messages .message-row.sticker-message-row .sticker-attachment,
+body:not(.dark) #messages .message-row.sticker-message-row .sticker-message-preview {
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 180px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: visible !important;
+}
+
+#messages .message-row.sticker-message-row .bubble::before,
+#messages .message-row.sticker-message-row .bubble::after,
+#messages .message-row.sticker-message-row .sticker-message-preview::before,
+#messages .message-row.sticker-message-row .sticker-message-preview::after {
+  display: none !important;
+  content: none !important;
+}
+
+#messages .message-row.sticker-message-row .bubble-footer {
+  display: none !important;
+}
+
+#messages .message-row.sticker-message-row img.sticker-image {
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 170px !important;
+  max-height: 170px !important;
+  object-fit: contain !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.20)) !important;
+}
+
+/* Voice: fixed width; play, waveform and transcript icon share one line. */
+html body #messages .message-row.voice-message-row .message-stack,
+html body #messages .message-row.voice-message-row .bubble {
+  width: min(246px, calc(100vw - 116px)) !important;
+  min-width: 0 !important;
+  max-width: 246px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-message,
+html body #messages .message-row.voice-message-row .vk-voice-message,
+html body #messages .message-row.voice-message-row .voice-message:has(.voice-transcript),
+html body #messages .message-row.voice-message-row .vk-voice-message:has(.voice-transcript) {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 246px !important;
+  margin: 0 !important;
+  padding: 8px 9px 7px !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 14px !important;
+  color: rgba(255,255,255,.94) !important;
+  background: linear-gradient(180deg, rgba(89,101,116,.98), rgba(73,84,99,.98)) !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15) !important;
+  overflow: hidden !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-player-row,
+html body #messages .message-row.voice-message-row .compact-voice-message {
+  display: grid !important;
+  grid-template-columns: 39px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-play-button,
+html body #messages .message-row.voice-message-row .vk-voice-play {
+  grid-column: 1 !important;
+  width: 39px !important;
+  min-width: 39px !important;
+  height: 39px !important;
+  margin: 0 !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-main,
+html body #messages .message-row.voice-message-row .vk-voice-main {
+  grid-column: 2 !important;
+  display: grid !important;
+  grid-template-rows: 24px 14px !important;
+  gap: 1px !important;
+  min-width: 0 !important;
+  overflow: hidden !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-wave-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 28px !important;
+  align-items: center !important;
+  gap: 6px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 24px !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-wave,
+html body #messages .message-row.voice-message-row .vk-voice-wave {
+  grid-column: 1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 22px !important;
+  overflow: hidden !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-transcribe-btn,
+html body #messages .message-row.voice-message-row .voice-transcribe-button {
+  position: static !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  place-self: center end !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 28px !important;
+  min-width: 28px !important;
+  height: 22px !important;
+  min-height: 22px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  border-radius: 999px !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-transcribe-btn span,
+html body #messages .message-row.voice-message-row .voice-transcribe-button span {
+  display: none !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-meta,
+html body #messages .message-row.voice-message-row .vk-voice-meta {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 14px !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-transcript {
+  box-sizing: border-box !important;
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 7px 0 0 !important;
+  padding: 7px 8px !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  border-radius: 10px !important;
+  color: rgba(255,255,255,.92) !important;
+  background: rgba(255,255,255,.07) !important;
+  overflow: hidden !important;
+}
+
+html body #messages .message-row.voice-message-row .voice-transcript-text,
+html body #messages .message-row.voice-message-row .voice-transcript p {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: inherit !important;
+  font-size: 12.5px !important;
+  font-weight: 400 !important;
+  line-height: 1.34 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-message,
+body:not(.dark) #messages .message-row.voice-message-row .vk-voice-message {
+  color: #172033 !important;
+  background: rgba(255,255,255,.96) !important;
+  border-color: rgba(78,94,124,.16) !important;
+  box-shadow: 0 6px 16px rgba(80,92,123,.10) !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-transcript {
+  color: #172033 !important;
+  background: rgba(37,99,235,.08) !important;
+  border-color: rgba(37,99,235,.12) !important;
+}
+
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta,
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta b,
+body:not(.dark) #messages .message-row.voice-message-row .voice-meta span,
+body:not(.dark) #messages .message-row.voice-message-row .bubble-footer {
+  color: #536174 !important;
+}
+
+/* The folder control stays recoverable without hover and has theme-safe SVG contrast. */
+.folders.is-collapsed {
+  position: relative !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  margin: 0 !important;
+  padding: 4px 14px !important;
+  overflow: visible !important;
+}
+
+.folders.is-collapsed::before {
+  display: none !important;
+  content: none !important;
+}
+
+.folders.is-collapsed .folder-collapse-button,
+.folder-collapse-button.is-collapsed {
+  position: static !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
+}
+
+body:not(.dark) .folder-collapse-button,
+body:not(.dark) #toggleFolders,
+body:not(.dark) .folder-collapse-button .svg-icon,
+body:not(.dark) #toggleFolders .svg-icon,
+body:not(.dark) .chevron-holder,
+body:not(.dark) .chevron-holder .svg-icon,
+body:not(.dark) .chevron-icon {
+  color: #293244 !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+}
+
+/* Scroll control is an SVG overlay inside the message viewport. */
+.messages-shell > #chatScrollDown.chat-scroll-down {
+  position: absolute !important;
+  right: 16px !important;
+  bottom: 14px !important;
+  z-index: 14 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+  color: #49a9ff !important;
+}
+
+.messages-shell > #chatScrollDown.chat-scroll-down.hidden {
+  display: none !important;
+}
+
+.messages-shell > #chatScrollDown .svg-icon {
+  display: block !important;
+  width: 21px !important;
+  height: 21px !important;
+  stroke: currentColor !important;
+  fill: none !important;
+}
+
+body:not(.dark) .messages-shell > #chatScrollDown.chat-scroll-down {
+  color: #1976d2 !important;
+  background: rgba(255,255,255,.94) !important;
+  border-color: rgba(53,91,142,.16) !important;
+}
+
+/* Predictable interactive layers and visible keyboard focus. */
+html body #drawerBackdrop.side-drawer-backdrop {
+  z-index: 100 !important;
+}
+
+html body #mainDrawer.main-drawer {
+  z-index: 110 !important;
+}
+
+html body #attachMenu.attach-menu,
+html body #miniMenu.mini-menu {
+  z-index: 140 !important;
+}
+
+html body .message-context,
+html body .message-context-menu {
+  z-index: 150 !important;
+}
+
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 76%, #ffffff 24%) !important;
+  outline-offset: 2px !important;
+}
+
+body:not(.dark) .chat-header .icon-button,
+body:not(.dark) .composer .icon-button,
+body:not(.dark) .main-drawer button,
+body:not(.dark) .settings-shell button {
+  color: #293244 !important;
+}
+
+body:not(.dark) .chat-header .svg-icon,
+body:not(.dark) .composer .svg-icon,
+body:not(.dark) .main-drawer .svg-icon,
+body:not(.dark) .settings-shell .svg-icon {
+  color: currentColor !important;
+  stroke: currentColor !important;
+  opacity: 1 !important;
+}
+
+/* 520px stays the preferred and maximum desktop width; narrow desktop keeps chat usable. */
+@media (min-width: 821px) and (max-width: 1220px) {
+  .layout,
+  .layout.info-panel-hidden {
+    grid-template-columns: min(var(--left-panel-width, 520px), 520px, calc(100vw - 382px)) minmax(0, 1fr) !important;
+  }
+
+  .left-panel {
+    width: min(var(--left-panel-width, 520px), 520px, calc(100vw - 382px)) !important;
+    min-width: 0 !important;
+    max-width: 520px !important;
+  }
+}
+
+@media (min-width: 1221px) {
+  .layout:not(.info-panel-hidden) {
+    grid-template-columns: min(var(--left-panel-width, 520px), 520px, calc(100vw - 722px)) minmax(0, 1fr) 340px !important;
+  }
+
+  .layout.info-panel-hidden {
+    grid-template-columns: min(var(--left-panel-width, 520px), 520px, calc(100vw - 382px)) minmax(0, 1fr) !important;
+  }
+
+  .left-panel {
+    width: min(var(--left-panel-width, 520px), 520px, calc(100vw - 722px)) !important;
+    min-width: 0 !important;
+    max-width: 520px !important;
+  }
+
+  .layout.info-panel-hidden .left-panel {
+    width: min(var(--left-panel-width, 520px), 520px, calc(100vw - 382px)) !important;
+  }
+}
+
+@media (max-width: 820px) {
+  .messages-shell > #messages.messages {
+    padding: 14px 10px !important;
+  }
+
+  .messages-shell:has(#pinnedMessage:not(.hidden)) > #messages.messages {
+    padding-top: 76px !important;
+  }
+
+  .messages-shell > #pinnedMessage.pinned-message {
+    top: 7px !important;
+    padding: 0 48px !important;
+  }
+
+  #messages .message-row:not(.system-message) > .message-stack {
+    max-width: calc(100vw - 66px) !important;
+  }
+
+  #messages .message-row.voice-message-row .message-stack,
+  #messages .message-row.voice-message-row .bubble {
+    width: min(246px, calc(100vw - 66px)) !important;
+  }
+}
+}
+
+/* === Active light-theme message contrast fix; no layout redesign. === */
+#messages .message-row .message-text,
+#messages .message-row .bubble > p,
+#messages .message-row .message-text-content {
+  font-weight: 400 !important;
+  line-height: 1.36 !important;
+  letter-spacing: 0 !important;
+}
+
+#messages .message-row .message-author-name,
+#messages .message-row .forwarded-label,
+#messages .message-row .reply-quote strong {
+  font-weight: 600 !important;
+}
+
+#messages .message-row .bubble-footer,
+#messages .message-row .voice-meta,
+#messages .message-row .edited-label {
+  font-weight: 500 !important;
+}
+
+/* Incoming messages are light gray, not white-on-white. */
+html body:not(.dark) #messages .message-row:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row):not(.mine-left):not([data-from="me"]) .bubble {
+  color: #202433 !important;
+  background: #eef1f6 !important;
+  border: 1px solid rgba(57,69,94,.16) !important;
+  box-shadow: 0 5px 14px rgba(55,65,92,.13) !important;
+}
+
+/* Outgoing messages retain the normal accent color and white text. */
+html body:not(.dark) #messages .message-row.mine-left:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row) .bubble,
+html body:not(.dark) #messages .message-row[data-from="me"]:not(.system-message):not(.sticker-message-row):not(.photo-only-message):not(.voice-message-row) .bubble {
+  color: #fff !important;
+  background: linear-gradient(180deg, #7c5cff, #624bd6) !important;
+  border: 1px solid rgba(84,59,177,.24) !important;
+  box-shadow: 0 6px 16px rgba(89,65,179,.20) !important;
+}
+
+html body:not(.dark) #messages .message-row:not(.mine-left):not([data-from="me"]) .bubble .message-text,
+html body:not(.dark) #messages .message-row:not(.mine-left):not([data-from="me"]) .bubble > p {
+  color: #202433 !important;
+}
+
+html body:not(.dark) #messages .message-row.mine-left .bubble .message-text,
+html body:not(.dark) #messages .message-row[data-from="me"] .bubble .message-text,
+html body:not(.dark) #messages .message-row.mine-left .bubble > p,
+html body:not(.dark) #messages .message-row[data-from="me"] .bubble > p {
+  color: #fff !important;
+}
+
+html body:not(.dark) #messages .message-row:not(.mine-left):not([data-from="me"]) .bubble-footer {
+  color: #657087 !important;
+}
+
+html body:not(.dark) #messages .message-row.mine-left .bubble-footer,
+html body:not(.dark) #messages .message-row[data-from="me"] .bubble-footer {
+  color: rgba(255,255,255,.82) !important;
+}
+
+/* Voice notes use the same incoming/outgoing colors as ordinary messages. */
+html body:not(.dark) #messages .message-row.voice-message-row .bubble,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .bubble,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .bubble {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .vk-voice-message {
+  color: #202433 !important;
+  background: #eef1f6 !important;
+  border: 1px solid rgba(57,69,94,.16) !important;
+  box-shadow: 0 5px 14px rgba(55,65,92,.13) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .vk-voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .vk-voice-message {
+  color: #fff !important;
+  background: linear-gradient(180deg, #7c5cff, #624bd6) !important;
+  border: 1px solid rgba(84,59,177,.24) !important;
+  box-shadow: 0 6px 16px rgba(89,65,179,.20) !important;
+}
+
+/* The waveform remains visible on both voice-message colors. */
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-wave i,
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .vk-voice-wave i {
+  background: rgba(61,76,102,.48) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-wave i.played,
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .vk-voice-wave i.played {
+  background: #397fd7 !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-wave i,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .vk-voice-wave i,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-wave i,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .vk-voice-wave i {
+  background: rgba(255,255,255,.46) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-wave i.played,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .vk-voice-wave i.played,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-wave i.played,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .vk-voice-wave i.played {
+  background: #fff !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-meta,
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-meta b,
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-meta span {
+  color: #59667c !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-meta,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-meta b,
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-meta span,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-meta,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-meta b,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-meta span {
+  color: rgba(255,255,255,.84) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-play-button {
+  color: #fff !important;
+  background: #438de9 !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-play-button,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-play-button {
+  color: #fff !important;
+  background: rgba(255,255,255,.22) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-transcribe-btn {
+  color: #1d65bd !important;
+  background: rgba(57,132,226,.12) !important;
+  border-color: rgba(57,132,226,.28) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-transcribe-btn,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-transcribe-btn {
+  color: #fff !important;
+  background: rgba(255,255,255,.16) !important;
+  border-color: rgba(255,255,255,.28) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .voice-transcript {
+  color: #202433 !important;
+  background: rgba(57,132,226,.09) !important;
+  border-color: rgba(57,132,226,.15) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .voice-transcript,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .voice-transcript {
+  color: #fff !important;
+  background: rgba(255,255,255,.12) !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+
+html body:not(.dark) #messages .voice-transcript-text,
+html body:not(.dark) #messages .voice-transcript p {
+  color: inherit !important;
+  font-weight: 400 !important;
+}
+
+/* Final specificity fix: old component rules used 600/700 on message paragraphs. */
+html body #messages .message-row:not(.system-message) .bubble,
+html body #messages .message-row:not(.system-message) .bubble > p,
+html body #messages .message-row:not(.system-message) .bubble > p.message-text,
+html body #messages .message-row.text-only-message:not(.system-message) .bubble > p,
+html body #messages .message-row:not(.system-message) .message-text,
+html body #messages .message-row:not(.system-message) .message-text-content {
+  font-weight: 400 !important;
+  font-synthesis: none !important;
+}
+
+html body #messages .message-row:not(.system-message) .message-text span:not(.onix-plus-badge),
+html body #messages .message-row:not(.system-message) .message-text-content span:not(.onix-plus-badge) {
+  font-weight: 400 !important;
+}
+
+html body #messages .message-row:not(.system-message) .message-text strong,
+html body #messages .message-row:not(.system-message) .message-text b {
+  font-weight: 600 !important;
+}
+
+/* Voice cloud is the ordinary message cloud; the player itself has no second color. */
+html body:not(.dark) #messages .message-row.voice-message-row:not(.mine-left):not([data-from="me"]) .bubble {
+  color: #202433 !important;
+  background: #eef1f6 !important;
+  border: 1px solid rgba(57,69,94,.16) !important;
+  box-shadow: 0 5px 14px rgba(55,65,92,.13) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row.mine-left .bubble,
+html body:not(.dark) #messages .message-row.voice-message-row[data-from="me"] .bubble {
+  color: #fff !important;
+  background: linear-gradient(180deg, #7c5cff, #624bd6) !important;
+  border: 1px solid rgba(84,59,177,.24) !important;
+  box-shadow: 0 6px 16px rgba(89,65,179,.20) !important;
+}
+
+html body:not(.dark) #messages .message-row.voice-message-row .voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row .vk-voice-message,
+html body:not(.dark) #messages .message-row.voice-message-row .voice-message:has(.voice-transcript),
+html body:not(.dark) #messages .message-row.voice-message-row .vk-voice-message:has(.voice-transcript) {
+  color: inherit !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* === CRITICAL BUGFIX: Ensure pinned message banner is completely hidden when it has the .hidden class === */
+body .pinned-message.hidden,
+body.dark .pinned-message.hidden,
+body:not(.dark) .pinned-message.hidden,
+body.has-chat-wallpaper .pinned-message.hidden,
+.messages-shell > #pinnedMessage.pinned-message.hidden,
+#pinnedMessage.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
+
+
+/* === Per-chat pinned message isolation and reliable controls === */
+.messages-shell > #pinnedMessage.pinned-message:not(.hidden) {
+  pointer-events: none !important;
+}
+
+.messages-shell > #pinnedMessage.pinned-message > div {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button,
+.messages-shell > #pinnedMessage .pinned-message-unpin-button {
+  position: absolute !important;
+  top: 50% !important;
+  z-index: 2 !important;
+  display: grid !important;
+  place-items: center !important;
+  width: 34px !important;
+  min-width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: translateY(-50%) !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-list-button {
+  right: 54px !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-unpin-button {
+  right: 15px !important;
+  color: #72b7ff !important;
+  background: rgba(114, 183, 255, .10) !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage .pinned-message-unpin-button {
+  color: #2674d9 !important;
+  background: rgba(38, 116, 217, .10) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-unpin-button:hover,
+.messages-shell > #pinnedMessage .pinned-message-unpin-button:focus-visible {
+  background: color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-unpin-button.hidden {
+  display: none !important;
+}
+
+
+/* === 2026-07-22: explicit unpin confirmation check and real scroll arrow === */
+.messages-shell > #pinnedMessage .pinned-message-unpin-button .svg-icon {
+  width: 18px !important;
+  height: 18px !important;
+  stroke-width: 2.7 !important;
+}
+
+.messages-shell > #chatScrollDown.chat-scroll-down .svg-icon {
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2.4 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+/* === v7: red SVG unpin cross, red confirm title, tidy summary row === */
+.messages-shell > #pinnedMessage .pinned-message-unpin-button {
+  color: #ff5f78 !important;
+  background: rgba(255, 95, 120, .12) !important;
+}
+
+body:not(.dark) .messages-shell > #pinnedMessage .pinned-message-unpin-button {
+  color: #e54866 !important;
+  background: rgba(229, 72, 102, .12) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-unpin-button:hover,
+.messages-shell > #pinnedMessage .pinned-message-unpin-button:focus-visible {
+  background: rgba(255, 95, 120, .18) !important;
+}
+
+.messages-shell > #pinnedMessage .pinned-message-unpin-button .svg-icon {
+  width: 18px !important;
+  height: 18px !important;
+  stroke-width: 2.7 !important;
+  stroke: currentColor !important;
+}
+
+#confirmModal.danger-title .confirm-content h2,
+#confirmModal.danger-title #confirmTitle {
+  color: #ff5f78 !important;
+}
+
+html body .message-context .message-context-menu button[data-message-action="summary"],
+html body .message-context .message-context-menu button.is-premium-locked[data-message-action="summary"],
+html body .onix-composer-context-menu .message-context-menu button[data-composer-action="summary"],
+html body .onix-composer-context-menu .message-context-menu button.is-premium-locked[data-composer-action="summary"] {
+  display: grid !important;
+  grid-template-columns: 20px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+html body .message-context .message-context-menu button[data-message-action="summary"] > span:nth-child(2),
+html body .onix-composer-context-menu .message-context-menu button[data-composer-action="summary"] > span:nth-child(2) {
+  min-width: 0 !important;
+  white-space: nowrap !important;
+}
+
+html body .message-context .message-context-menu button.is-premium-locked em,
+html body .onix-composer-context-menu .message-context-menu button.is-premium-locked em {
+  margin-left: 0 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  white-space: nowrap !important;
+}
+
+
+/* === v8: remove unused admin panel and dark wallpaper strip === */
+html body [data-drawer-action="admin-panel"],
+html body .settings-link-admin,
+html body .admin-settings-page,
+html body [data-page="admin-panel"] {
+  display: none !important;
+}
+
+body.has-chat-wallpaper .chat-panel,
+body.has-chat-wallpaper .messages-shell {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+body.has-chat-wallpaper .chat-panel::before,
+body.has-chat-wallpaper .chat-panel::after,
+body.has-chat-wallpaper .messages-shell::before,
+body.has-chat-wallpaper .messages-shell::after,
+body.has-chat-wallpaper #messages.messages::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.has-chat-wallpaper #messages.messages {
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}

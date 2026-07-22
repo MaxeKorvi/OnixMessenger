@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  background: #07111f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.onix-preview-shell {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #07111f;
+}
+
+.onix-preview-shell {
+  height: 100dvh;
+}
+
+.onix-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #07111f;
+}

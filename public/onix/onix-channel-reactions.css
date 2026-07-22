@@ -1,0 +1,455 @@
+/* Compact attachment menu, one paid SVG reaction, and channel reaction controls. */
+
+/* Attachment buttons: smaller, equal and vertically aligned. */
+html body #attachMenu:not([data-menu-type="emoji"]) {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 2px !important;
+  width: 238px !important;
+  min-width: 238px !important;
+  max-width: min(238px, calc(100vw - 20px)) !important;
+  padding: 6px !important;
+  border-radius: 15px !important;
+  overflow: hidden !important;
+}
+
+html body #attachMenu.hidden {
+  display: none !important;
+}
+
+html body #attachMenu:not([data-menu-type="emoji"]) > button[data-attach-action] {
+  box-sizing: border-box !important;
+  display: grid !important;
+  grid-template-columns: 27px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 38px !important;
+  height: 38px !important;
+  margin: 0 !important;
+  padding: 0 9px !important;
+  border-radius: 10px !important;
+  text-align: left !important;
+  line-height: 1 !important;
+}
+
+html body #attachMenu:not([data-menu-type="emoji"]) > button[data-attach-action] > span:first-child {
+  display: grid !important;
+  place-items: center !important;
+  width: 27px !important;
+  height: 27px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body #attachMenu:not([data-menu-type="emoji"]) > button[data-attach-action] > span:last-child {
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.15 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+html body #attachMenu:not([data-menu-type="emoji"]) > button[data-attach-action] .svg-icon {
+  display: block !important;
+  width: 17px !important;
+  height: 17px !important;
+  flex: 0 0 17px !important;
+  margin: 0 !important;
+  transform: none !important;
+}
+
+/* Single paid spark reaction. */
+.paid-reaction-icon,
+.reaction-svg.paid-reaction-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  color: #b9adff;
+  pointer-events: none;
+}
+
+.paid-reaction-icon > svg,
+.reaction-svg.paid-reaction-icon > svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.message-context .reaction-strip [data-react="paid:sparkles"] {
+  position: relative;
+  isolation: isolate;
+}
+
+.message-context .reaction-strip [data-react="paid:sparkles"]:hover,
+.message-context .reaction-strip [data-react="paid:sparkles"]:focus-visible {
+  background: rgba(157, 140, 255, .18);
+}
+
+.message-context .reaction-strip .paid-reaction-button.is-locked .paid-reaction-icon {
+  opacity: .76;
+}
+
+.paid-reaction-lock {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  min-width: 13px;
+  height: 13px;
+  padding: 0 3px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 999px;
+  color: #fff;
+  background: #7c5cff;
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 2px 7px rgba(24, 18, 54, .35);
+  pointer-events: none;
+}
+
+#messages .reaction .paid-reaction-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.reaction-flight .paid-reaction-icon {
+  width: 34px;
+  height: 34px;
+}
+
+/* Channel reaction settings. */
+.channel-reaction-settings {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--panel-solid) 92%, var(--accent) 8%);
+}
+
+.channel-reaction-settings-title,
+.channel-reaction-master-row,
+.channel-paid-reaction-row {
+  display: grid;
+  align-items: center;
+  gap: 10px;
+}
+
+.channel-reaction-settings-title {
+  grid-template-columns: 34px minmax(0, 1fr);
+}
+
+.channel-reaction-settings-icon,
+.channel-paid-reaction-preview {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  color: #b9adff;
+  background: rgba(124, 92, 255, .14);
+}
+
+.channel-reaction-settings-icon .svg-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.channel-reaction-settings-title > span:last-child,
+.channel-reaction-master-row > span:first-child,
+.channel-paid-reaction-row > span:nth-child(2) {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.channel-reaction-settings b {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.channel-reaction-settings small,
+.channel-reaction-options legend {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.channel-reaction-master-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.channel-reaction-options {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transition: opacity .18s ease;
+}
+
+.channel-reaction-options legend {
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.channel-reaction-grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.channel-reaction-choice {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: rgba(127, 127, 127, .09);
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.channel-reaction-choice:hover {
+  transform: translateY(-1px);
+  background: rgba(124, 92, 255, .13);
+}
+
+.channel-reaction-choice.is-selected {
+  border-color: rgba(157, 140, 255, .72);
+  background: rgba(124, 92, 255, .18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .04);
+}
+
+.channel-reaction-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.channel-reaction-choice .reaction-svg {
+  width: 24px;
+  height: 24px;
+}
+
+.channel-paid-reaction-row {
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  padding: 10px;
+  border: 1px solid rgba(157, 140, 255, .24);
+  border-radius: 13px;
+  background: rgba(124, 92, 255, .08);
+  cursor: pointer;
+  transition: opacity .18s ease;
+}
+
+.channel-paid-reaction-preview .paid-reaction-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.channel-reaction-settings.is-disabled .channel-reaction-options,
+.channel-reaction-settings.is-disabled .channel-paid-reaction-row {
+  opacity: .42;
+}
+
+.channel-reaction-save {
+  width: 100%;
+  min-height: 40px;
+  justify-content: center;
+}
+
+/* Purchase modal: one icon only. */
+.paid-reaction-purchase {
+  display: grid;
+  gap: 12px;
+}
+
+.paid-reaction-hero {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid rgba(157, 140, 255, .28);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(124, 92, 255, .18), rgba(124, 92, 255, .06));
+  text-align: center;
+}
+
+.paid-reaction-preview {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, .06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+.paid-reaction-icon-large {
+  width: 62px;
+  height: 62px;
+}
+
+.paid-reaction-hero h3,
+.paid-reaction-hero p {
+  margin: 0;
+}
+
+.paid-reaction-hero h3 {
+  font-size: 17px;
+}
+
+.paid-reaction-hero p {
+  max-width: 360px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.paid-reaction-price {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.paid-reaction-price strong {
+  font-size: 25px;
+}
+
+.paid-reaction-price span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.paid-reaction-status {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.paid-reaction-status.is-pending {
+  color: #ffd58a;
+  background: rgba(245, 158, 11, .12);
+}
+
+.paid-reaction-status.is-approved {
+  color: #98edb8;
+  background: rgba(34, 197, 94, .12);
+}
+
+.paid-reaction-status.is-rejected {
+  color: #ff9cab;
+  background: rgba(239, 68, 68, .12);
+}
+
+.paid-reaction-pay-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.paid-reaction-pay-link,
+.paid-reaction-copy-link,
+.paid-reaction-check-button,
+.paid-reaction-submit {
+  box-sizing: border-box;
+  min-height: 40px;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 750;
+  text-align: center;
+}
+
+.paid-reaction-pay-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  color: #fff;
+  background: linear-gradient(135deg, #8d6bff, #6950db);
+  text-decoration: none;
+}
+
+.paid-reaction-copy-link,
+.paid-reaction-check-button {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: var(--panel-solid);
+}
+
+.paid-reaction-receipt-form {
+  display: grid;
+  gap: 9px;
+  padding: 10px;
+  border: 1px dashed rgba(157, 140, 255, .42);
+  border-radius: 12px;
+}
+
+.paid-reaction-file-label {
+  display: grid;
+  gap: 4px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.paid-reaction-file-label small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.paid-reaction-file-label input {
+  width: 100%;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.paid-reaction-submit,
+.paid-reaction-check-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.paid-reaction-submit[disabled],
+.paid-reaction-check-button[disabled] {
+  opacity: .55;
+  cursor: wait;
+}
+
+@media (max-width: 520px) {
+  .channel-reaction-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .paid-reaction-pay-grid {
+    grid-template-columns: 1fr;
+  }
+}

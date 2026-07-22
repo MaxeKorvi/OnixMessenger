@@ -1,0 +1,3992 @@
+{
+  "routes": [
+    {
+      "file": "app/main.py",
+      "method": "GET",
+      "path": "/api/health",
+      "handler": "health",
+      "line": 260
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "POST",
+      "path": "/payments/onix-plus",
+      "handler": "submit_onix_plus_payment",
+      "line": 308
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "POST",
+      "path": "/payments/reaction-pack",
+      "handler": "submit_reaction_pack_payment",
+      "line": 376
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "GET",
+      "path": "/payments/reaction-pack/mine",
+      "handler": "my_reaction_pack_payments",
+      "line": 452
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "GET",
+      "path": "/payments/onix-plus/mine",
+      "handler": "my_onix_plus_payments",
+      "line": 471
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "GET",
+      "path": "/payments/onix-plus/{payment_id}/receipt",
+      "handler": "payment_receipt",
+      "line": 478
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "GET",
+      "path": "/admin/payments/onix-plus",
+      "handler": "admin_list_onix_plus_payments",
+      "line": 492
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "POST",
+      "path": "/admin/payments/onix-plus/{payment_id}/approve",
+      "handler": "approve_onix_plus_payment",
+      "line": 546
+    },
+    {
+      "file": "app/routers/payments.py",
+      "method": "POST",
+      "path": "/admin/payments/onix-plus/{payment_id}/reject",
+      "handler": "reject_onix_plus_payment",
+      "line": 551
+    },
+    {
+      "file": "app/routers/devices.py",
+      "method": "GET",
+      "path": "/devices",
+      "handler": "list_devices",
+      "line": 20
+    },
+    {
+      "file": "app/routers/devices.py",
+      "method": "POST",
+      "path": "/devices/revoke",
+      "handler": "revoke_device",
+      "line": 50
+    },
+    {
+      "file": "app/routers/devices.py",
+      "method": "POST",
+      "path": "/devices/revoke-all",
+      "handler": "revoke_all_other_devices",
+      "line": 79
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/login.php",
+      "handler": "_legacy_login",
+      "line": 103
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/register.php",
+      "handler": "_legacy_register",
+      "line": 108
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/verify-email.php",
+      "handler": "_legacy_verify_email",
+      "line": 113
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/magic-link-request.php",
+      "handler": "_legacy_magic_link_request",
+      "line": 118
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/magic-link-consume.php",
+      "handler": "_legacy_magic_link_consume",
+      "line": 123
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/pin-setup.php",
+      "handler": "_legacy_pin_setup",
+      "line": 128
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/pin-verify.php",
+      "handler": "_legacy_pin_verify",
+      "line": 133
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/pin-recovery-start.php",
+      "handler": "_legacy_pin_recovery_start",
+      "line": 138
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/pin-reset-consume.php",
+      "handler": "_legacy_pin_reset_consume",
+      "line": 143
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/pin-reset-complete.php",
+      "handler": "_legacy_pin_reset_complete",
+      "line": 148
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/logout.php",
+      "handler": "_legacy_logout",
+      "line": 153
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/update-profile.php",
+      "handler": "_legacy_update_profile",
+      "line": 165
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/change-password.php",
+      "handler": "_legacy_change_password",
+      "line": 170
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/delete-account.php",
+      "handler": "_legacy_delete_account",
+      "line": 175
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/diagnostics.php",
+      "handler": "_legacy_diagnostics",
+      "line": 180
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/lookup-user.php",
+      "handler": "_legacy_lookup_user",
+      "line": 185
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/block-user.php",
+      "handler": "_legacy_block_user",
+      "line": 190
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/request-password-reset.php",
+      "handler": "_legacy_request_reset",
+      "line": 195
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/reset-password.php",
+      "handler": "_legacy_reset_password",
+      "line": 200
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/reports.php",
+      "handler": "_legacy_create_report",
+      "line": 205
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/support-command.php",
+      "handler": "_legacy_support_command",
+      "line": 210
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/messages.php",
+      "handler": "_legacy_messages",
+      "line": 220
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/delete-message.php",
+      "handler": "_legacy_delete_message",
+      "line": 252
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/mark-read.php",
+      "handler": "_legacy_mark_read",
+      "line": 257
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/react.php",
+      "handler": "_legacy_react",
+      "line": 262
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/calls.php",
+      "handler": "_legacy_calls",
+      "line": 272
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/groups.php",
+      "handler": "_legacy_groups",
+      "line": 304
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/contacts.php",
+      "handler": "_legacy_contacts",
+      "line": 363
+    },
+    {
+      "file": "app/routers/legacy_compat.py",
+      "method": "POST",
+      "path": "/upload.php",
+      "handler": "_legacy_upload",
+      "line": 389
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "GET",
+      "path": "/advanced/preferences",
+      "handler": "get_preferences",
+      "line": 98
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "POST",
+      "path": "/advanced/preferences",
+      "handler": "update_preferences",
+      "line": 119
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "GET",
+      "path": "/advanced/tags",
+      "handler": "list_tags",
+      "line": 168
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "POST",
+      "path": "/advanced/tags/apply",
+      "handler": "apply_tag",
+      "line": 184
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "POST",
+      "path": "/advanced/tags/remove",
+      "handler": "remove_tag",
+      "line": 217
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "GET",
+      "path": "/advanced/sync",
+      "handler": "sync_state",
+      "line": 240
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "POST",
+      "path": "/advanced/guest-invites",
+      "handler": "create_guest_invite",
+      "line": 273
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "GET",
+      "path": "/advanced/guest-invites/{token}",
+      "handler": "resolve_guest_invite",
+      "line": 308
+    },
+    {
+      "file": "app/routers/advanced.py",
+      "method": "POST",
+      "path": "/advanced/messages/consume-once",
+      "handler": "consume_once",
+      "line": 330
+    },
+    {
+      "file": "app/routers/monitoring.py",
+      "method": "GET",
+      "path": "/health/deep",
+      "handler": "deep_health",
+      "line": 22
+    },
+    {
+      "file": "app/routers/monitoring.py",
+      "method": "GET",
+      "path": "/admin/metrics",
+      "handler": "metrics",
+      "line": 38
+    },
+    {
+      "file": "app/routers/calls.py",
+      "method": "POST",
+      "path": "/calls/start",
+      "handler": "call_start",
+      "line": 120
+    },
+    {
+      "file": "app/routers/calls.py",
+      "method": "POST",
+      "path": "/calls/respond",
+      "handler": "call_respond",
+      "line": 196
+    },
+    {
+      "file": "app/routers/calls.py",
+      "method": "POST",
+      "path": "/calls/poll",
+      "handler": "call_poll",
+      "line": 240
+    },
+    {
+      "file": "app/routers/calls.py",
+      "method": "POST",
+      "path": "/calls/signal",
+      "handler": "call_signal",
+      "line": 264
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/create",
+      "handler": "create",
+      "line": 160
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/add-member",
+      "handler": "add_member",
+      "line": 252
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/remove-member",
+      "handler": "remove_member",
+      "line": 303
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/promote",
+      "handler": "promote_member",
+      "line": 340
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/leave",
+      "handler": "leave",
+      "line": 377
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/delete",
+      "handler": "delete_conv",
+      "line": 408
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/update",
+      "handler": "update_conv",
+      "line": 435
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/members",
+      "handler": "list_members",
+      "line": 484
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/state",
+      "handler": "set_state",
+      "line": 524
+    },
+    {
+      "file": "app/routers/conversations.py",
+      "method": "POST",
+      "path": "/conversations/join-by-token",
+      "handler": "join_by_token",
+      "line": 616
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/magic-link/request",
+      "handler": "request_magic_link",
+      "line": 78
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/magic-link/consume",
+      "handler": "consume_magic_link",
+      "line": 110
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/pin/setup",
+      "handler": "setup_pin",
+      "line": 119
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/pin/verify",
+      "handler": "verify_pin",
+      "line": 161
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/pin/recovery/start",
+      "handler": "start_pin_recovery",
+      "line": 183
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/pin/reset/consume",
+      "handler": "consume_pin_reset",
+      "line": 218
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/pin/reset/complete",
+      "handler": "complete_pin_reset",
+      "line": 227
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/register",
+      "handler": "register",
+      "line": 249
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/verify-email",
+      "handler": "verify_email",
+      "line": 323
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/login",
+      "handler": "login",
+      "line": 349
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/logout",
+      "handler": "logout",
+      "line": 384
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "GET",
+      "path": "/me",
+      "handler": "me_get",
+      "line": 401
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/me",
+      "handler": "me_post",
+      "line": 411
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/diagnostics",
+      "handler": "diagnostics",
+      "line": 420
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/request-password-reset",
+      "handler": "request_password_reset",
+      "line": 465
+    },
+    {
+      "file": "app/routers/auth.py",
+      "method": "POST",
+      "path": "/reset-password",
+      "handler": "reset_password",
+      "line": 496
+    },
+    {
+      "file": "app/routers/search.py",
+      "method": "GET",
+      "path": "/search/users",
+      "handler": "search_users",
+      "line": 18
+    },
+    {
+      "file": "app/routers/search.py",
+      "method": "POST",
+      "path": "/search",
+      "handler": "search",
+      "line": 45
+    },
+    {
+      "file": "app/routers/support.py",
+      "method": "POST",
+      "path": "/support/command",
+      "handler": "support_command",
+      "line": 113
+    },
+    {
+      "file": "app/routers/reactions.py",
+      "method": "GET",
+      "path": "/reactions/catalog",
+      "handler": "reaction_catalog",
+      "line": 80
+    },
+    {
+      "file": "app/routers/reactions.py",
+      "method": "POST",
+      "path": "/react",
+      "handler": "react",
+      "line": 118
+    },
+    {
+      "file": "app/routers/reports.py",
+      "method": "POST",
+      "path": "/reports",
+      "handler": "create_report",
+      "line": 30
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "GET",
+      "path": "/admin/stats",
+      "handler": "stats",
+      "line": 36
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "GET",
+      "path": "/admin/users",
+      "handler": "list_users",
+      "line": 72
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "POST",
+      "path": "/admin/users/action",
+      "handler": "user_action",
+      "line": 84
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "GET",
+      "path": "/admin/reports",
+      "handler": "list_reports",
+      "line": 127
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "POST",
+      "path": "/admin/reports/resolve",
+      "handler": "resolve_report",
+      "line": 154
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "GET",
+      "path": "/admin/security-events",
+      "handler": "security_events",
+      "line": 183
+    },
+    {
+      "file": "app/routers/admin.py",
+      "method": "GET",
+      "path": "/admin/actions",
+      "handler": "admin_actions",
+      "line": 204
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "POST",
+      "path": "/uploads/file",
+      "handler": "upload_file",
+      "line": 115
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "POST",
+      "path": "/uploads/avatar",
+      "handler": "upload_avatar",
+      "line": 167
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "GET",
+      "path": "/uploads/file/{storage_name}",
+      "handler": "get_uploaded_file",
+      "line": 204
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "GET",
+      "path": "/uploads/avatar/{storage_name}",
+      "handler": "get_avatar",
+      "line": 210
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "GET",
+      "path": "/uploads/voice/{storage_name}",
+      "handler": "get_voice",
+      "line": 216
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "GET",
+      "path": "/uploads/stickers",
+      "handler": "list_stickers",
+      "line": 227
+    },
+    {
+      "file": "app/routers/uploads.py",
+      "method": "GET",
+      "path": "/uploads/gifs",
+      "handler": "search_gifs",
+      "line": 264
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/send",
+      "handler": "send_message",
+      "line": 518
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/conversation",
+      "handler": "get_conversation",
+      "line": 615
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/list",
+      "handler": "list_conversations",
+      "line": 658
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/delete",
+      "handler": "delete_message",
+      "line": 715
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/edit",
+      "handler": "edit_message",
+      "line": 762
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/pin",
+      "handler": "pin_message",
+      "line": 799
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/mark-read",
+      "handler": "mark_read",
+      "line": 891
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/forward",
+      "handler": "forward_message",
+      "line": 937
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "POST",
+      "path": "/messages/typing",
+      "handler": "set_typing",
+      "line": 1005
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "GET",
+      "path": "/messages/search",
+      "handler": "search_messages",
+      "line": 1031
+    },
+    {
+      "file": "app/routers/messages.py",
+      "method": "GET",
+      "path": "/messages/materials",
+      "handler": "conversation_materials",
+      "line": 1056
+    },
+    {
+      "file": "app/routers/notifications.py",
+      "method": "POST",
+      "path": "/notifications/push-subscription",
+      "handler": "save_push_subscription",
+      "line": 23
+    },
+    {
+      "file": "app/routers/notifications.py",
+      "method": "POST",
+      "path": "/notifications/revoke-push-subscription",
+      "handler": "revoke_push_subscription",
+      "line": 57
+    },
+    {
+      "file": "app/routers/contacts.py",
+      "method": "POST",
+      "path": "/contacts/list",
+      "handler": "list_contacts",
+      "line": 19
+    },
+    {
+      "file": "app/routers/contacts.py",
+      "method": "POST",
+      "path": "/contacts/add",
+      "handler": "add_contact",
+      "line": 42
+    },
+    {
+      "file": "app/routers/contacts.py",
+      "method": "POST",
+      "path": "/contacts/remove",
+      "handler": "remove_contact",
+      "line": 77
+    },
+    {
+      "file": "app/routers/contacts.py",
+      "method": "POST",
+      "path": "/contacts/all-users",
+      "handler": "list_all_users",
+      "line": 98
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/update-profile",
+      "handler": "update_profile",
+      "line": 78
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "GET",
+      "path": "/privacy",
+      "handler": "get_privacy",
+      "line": 125
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/privacy",
+      "handler": "update_privacy",
+      "line": 133
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/change-password",
+      "handler": "change_password",
+      "line": 171
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/delete-account",
+      "handler": "delete_account",
+      "line": 193
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/lookup-user",
+      "handler": "lookup_user",
+      "line": 223
+    },
+    {
+      "file": "app/routers/users.py",
+      "method": "POST",
+      "path": "/block-user",
+      "handler": "block_user",
+      "line": 242
+    }
+  ],
+  "models": {
+    "User": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(80), nullable=False)"
+        },
+        {
+          "name": "email",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(190), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "username",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "phone",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(32), nullable=True, unique=True)"
+        },
+        {
+          "name": "password_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "pin_hash",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(255), nullable=True)"
+        },
+        {
+          "name": "recovery_word_hash",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(255), nullable=True)"
+        },
+        {
+          "name": "pin_failed_attempts",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=0, nullable=False)"
+        },
+        {
+          "name": "pin_locked_until",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "recovery_failed_attempts",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=0, nullable=False)"
+        },
+        {
+          "name": "recovery_locked_until",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "bio",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(240), nullable=False, default='')"
+        },
+        {
+          "name": "birthday",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "avatar_path",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(255), nullable=True)"
+        },
+        {
+          "name": "is_admin",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "is_premium",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "email_verified_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True, index=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "deleted_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "last_seen_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True, index=True)"
+        },
+        {
+          "name": "sessions",
+          "type": "Mapped[List['UserSession']]",
+          "default": "relationship(back_populates='user', cascade='all, delete-orphan')"
+        },
+        {
+          "name": "privacy",
+          "type": "Mapped[Optional['PrivacySettings']]",
+          "default": "relationship(back_populates='user', cascade='all, delete-orphan', uselist=False)"
+        }
+      ]
+    },
+    "EmailVerification": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)"
+        },
+        {
+          "name": "email",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(190), nullable=False, index=True)"
+        },
+        {
+          "name": "code_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "used_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "PasswordReset": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)"
+        },
+        {
+          "name": "email",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(190), nullable=False, index=True)"
+        },
+        {
+          "name": "code_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "used_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "MagicLoginToken": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "email",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(190), nullable=False, index=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=True)"
+        },
+        {
+          "name": "token_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "used_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "PinResetToken": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False)"
+        },
+        {
+          "name": "email",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(190), nullable=False, index=True)"
+        },
+        {
+          "name": "token_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "used_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "UserSession": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "token_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "ip_address",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), default='', nullable=False)"
+        },
+        {
+          "name": "user_agent",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), default='', nullable=False)"
+        },
+        {
+          "name": "device_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), default='', nullable=False)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "revoked_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "user",
+          "type": "Mapped[User]",
+          "default": "relationship(back_populates='sessions')"
+        }
+      ]
+    },
+    "PushSubscription": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "endpoint_hash",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "subscription",
+          "type": "Mapped[dict]",
+          "default": "mapped_column(JSONType, nullable=False)"
+        },
+        {
+          "name": "user_agent",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), default='', nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "revoked_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "PrivacySettings": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "phone_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='nobody', nullable=False)"
+        },
+        {
+          "name": "last_seen_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='contacts', nullable=False)"
+        },
+        {
+          "name": "photo_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='all', nullable=False)"
+        },
+        {
+          "name": "forward_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='contacts', nullable=False)"
+        },
+        {
+          "name": "calls_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='contacts', nullable=False)"
+        },
+        {
+          "name": "messages_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='all', nullable=False)"
+        },
+        {
+          "name": "group_invites_visibility",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='all', nullable=False)"
+        },
+        {
+          "name": "read_receipts_enabled",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=True, nullable=False)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "user",
+          "type": "Mapped[User]",
+          "default": "relationship(back_populates='privacy')"
+        }
+      ]
+    },
+    "BlockedUser": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "blocker_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "blocked_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "Conversation": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), nullable=False, index=True)"
+        },
+        {
+          "name": "title",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), default='', nullable=False)"
+        },
+        {
+          "name": "description",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(Text, nullable=True)"
+        },
+        {
+          "name": "avatar_path",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(255), nullable=True)"
+        },
+        {
+          "name": "created_by",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id'), nullable=False)"
+        },
+        {
+          "name": "is_public",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "invite_token",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(64), nullable=True, index=True)"
+        },
+        {
+          "name": "auto_delete_seconds",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(Integer, nullable=True)"
+        },
+        {
+          "name": "theme",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(32), default=None, nullable=True)"
+        },
+        {
+          "name": "banner_path",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(Text, default=None, nullable=True)"
+        },
+        {
+          "name": "appearance_",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column('appearance', JSONType, default=None, nullable=True)"
+        },
+        {
+          "name": "reaction_settings_",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column('reaction_settings', JSONType, default=None, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True, index=True)"
+        },
+        {
+          "name": "deleted_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "members",
+          "type": "Mapped[List['ConversationMember']]",
+          "default": "relationship(back_populates='conversation', cascade='all, delete-orphan')"
+        },
+        {
+          "name": "messages",
+          "type": "Mapped[List['Message']]",
+          "default": "relationship(back_populates='conversation', cascade='all, delete-orphan')"
+        }
+      ]
+    },
+    "ConversationMember": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "role",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='member', nullable=False)"
+        },
+        {
+          "name": "muted_until",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "joined_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "left_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "conversation",
+          "type": "Mapped[Conversation]",
+          "default": "relationship(back_populates='members')"
+        }
+      ]
+    },
+    "ConversationUserState": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "last_read_message_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='SET NULL'), nullable=True)"
+        },
+        {
+          "name": "pinned_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "archived_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "muted_until",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "draft",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(Text, nullable=True)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "Message": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "sender_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id'), nullable=False)"
+        },
+        {
+          "name": "reply_to_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='SET NULL'), nullable=True)"
+        },
+        {
+          "name": "forwarded_from_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='SET NULL'), nullable=True)"
+        },
+        {
+          "name": "body",
+          "type": "Mapped[str]",
+          "default": "mapped_column(Text, nullable=False, default='')"
+        },
+        {
+          "name": "kind",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='text', nullable=False)"
+        },
+        {
+          "name": "metadata_",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column('metadata', JSONType, nullable=True)"
+        },
+        {
+          "name": "pinned_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True, index=True)"
+        },
+        {
+          "name": "views_count",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=0, nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        },
+        {
+          "name": "edited_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "deleted_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "conversation",
+          "type": "Mapped[Conversation]",
+          "default": "relationship(back_populates='messages')"
+        },
+        {
+          "name": "reactions",
+          "type": "Mapped[List['MessageReaction']]",
+          "default": "relationship(back_populates='message', cascade='all, delete-orphan')"
+        },
+        {
+          "name": "attachments",
+          "type": "Mapped[List['Attachment']]",
+          "default": "relationship(back_populates='message', cascade='all, delete-orphan')"
+        }
+      ]
+    },
+    "MessageReaction": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "message_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "reaction",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(24), primary_key=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "message",
+          "type": "Mapped[Message]",
+          "default": "relationship(back_populates='reactions')"
+        }
+      ]
+    },
+    "MessageUserPin": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "message_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "pinned_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "MessageRead": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "message_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "read_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "Attachment": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "message_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "original_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "mime_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), nullable=False)"
+        },
+        {
+          "name": "size_bytes",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, nullable=False)"
+        },
+        {
+          "name": "storage_path",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "message",
+          "type": "Mapped[Message]",
+          "default": "relationship(back_populates='attachments')"
+        }
+      ]
+    },
+    "StoredUpload": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "storage_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "public_url",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(512), nullable=False, unique=True)"
+        },
+        {
+          "name": "kind",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='uploads', nullable=False, index=True)"
+        },
+        {
+          "name": "uploader_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "message_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "original_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "mime_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), nullable=False)"
+        },
+        {
+          "name": "size_bytes",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        }
+      ]
+    },
+    "OnixPlusPayment": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "amount_kopecks",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=19900, nullable=False)"
+        },
+        {
+          "name": "product_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(32), default='onix_plus', nullable=False, index=True)"
+        },
+        {
+          "name": "product_code",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(64), nullable=True, index=True)"
+        },
+        {
+          "name": "bank",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(80), default='ВТБ', nullable=False)"
+        },
+        {
+          "name": "payment_url",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(512), nullable=False)"
+        },
+        {
+          "name": "receipt_storage_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "receipt_original_name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "receipt_mime_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), nullable=False)"
+        },
+        {
+          "name": "receipt_size_bytes",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, nullable=False)"
+        },
+        {
+          "name": "status",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='pending', nullable=False, index=True)"
+        },
+        {
+          "name": "reviewed_by",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='SET NULL'), nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        },
+        {
+          "name": "reviewed_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "UserReactionPack": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "pack_code",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), primary_key=True)"
+        },
+        {
+          "name": "payment_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('onix_plus_payments.id', ondelete='SET NULL'), nullable=True, unique=True)"
+        },
+        {
+          "name": "purchased_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        }
+      ]
+    },
+    "UserExperienceSettings": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "app_icon",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(32), default='default', nullable=False)"
+        },
+        {
+          "name": "nickname_color",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='#7C5CFF', nullable=False)"
+        },
+        {
+          "name": "animated_avatar_enabled",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=True, nullable=False)"
+        },
+        {
+          "name": "translation_enabled",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "translation_target",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='ru', nullable=False)"
+        },
+        {
+          "name": "translation_outgoing_enabled",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "translation_outgoing_target",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='en', nullable=False)"
+        },
+        {
+          "name": "protected_content_enabled",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "notification_tones",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column(JSONType, nullable=True)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "SavedTag": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False)"
+        },
+        {
+          "name": "color",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='#7C5CFF', nullable=False)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "deleted_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "SavedMessageTag": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "message_key",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(96), primary_key=True)"
+        },
+        {
+          "name": "tag_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('saved_tags.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "updated_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "deleted_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "UserSyncEvent": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "seq",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "kind",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(48), nullable=False, index=True)"
+        },
+        {
+          "name": "payload",
+          "type": "Mapped[dict]",
+          "default": "mapped_column(JSONType, nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        }
+      ]
+    },
+    "GuestChatInvite": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "token",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(96), nullable=False, unique=True, index=True)"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "created_by",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "guest_label",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), default='Гость', nullable=False)"
+        },
+        {
+          "name": "expires_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, nullable=False, index=True)"
+        },
+        {
+          "name": "max_uses",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=1, nullable=False)"
+        },
+        {
+          "name": "use_count",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=0, nullable=False)"
+        },
+        {
+          "name": "revoked_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "MessageOneTimeReceipt": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "message_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "viewed_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "Contact": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "owner_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "contact_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), primary_key=True)"
+        },
+        {
+          "name": "nickname",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(120), nullable=True)"
+        },
+        {
+          "name": "added_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "ConversationCall": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "caller_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "callee_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "status",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='ringing', nullable=False)"
+        },
+        {
+          "name": "call_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='audio', nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        },
+        {
+          "name": "answered_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        },
+        {
+          "name": "ended_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "SecurityEvent": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "user_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "event_type",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, index=True)"
+        },
+        {
+          "name": "ip_address",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), default='', nullable=False)"
+        },
+        {
+          "name": "user_agent",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), default='', nullable=False)"
+        },
+        {
+          "name": "metadata_",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column('metadata', JSONType, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        }
+      ]
+    },
+    "ContentReport": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "reporter_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('conversations.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "message_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('messages.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "reported_user_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "reason",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), nullable=False)"
+        },
+        {
+          "name": "details",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(Text, nullable=True)"
+        },
+        {
+          "name": "status",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(16), default='open', nullable=False, index=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        },
+        {
+          "name": "resolved_at",
+          "type": "Mapped[Optional[datetime]]",
+          "default": "mapped_column(DateTime, nullable=True)"
+        }
+      ]
+    },
+    "AdminAction": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "admin_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "target_user_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('users.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "target_report_id",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(BigInteger, ForeignKey('content_reports.id', ondelete='SET NULL'), nullable=True, index=True)"
+        },
+        {
+          "name": "action",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(64), nullable=False, index=True)"
+        },
+        {
+          "name": "details",
+          "type": "Mapped[Optional[dict]]",
+          "default": "mapped_column('details', JSONType, nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False, index=True)"
+        }
+      ]
+    },
+    "StickerPack": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "name",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(80), nullable=False)"
+        },
+        {
+          "name": "title",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(120), nullable=False)"
+        },
+        {
+          "name": "cover_path",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(255), nullable=True)"
+        },
+        {
+          "name": "is_builtin",
+          "type": "Mapped[bool]",
+          "default": "mapped_column(Boolean, default=False, nullable=False)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    },
+    "Sticker": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "pack_id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigInteger, ForeignKey('sticker_packs.id', ondelete='CASCADE'), nullable=False, index=True)"
+        },
+        {
+          "name": "file_path",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(255), nullable=False)"
+        },
+        {
+          "name": "emoji",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(32), nullable=True)"
+        },
+        {
+          "name": "sort_order",
+          "type": "Mapped[int]",
+          "default": "mapped_column(Integer, default=0, nullable=False)"
+        }
+      ]
+    },
+    "GifItem": {
+      "file": "app/models/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Mapped[int]",
+          "default": "mapped_column(BigIntPK(), primary_key=True, autoincrement=True)"
+        },
+        {
+          "name": "provider",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(32), default='local', nullable=False)"
+        },
+        {
+          "name": "provider_id",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(128), nullable=True)"
+        },
+        {
+          "name": "url",
+          "type": "Mapped[str]",
+          "default": "mapped_column(String(512), nullable=False)"
+        },
+        {
+          "name": "preview_url",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(512), nullable=True)"
+        },
+        {
+          "name": "width",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(Integer, nullable=True)"
+        },
+        {
+          "name": "height",
+          "type": "Mapped[Optional[int]]",
+          "default": "mapped_column(Integer, nullable=True)"
+        },
+        {
+          "name": "tags",
+          "type": "Mapped[Optional[str]]",
+          "default": "mapped_column(String(512), nullable=True)"
+        },
+        {
+          "name": "created_at",
+          "type": "Mapped[datetime]",
+          "default": "mapped_column(DateTime, default=datetime.utcnow, nullable=False)"
+        }
+      ]
+    }
+  },
+  "schemas": {
+    "OkResponse": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "ok",
+          "type": "bool",
+          "default": "True"
+        }
+      ]
+    },
+    "ErrorResponse": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "ok",
+          "type": "bool",
+          "default": "False"
+        },
+        {
+          "name": "message",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "field",
+          "type": "Optional[str]",
+          "default": "None"
+        }
+      ]
+    },
+    "LoginRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "identifier",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "password",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "MagicLinkRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "MagicLinkConsumeRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "token",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "PinVerifyRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "pin",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "PinSetupRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "pin",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "pinConfirm",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "recoveryWord",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "name",
+          "type": "Optional[str]",
+          "default": "''"
+        }
+      ]
+    },
+    "PinRecoveryRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "recoveryWord",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "PinResetConsumeRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "token",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "PinResetCompleteRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "token",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "pin",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "pinConfirm",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "RegisterRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "name",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "username",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "phone",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "password",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "passwordConfirm",
+          "type": "Optional[str]",
+          "default": "''"
+        }
+      ]
+    },
+    "VerifyEmailRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "code",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "UpdateProfileRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "name",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "bio",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "username",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "birthday",
+          "type": "Optional[str]",
+          "default": "''"
+        }
+      ]
+    },
+    "ChangePasswordRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "current_password",
+          "type": "str",
+          "default": "Field(..., alias='current_password')"
+        },
+        {
+          "name": "new_password",
+          "type": "str",
+          "default": "Field(..., alias='new_password')"
+        }
+      ]
+    },
+    "DeleteAccountRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "password",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "RequestPasswordResetRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "ResetPasswordRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "code",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "password",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "PublicUser": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "username",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "phone",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "bio",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "birthday",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "emailVerified",
+          "type": "bool",
+          "default": "False"
+        },
+        {
+          "name": "avatarUrl",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "lastSeenAt",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "isPremium",
+          "type": "bool",
+          "default": "False"
+        }
+      ]
+    },
+    "MessageFile": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "type",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "size",
+          "type": "int",
+          "default": "0"
+        },
+        {
+          "name": "url",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "dataUrl",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "mediaStyle",
+          "type": "Optional[str]",
+          "default": "None"
+        }
+      ]
+    },
+    "VoiceMetadata": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "dataUrl",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "url",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "type",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "size",
+          "type": "int",
+          "default": "0"
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "default": "0"
+        },
+        {
+          "name": "transcript",
+          "type": "Optional[str]",
+          "default": "''"
+        },
+        {
+          "name": "transcriptStatus",
+          "type": "Optional[str]",
+          "default": "'pending'"
+        }
+      ]
+    },
+    "PollOption": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "id",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "text",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "votes",
+          "type": "List[Any]",
+          "default": "[]"
+        }
+      ]
+    },
+    "PollMetadata": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "question",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "options",
+          "type": "List[PollOption]",
+          "default": "[]"
+        }
+      ]
+    },
+    "ReplyToMetadata": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "chatId",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "messageId",
+          "type": "Optional[Any]",
+          "default": "None"
+        },
+        {
+          "name": "author",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "text",
+          "type": "Optional[str]",
+          "default": "None"
+        }
+      ]
+    },
+    "MessageMetadata": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "files",
+          "type": "Optional[List[MessageFile]]",
+          "default": "None"
+        },
+        {
+          "name": "voice",
+          "type": "Optional[VoiceMetadata]",
+          "default": "None"
+        },
+        {
+          "name": "poll",
+          "type": "Optional[PollMetadata]",
+          "default": "None"
+        },
+        {
+          "name": "replyTo",
+          "type": "Optional[ReplyToMetadata]",
+          "default": "None"
+        },
+        {
+          "name": "kind",
+          "type": "Optional[str]",
+          "default": "'text'"
+        },
+        {
+          "name": "clientId",
+          "type": "Optional[Any]",
+          "default": "None"
+        },
+        {
+          "name": "forwardedFrom",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        },
+        {
+          "name": "sticker",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        },
+        {
+          "name": "gif",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        }
+      ]
+    },
+    "ConversationSendRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'send'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Optional[int]",
+          "default": "0"
+        },
+        {
+          "name": "recipient_id",
+          "type": "Optional[int]",
+          "default": "0"
+        },
+        {
+          "name": "body",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "metadata",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        }
+      ]
+    },
+    "ConversationListRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'list'"
+        },
+        {
+          "name": "after_id",
+          "type": "Optional[int]",
+          "default": "0"
+        }
+      ]
+    },
+    "ConversationGetRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'conversation'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Optional[int]",
+          "default": "0"
+        },
+        {
+          "name": "recipient_id",
+          "type": "Optional[int]",
+          "default": "0"
+        },
+        {
+          "name": "after_id",
+          "type": "Optional[int]",
+          "default": "0"
+        }
+      ]
+    },
+    "DeleteMessageRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "message_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "scope",
+          "type": "str",
+          "default": "'all'"
+        }
+      ]
+    },
+    "MarkReadRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "last_read_message_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "ReactRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "message_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "reaction",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "GroupCreateRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'create'"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "type",
+          "type": "str",
+          "default": "'group'"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "default": "''"
+        },
+        {
+          "name": "member_ids",
+          "type": "List[int]",
+          "default": "[]"
+        },
+        {
+          "name": "is_public",
+          "type": "bool",
+          "default": "False"
+        }
+      ]
+    },
+    "AddMemberRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'add_member'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "RemoveMemberRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'remove_member'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "PromoteMemberRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'promote'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "user_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "LeaveConversationRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'leave'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "DeleteConversationRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'delete'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "UpdateConversationRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'update'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "title",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "description",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "theme",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "banner_url",
+          "type": "Optional[str]",
+          "default": "None"
+        },
+        {
+          "name": "appearance",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        },
+        {
+          "name": "reaction_settings",
+          "type": "Optional[Dict[str, Any]]",
+          "default": "None"
+        }
+      ]
+    },
+    "MembersRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'members'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "int",
+          "default": null
+        }
+      ]
+    },
+    "CallStartRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'start'"
+        },
+        {
+          "name": "conversation_id",
+          "type": "Optional[int]",
+          "default": "0"
+        },
+        {
+          "name": "recipient_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "call_type",
+          "type": "str",
+          "default": "'audio'"
+        }
+      ]
+    },
+    "CallRespondRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'respond'"
+        },
+        {
+          "name": "call_id",
+          "type": "int",
+          "default": null
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "CallPollRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'poll'"
+        }
+      ]
+    },
+    "LookupUserRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "identifier",
+          "type": "str",
+          "default": null
+        }
+      ]
+    },
+    "BlockUserRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "action",
+          "type": "str",
+          "default": "'block'"
+        },
+        {
+          "name": "user_id",
+          "type": "Optional[int]",
+          "default": "0"
+        }
+      ]
+    },
+    "SearchRequest": {
+      "file": "app/schemas/__init__.py",
+      "fields": [
+        {
+          "name": "q",
+          "type": "str",
+          "default": null
+        },
+        {
+          "name": "limit",
+          "type": "int",
+          "default": "20"
+        }
+      ]
+    }
+  },
+  "imports": {
+    "alembic/env.py": [
+      "__future__.annotations",
+      "alembic.context",
+      "app.config.settings",
+      "app.database.Base",
+      "app.models",
+      "logging",
+      "logging.config.fileConfig",
+      "pathlib.Path",
+      "sqlalchemy.engine_from_config,pool",
+      "sys"
+    ],
+    "alembic/versions/0007_onix_plus_payments.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0011_paid_reactions_and_pin_order.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy"
+    ],
+    "alembic/versions/0001_initial.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0003_security_hardening.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0004_product_hardening.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0008_advanced_messenger_features.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0005_message_user_pins.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0012_channel_reaction_settings.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy"
+    ],
+    "alembic/versions/0002_magic_pin_auth.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0006_user_premium_pinned_chats.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy",
+      "typing.Sequence,Union"
+    ],
+    "alembic/versions/0010_conversation_appearance.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy"
+    ],
+    "alembic/versions/0009_conversation_theme_banner.py": [
+      "__future__.annotations",
+      "alembic.op",
+      "sqlalchemy"
+    ],
+    "tests/test_core_flows.py": [
+      "__future__.annotations",
+      "app.database.Base,engine",
+      "app.database.SessionLocal",
+      "app.main.app",
+      "app.models",
+      "app.services.email_service",
+      "fastapi.testclient.TestClient",
+      "os",
+      "pathlib.Path"
+    ],
+    "app/__init__.py": [],
+    "app/config.py": [
+      "__future__.annotations",
+      "functools.lru_cache",
+      "os",
+      "pathlib.Path",
+      "pydantic.Field,field_validator,model_validator",
+      "pydantic_settings.BaseSettings,SettingsConfigDict"
+    ],
+    "app/database.py": [
+      ".models",
+      "__future__.annotations",
+      "config.settings",
+      "contextlib",
+      "sqlalchemy.create_engine,event",
+      "sqlalchemy.engine.Engine",
+      "sqlalchemy.orm.DeclarativeBase,Session,scoped_session,sessionmaker",
+      "sqlalchemy.text",
+      "typing.Iterator"
+    ],
+    "app/main.py": [
+      "__future__.annotations",
+      "config.settings",
+      "contextlib.asynccontextmanager",
+      "fastapi.FastAPI,Request",
+      "fastapi.middleware.cors.CORSMiddleware",
+      "fastapi.middleware.gzip.GZipMiddleware",
+      "fastapi.responses.JSONResponse",
+      "fastapi.staticfiles.StaticFiles",
+      "logging",
+      "os",
+      "pathlib.Path",
+      "routers.advanced,admin,auth,calls,contacts,conversations,devices,messages,monitoring,notifications,payments,reactions,reports,search,support,uploads,users",
+      "routers.legacy_compat",
+      "services.maintenance_service",
+      "starlette.exceptions.HTTPException",
+      "starlette.middleware.sessions.SessionMiddleware",
+      "urllib.parse.urlsplit",
+      "utils.api.error_response,ok"
+    ],
+    "app/__main__.py": [
+      "config.settings",
+      "uvicorn"
+    ],
+    "app/schemas/__init__.py": [
+      "__future__.annotations",
+      "pydantic.BaseModel,Field",
+      "typing.Any,Dict,List,Optional"
+    ],
+    "app/services/__init__.py": [
+      ".audit_service,auth_service,email_service,maintenance_service,notification_service,storage_service,websocket_manager"
+    ],
+    "app/services/reaction_catalog.py": [
+      "__future__.annotations",
+      "typing.Final"
+    ],
+    "app/services/email_service.py": [
+      "__future__.annotations",
+      "aiosmtplib",
+      "asyncio",
+      "config.settings",
+      "email.mime.multipart.MIMEMultipart",
+      "email.mime.text.MIMEText",
+      "logging",
+      "secrets",
+      "security.passwords.hash_password,verify_password",
+      "typing.Optional"
+    ],
+    "app/services/audit_service.py": [
+      "__future__.annotations",
+      "datetime.datetime",
+      "fastapi.Request",
+      "models.AdminAction,SecurityEvent",
+      "sqlalchemy.orm.Session",
+      "typing.Any,Optional",
+      "utils.rate_limit.client_ip"
+    ],
+    "app/services/websocket_manager.py": [
+      "__future__.annotations",
+      "typing.Any,Dict,Iterable,List,Optional"
+    ],
+    "app/services/auth_service.py": [
+      ".email_service",
+      "__future__.annotations",
+      "config.settings",
+      "datetime.datetime,timedelta",
+      "fastapi.Request",
+      "hashlib",
+      "logging",
+      "models.Attachment,BlockedUser,Contact,ConversationCall,ConversationMember,ConversationUserState,EmailVerification,MagicLoginToken,Message,MessageReaction,MessageRead,PasswordReset,PinResetToken,PrivacySettings,UserSession",
+      "models.EmailVerification,MagicLoginToken,PasswordReset,PinResetToken,PrivacySettings,User,UserSession",
+      "secrets",
+      "security.generate_session_token,hash_code,hash_password,hash_session_token,is_valid_email,normalize_phone,normalize_username,password_policy_error,start_partial_auth_session,start_session,verify_code,verify_password",
+      "security.sessions.destroy_session",
+      "sqlalchemy.and_,or_",
+      "sqlalchemy.orm.Session",
+      "typing.Optional,Tuple",
+      "utils.rate_limit.client_ip"
+    ],
+    "app/services/notification_service.py": [
+      ".websocket_manager",
+      "__future__.annotations",
+      "logging",
+      "typing.Any,Dict,Optional"
+    ],
+    "app/services/storage_service.py": [
+      "__future__.annotations",
+      "config.settings",
+      "fastapi.UploadFile",
+      "logging",
+      "os",
+      "pathlib.Path",
+      "shutil",
+      "typing.Tuple",
+      "utils.public.detect_mime,is_forbidden_extension,is_forbidden_mime,safe_storage_name"
+    ],
+    "app/services/maintenance_service.py": [
+      "__future__.annotations",
+      "asyncio",
+      "config.settings",
+      "contextlib",
+      "database.db_session",
+      "datetime.datetime,timedelta",
+      "logging",
+      "models.Attachment,Conversation,Message,MessageReaction,StoredUpload",
+      "storage_service.delete_by_url",
+      "typing.Optional"
+    ],
+    "app/models/__init__.py": [
+      "__future__.annotations",
+      "database.Base",
+      "datetime.datetime",
+      "sqlalchemy.BigInteger,Boolean,DateTime,ForeignKey,Integer,String,Text,UniqueConstraint,func",
+      "sqlalchemy.dialects.postgresql.JSONB",
+      "sqlalchemy.orm.Mapped,mapped_column,relationship",
+      "sqlalchemy.types.JSON,TypeDecorator",
+      "typing.List,Optional",
+      "uuid"
+    ],
+    "app/security/__init__.py": [
+      "admin.is_admin_user,require_admin",
+      "auth.optional_user,require_user",
+      "passwords.hash_password,verify_password",
+      "services.email_service.hash_code",
+      "services.email_service.verify_code",
+      "sessions.create_access_token,create_refresh_token,decode_token,destroy_session,generate_session_token,get_auth_status,get_session_user_id,hash_session_token,start_partial_auth_session,start_session",
+      "validation.is_valid_birthday,is_valid_code,is_valid_email,is_valid_username,normalize_phone,normalize_username,password_policy_error"
+    ],
+    "app/security/sessions.py": [
+      "__future__.annotations",
+      "config.settings",
+      "fastapi.Request",
+      "hashlib",
+      "jwt",
+      "secrets",
+      "time",
+      "typing.Any,Dict,Optional"
+    ],
+    "app/security/auth.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.Depends,HTTPException,Request,status",
+      "models.User,UserSession",
+      "sessions.get_auth_status,get_session_token,get_session_user_id",
+      "sessions.hash_session_token",
+      "sqlalchemy.orm.Session",
+      "typing.Optional"
+    ],
+    "app/security/admin.py": [
+      "__future__.annotations",
+      "auth.require_user",
+      "config.settings",
+      "database.get_db",
+      "fastapi.Depends,HTTPException,Request,status",
+      "hashlib",
+      "models.User",
+      "sqlalchemy.orm.Session"
+    ],
+    "app/security/passwords.py": [
+      "__future__.annotations",
+      "bcrypt",
+      "passlib.context.CryptContext",
+      "types.SimpleNamespace"
+    ],
+    "app/security/validation.py": [
+      "__future__.annotations",
+      "re"
+    ],
+    "app/utils/__init__.py": [
+      "api.error,error_response,ok,ok_response",
+      "public.detect_mime,format_datetime,is_forbidden_extension,is_forbidden_mime,public_user,safe_storage_name",
+      "rate_limit.client_ip,rate_limit_email_code,rate_limit_login,rate_limit_register,rate_limit_reset"
+    ],
+    "app/utils/api.py": [
+      "__future__.annotations",
+      "fastapi.HTTPException,status",
+      "fastapi.responses.JSONResponse",
+      "typing.Any,Dict,Optional"
+    ],
+    "app/utils/rate_limit.py": [
+      "__future__.annotations",
+      "collections.defaultdict",
+      "config.settings",
+      "fastapi.HTTPException,Request,status",
+      "redis",
+      "threading.Lock",
+      "time",
+      "typing.Dict,Optional,Tuple"
+    ],
+    "app/utils/public.py": [
+      "__future__.annotations",
+      "datetime.datetime",
+      "models.User",
+      "os",
+      "secrets",
+      "security.admin.is_admin_user,is_protected_admin_user",
+      "time",
+      "typing.Any,Dict,Optional"
+    ],
+    "app/routers/payments.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,File,Request,UploadFile",
+      "fastapi.responses.FileResponse",
+      "messages._conversation_payload,_message_payload",
+      "models.Attachment,Conversation,ConversationMember,Message,OnixPlusPayment,StoredUpload,User,UserReactionPack",
+      "pathlib.Path",
+      "security.admin.is_admin_user,is_protected_admin_email,require_admin",
+      "security.auth.require_user",
+      "services.reaction_catalog.REACTION_PACK_AMOUNT_KOPECKS,REACTION_PACK_BANK,REACTION_PACK_CODE,REACTION_PACK_PAYMENT_URL,REACTION_PACK_TITLE",
+      "services.storage_service",
+      "services.websocket_manager",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session,aliased",
+      "utils.api.error,ok",
+      "utils.public.format_datetime",
+      "utils.rate_limit.check_rate_limit"
+    ],
+    "app/routers/__init__.py": [
+      ".admin,auth,calls,contacts,conversations,devices,legacy_compat,messages,monitoring,notifications,payments,reactions,reports,search,uploads,users"
+    ],
+    "app/routers/devices.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.UserSession",
+      "security.auth.require_user",
+      "security.sessions.hash_session_token",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.public.format_datetime"
+    ],
+    "app/routers/legacy_compat.py": [
+      ".auth,calls,conversations,messages,reactions,reports,support,uploads,users",
+      "__future__.annotations",
+      "database.get_db",
+      "fastapi.APIRouter,Depends,File,Request,UploadFile",
+      "fastapi.responses.JSONResponse",
+      "json",
+      "logging",
+      "models.User",
+      "schemas.AddMemberRequest",
+      "schemas.BlockUserRequest,CallPollRequest,CallRespondRequest,CallStartRequest,ChangePasswordRequest,ConversationGetRequest,ConversationListRequest,ConversationSendRequest,DeleteAccountRequest,DeleteMessageRequest,GroupCreateRequest,LoginRequest,LookupUserRequest,MagicLinkConsumeRequest,MagicLinkRequest,MarkReadRequest,PinRecoveryRequest,PinResetCompleteRequest,PinResetConsumeRequest,PinSetupRequest,PinVerifyRequest,ReactRequest,RegisterRequest,RequestPasswordResetRequest,ResetPasswordRequest,UpdateProfileRequest,VerifyEmailRequest",
+      "schemas.DeleteConversationRequest",
+      "schemas.LeaveConversationRequest",
+      "schemas.MembersRequest",
+      "schemas.RemoveMemberRequest",
+      "security.auth.require_user",
+      "sqlalchemy.orm.Session",
+      "typing.Any,Dict",
+      "utils.api.error,ok",
+      "utils.public.public_user"
+    ],
+    "app/routers/advanced.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime,timedelta",
+      "fastapi.APIRouter,Body,Depends,Request",
+      "models.Conversation,ConversationMember,GuestChatInvite,Message,MessageOneTimeReceipt,SavedMessageTag,SavedTag,UserExperienceSettings,UserSyncEvent",
+      "re",
+      "secrets",
+      "security.auth.require_user",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session",
+      "typing.Any,Dict",
+      "utils.api.error,ok"
+    ],
+    "app/routers/monitoring.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime,timedelta",
+      "fastapi.APIRouter,Depends,Request",
+      "models.ContentReport,Conversation,Message,StoredUpload,User",
+      "security.admin.require_admin",
+      "services.websocket_manager",
+      "shutil",
+      "sqlalchemy.orm.Session",
+      "sqlalchemy.text",
+      "utils.api.ok"
+    ],
+    "app/routers/calls.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime,timedelta",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "logging",
+      "models.Contact,Conversation,ConversationCall,ConversationMember,User",
+      "schemas.CallPollRequest,CallRespondRequest,CallStartRequest",
+      "security.auth.require_user",
+      "services.websocket_manager",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session",
+      "sqlalchemy.orm.aliased",
+      "typing.Any,Dict",
+      "utils.api.error,ok",
+      "utils.public.format_datetime"
+    ],
+    "app/routers/conversations.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "logging",
+      "models.Conversation,ConversationMember,ConversationUserState,Contact,User",
+      "re",
+      "schemas.AddMemberRequest,DeleteConversationRequest,GroupCreateRequest,LeaveConversationRequest,MembersRequest,PromoteMemberRequest,RemoveMemberRequest,UpdateConversationRequest",
+      "secrets",
+      "security.auth.require_user",
+      "services.reaction_catalog.FREE_REACTIONS",
+      "services.websocket_manager",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session",
+      "typing.Any,Dict,List",
+      "utils.api.error,ok",
+      "utils.public.public_user",
+      "utils.rate_limit.check_rate_limit"
+    ],
+    "app/routers/auth.py": [
+      "__future__.annotations",
+      "asyncio",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "logging",
+      "models.ConversationMember,Message,User,UserSession",
+      "schemas.ChangePasswordRequest,DeleteAccountRequest,LoginRequest,MagicLinkConsumeRequest,MagicLinkRequest,PinRecoveryRequest,PinResetCompleteRequest,PinResetConsumeRequest,PinSetupRequest,PinVerifyRequest,RegisterRequest,RequestPasswordResetRequest,ResetPasswordRequest,VerifyEmailRequest",
+      "security.admin.ensure_protected_admin_flag,is_protected_admin_email",
+      "security.auth.require_user",
+      "security.hash_password,is_valid_birthday,is_valid_code,is_valid_email,is_valid_username,normalize_phone,normalize_username,password_policy_error,require_user,verify_password",
+      "services.audit_service,auth_service,email_service",
+      "sqlalchemy.exc.IntegrityError",
+      "sqlalchemy.orm.Session",
+      "urllib.parse.urlencode",
+      "utils.api.error,ok",
+      "utils.public.public_user",
+      "utils.rate_limit.rate_limit_email_code,rate_limit_login,rate_limit_register,rate_limit_reset"
+    ],
+    "app/routers/search.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.User",
+      "security.auth.require_user",
+      "sqlalchemy.or_",
+      "sqlalchemy.orm.Session",
+      "utils.api.ok",
+      "utils.public.public_user"
+    ],
+    "app/routers/support.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.ContentReport,Conversation,ConversationMember,Message,User",
+      "re",
+      "security.admin.is_admin_user,is_protected_admin_user",
+      "security.auth.require_user",
+      "services.audit_service,websocket_manager",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok"
+    ],
+    "app/routers/reactions.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "models.Conversation,ConversationMember,Message,MessageReaction,OnixPlusPayment,UserReactionPack",
+      "schemas.ReactRequest",
+      "security.auth.require_user",
+      "services.reaction_catalog.ALLOWED_REACTIONS,FREE_REACTIONS,PAID_REACTIONS,REACTION_PACK_AMOUNT_KOPECKS,REACTION_PACK_BANK,REACTION_PACK_CODE,REACTION_PACK_PAYMENT_URL,REACTION_PACK_TITLE,is_paid_reaction",
+      "services.websocket_manager",
+      "sqlalchemy.desc",
+      "sqlalchemy.orm.Session",
+      "typing.Any,Dict,List",
+      "utils.api.error,ok",
+      "utils.public.format_datetime"
+    ],
+    "app/routers/reports.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.ContentReport,Conversation,ConversationMember,Message,User",
+      "security.auth.require_user",
+      "services.audit_service",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.rate_limit.check_rate_limit"
+    ],
+    "app/routers/admin.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime,timedelta",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.AdminAction,ContentReport,Conversation,Message,SecurityEvent,StoredUpload,User",
+      "security.admin.require_admin,is_protected_admin_user",
+      "services.audit_service,auth_service",
+      "sqlalchemy.desc,func",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.public.format_datetime"
+    ],
+    "app/routers/uploads.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,File,Request,UploadFile",
+      "fastapi.responses.FileResponse",
+      "logging",
+      "models.Conversation,ConversationMember,GifItem,Message,Sticker,StickerPack,StoredUpload,User",
+      "pathlib.Path",
+      "security.auth.require_user",
+      "services.storage_service",
+      "sqlalchemy.func",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.rate_limit.check_rate_limit"
+    ],
+    "app/routers/messages.py": [
+      "__future__.annotations",
+      "config.settings",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "logging",
+      "models.Attachment",
+      "models.Attachment,BlockedUser,Contact,Conversation,ConversationMember,ConversationUserState,Message,MessageReaction,MessageUserPin,MessageOneTimeReceipt,StoredUpload,User,UserExperienceSettings",
+      "re",
+      "schemas.ConversationGetRequest,ConversationListRequest,ConversationSendRequest,DeleteMessageRequest,MarkReadRequest",
+      "security.auth.require_user",
+      "services.websocket_manager",
+      "sqlalchemy.and_,asc,desc,or_,select",
+      "sqlalchemy.func",
+      "sqlalchemy.orm.Session,aliased",
+      "typing.Any,Dict,List,Optional",
+      "utils.api.error,ok",
+      "utils.public.format_datetime,public_user",
+      "utils.rate_limit.check_rate_limit"
+    ],
+    "app/routers/notifications.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "hashlib",
+      "json",
+      "models.PushSubscription",
+      "security.auth.require_user",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok"
+    ],
+    "app/routers/contacts.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "models.Contact,User",
+      "security.auth.require_user",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.public.public_user"
+    ],
+    "app/routers/users.py": [
+      "__future__.annotations",
+      "database.get_db",
+      "datetime.datetime",
+      "fastapi.APIRouter,Depends,Request",
+      "json",
+      "logging",
+      "models.BlockedUser,PrivacySettings,User",
+      "schemas.BlockUserRequest,ChangePasswordRequest,DeleteAccountRequest,LookupUserRequest,UpdateProfileRequest",
+      "security.admin.is_protected_admin_email,is_protected_admin_user",
+      "security.auth.require_user",
+      "security.hash_password,is_valid_birthday,is_valid_email,is_valid_username,normalize_username,password_policy_error,verify_password",
+      "services.auth_service,websocket_manager",
+      "sqlalchemy.orm.Session",
+      "utils.api.error,ok",
+      "utils.public.public_user"
+    ]
+  },
+  "js_fetches": []
+}

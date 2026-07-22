@@ -1,0 +1,164 @@
+/* Final light-theme restore layer. Loaded last on purpose. */
+
+body:not(.dark) #simpleModal::backdrop,
+body:not(.dark) dialog::backdrop {
+  background: rgba(232, 229, 240, .44) !important;
+  backdrop-filter: blur(8px) saturate(1.04) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.04) !important;
+}
+
+body:not(.dark) #simpleModal.small-modal,
+body:not(.dark) #simpleModal {
+  color: var(--text) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.96), rgba(246,244,251,.96)),
+    var(--panel-solid) !important;
+  border: 1px solid rgba(55, 48, 75, .10) !important;
+  box-shadow: 0 26px 70px rgba(76, 67, 105, .20) !important;
+}
+
+body:not(.dark) #simpleModal .simple-modal-content,
+body:not(.dark) #simpleModal:has(.profile-preview-compact) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.community-profile-view) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.community-settings-page) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.community-more-list) .simple-modal-content,
+body:not(.dark) #simpleModal:has(.community-sound-list) .simple-modal-content {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+body:not(.dark) #simpleModal .simple-modal-content h2,
+body:not(.dark) #simpleModal .profile-preview h3,
+body:not(.dark) #simpleModal .tg-profile-title-wrap h3,
+body:not(.dark) #simpleModal .community-admin-title,
+body:not(.dark) #simpleModal .community-member-title {
+  color: var(--text) !important;
+}
+
+body:not(.dark) #simpleModal .simple-modal-content p,
+body:not(.dark) #simpleModal .profile-preview p,
+body:not(.dark) #simpleModal .tg-profile-title-wrap p,
+body:not(.dark) #simpleModal small,
+body:not(.dark) #simpleModal .muted,
+body:not(.dark) #simpleModal .material-empty {
+  color: var(--muted) !important;
+}
+
+body:not(.dark) #simpleModal .tg-profile-head,
+body:not(.dark) #simpleModal .community-profile-card,
+body:not(.dark) #simpleModal .community-media-card,
+body:not(.dark) #simpleModal .community-admin-row,
+body:not(.dark) #simpleModal .community-member-list,
+body:not(.dark) #simpleModal .community-contact-list,
+body:not(.dark) #simpleModal .community-stats-hero,
+body:not(.dark) #simpleModal .community-stats-section,
+body:not(.dark) #simpleModal .community-stats-grid > div,
+body:not(.dark) #simpleModal .community-stats-grid > button,
+body:not(.dark) #simpleModal .community-stats-split > span,
+body:not(.dark) #simpleModal .community-stats-split > button,
+body:not(.dark) #simpleModal .profile-description-block-tg,
+body:not(.dark) #simpleModal .profile-data-list,
+body:not(.dark) #simpleModal .profile-data-row {
+  color: var(--text) !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.86), rgba(250,249,254,.78)) !important;
+  border-color: rgba(55, 48, 75, .11) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
+
+body:not(.dark) #simpleModal .community-action-row button,
+body:not(.dark) #simpleModal .profile-preview-actions button,
+body:not(.dark) #simpleModal .primary-button,
+body:not(.dark) #simpleModal .secondary-button,
+body:not(.dark) #simpleModal .community-member-row button,
+body:not(.dark) #simpleModal .community-contact-list em,
+body:not(.dark) #simpleModal .community-stats-hero > span {
+  color: var(--bubble-me-text, #fff) !important;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent) 88%, #ffffff 12%),
+      color-mix(in srgb, var(--accent) 76%, #000000 24%)
+    ) !important;
+  border-color: color-mix(in srgb, var(--accent) 76%, rgba(255,255,255,.20) 24%) !important;
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--accent) 22%, transparent) !important;
+}
+
+body:not(.dark) #simpleModal .community-action-row button span,
+body:not(.dark) #simpleModal .community-action-row button b,
+body:not(.dark) #simpleModal .community-action-row button .svg-icon,
+body:not(.dark) #simpleModal .profile-preview-actions button,
+body:not(.dark) #simpleModal .profile-preview-actions button .svg-icon {
+  color: inherit !important;
+}
+
+body:not(.dark) #simpleModal .modal-back,
+body:not(.dark) #simpleModal .modal-close,
+body:not(.dark) #simpleModal .floating-close,
+body:not(.dark) #simpleModal .community-settings-gear {
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff 88%) !important;
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, rgba(55,48,75,.10) 66%) !important;
+  box-shadow: 0 8px 18px rgba(76, 67, 105, .12) !important;
+}
+
+body:not(.dark) #simpleModal .modal-back .svg-icon,
+body:not(.dark) #simpleModal .modal-close .svg-icon,
+body:not(.dark) #simpleModal .floating-close .svg-icon,
+body:not(.dark) #simpleModal .community-settings-gear .svg-icon {
+  color: inherit !important;
+}
+
+body:not(.dark) .drawer-support-link,
+body:not(.dark) .support-link-button {
+  color: color-mix(in srgb, var(--accent) 68%, #1f2937 32%) !important;
+  background: color-mix(in srgb, var(--accent) 10%, #ffffff 90%) !important;
+  border-color: color-mix(in srgb, var(--accent) 34%, rgba(55,48,75,.12) 66%) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.72) !important;
+}
+
+body:not(.dark) .drawer-support-link .svg-icon,
+body:not(.dark) .support-link-button .svg-icon {
+  color: var(--accent) !important;
+}
+
+body:not(.dark) .drawer-support-link:hover,
+body:not(.dark) .support-link-button:hover {
+  color: var(--accent) !important;
+  background: color-mix(in srgb, var(--accent) 16%, #ffffff 84%) !important;
+}
+
+body:not(.dark):not(.no-blur) .layout,
+body:not(.dark):not(.no-blur) .left-panel,
+body:not(.dark):not(.no-blur) .chat-header,
+body:not(.dark):not(.no-blur) .composer,
+body:not(.dark):not(.no-blur) .info-panel,
+body:not(.dark):not(.no-blur) .main-drawer,
+body:not(.dark):not(.no-blur) .auth-card {
+  backdrop-filter: blur(22px) saturate(1.16) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(1.16) !important;
+}
+
+body:not(.dark).no-blur .layout,
+body:not(.dark).no-blur .left-panel,
+body:not(.dark).no-blur .chat-header,
+body:not(.dark).no-blur .composer,
+body:not(.dark).no-blur .info-panel,
+body:not(.dark).no-blur .main-drawer,
+body:not(.dark).no-blur .auth-card {
+  background: var(--panel-solid) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body.dark.no-blur .layout,
+body.dark.no-blur .left-panel,
+body.dark.no-blur .chat-header,
+body.dark.no-blur .composer,
+body.dark.no-blur .info-panel,
+body.dark.no-blur .main-drawer,
+body.dark.no-blur .auth-card {
+  background: var(--panel-solid) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

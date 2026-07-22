@@ -1,0 +1,447 @@
+/* Onix Stickers — TG-like grid */
+.onix-stickers-root,
+.onix-stickers-section {
+  display: block;
+}
+.onix-stickers-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+  padding: 2px 0 10px;
+}
+.sticker-cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  overflow: visible;
+}
+.sticker-cell:hover {
+  background: rgba(124,92,255,0.12);
+  border-color: rgba(124,92,255,0.28);
+  transform: scale(1.06);
+}
+.sticker-cell:active {
+  transform: scale(0.96);
+}
+.sticker-cell img {
+  width: 160%;
+  height: 160%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+  overflow: visible;
+  box-sizing: border-box;
+  padding: 3px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+body:not(.dark) .sticker-cell {
+  background: rgba(0,0,0,0.03);
+  border-color: rgba(0,0,0,0.04);
+}
+body:not(.dark) .sticker-cell:hover {
+  background: rgba(74,142,255,0.10);
+  border-color: rgba(74,142,255,0.22);
+}
+
+/* Табы — текст строго посередине, облачка поменьше */
+.onix-emoji-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 8px 4px 10px;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 8px;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  align-items: center;
+}
+.onix-emoji-tabs::-webkit-scrollbar { display: none; }
+.onix-emoji-tabs button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  min-height: 28px !important;
+  height: 28px !important;
+  padding: 4px 10px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,0.10) !important;
+  background: rgba(255,255,255,0.06) !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.14s ease !important;
+}
+.onix-emoji-tabs button.active {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(124,92,255,0.28) !important;
+}
+body:not(.dark) .onix-emoji-tabs button {
+  background: rgba(0,0,0,0.05) !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  color: #1A1D24 !important;
+}
+body:not(.dark) .onix-emoji-tabs button.active {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+
+/* Make emoji grid bigger and TG-like */
+.onix-emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0,1fr));
+  gap: 4px;
+}
+.onix-emoji-grid button {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  line-height: 1;
+  transition: background 0.12s ease, transform 0.10s ease;
+}
+.onix-emoji-grid button:hover {
+  background: rgba(255,255,255,0.08);
+  transform: scale(1.12);
+}
+body:not(.dark) .onix-emoji-grid button:hover {
+  background: rgba(0,0,0,0.06);
+}
+.onix-emoji-section h4 {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  color: var(--muted) !important;
+  margin: 10px 2px 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+.onix-emoji-section:first-child h4 {
+  margin-top: 2px;
+}
+
+/* Reactions — SVG bigger and TG-like */
+.reaction-svg, .emoji-svg, .inline-emoji-svg {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+}
+.reaction-svg .emoji-svg-icon,
+.emoji-svg .emoji-svg-icon,
+.inline-emoji-svg .emoji-svg-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.25));
+}
+#messages .reaction .reaction-svg .emoji-svg-icon {
+  width: 22px;
+  height: 22px;
+}
+.reaction-strip button .reaction-svg .emoji-svg-icon {
+  width: 26px;
+  height: 26px;
+}
+
+/* Sticker messages — bigger, no bubble background like TG */
+#messages .message-row .bubble:has(.sticker-image),
+#messages .message-row.sticker-message-row .bubble {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  max-width: 180px !important;
+}
+#messages .message-row .sticker-image {
+  width: 160px;
+  height: 160px;
+  max-width: min(160px, calc(100vw - 90px));
+  object-fit: contain;
+  display: block;
+  cursor: pointer;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.25));
+  transition: transform 0.12s ease;
+}
+#messages .message-row .sticker-image:hover {
+  transform: scale(1.04);
+}
+
+#messages .sticker-attachment,
+#messages .sticker-message-preview,
+#messages .sticker-message-preview img {
+  overflow: visible !important;
+  clip-path: none !important;
+}
+#messages .message-row .bubble:has(.sticker-image) .bubble-footer {
+  position: absolute !important;
+  right: 4px !important;
+  bottom: 2px !important;
+  background: rgba(0,0,0,0.45) !important;
+  backdrop-filter: blur(8px);
+  padding: 2px 6px !important;
+  border-radius: 999px !important;
+  font-size: 10px !important;
+}
+
+/* Optimize #messages performance — reduce heavy effects */
+#messages.messages {
+  will-change: auto !important;
+  contain: none !important;
+}
+#messages .message-row {
+  contain: none !important;
+}
+
+/* Sticker preview modal — точь-в-точь как в Telegram */
+.sticker-preview-modal {
+  display: grid !important;
+  gap: 18px !important;
+  place-items: center !important;
+  text-align: center !important;
+  padding: 12px 4px 6px !important;
+}
+.sticker-preview-stage {
+  width: min(320px, 78vw) !important;
+  height: min(320px, 78vw) !important;
+  display: grid !important;
+  place-items: center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+body:not(.dark) .sticker-preview-stage {
+  background: transparent !important;
+  border: 0 !important;
+}
+.sticker-preview-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 320px !important;
+  max-height: 320px !important;
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  padding: 10px !important;
+  display: block !important;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.32)) !important;
+  cursor: pointer !important;
+}
+.sticker-preview-info {
+  display: grid !important;
+  gap: 4px !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+.sticker-preview-info b {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: var(--text) !important;
+  margin: 0 !important;
+}
+.sticker-preview-info small {
+  font-size: 13px !important;
+  color: var(--muted) !important;
+  font-weight: 600 !important;
+}
+.sticker-preview-actions {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin-top: 2px !important;
+}
+.sticker-preview-actions button {
+  min-height: 46px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  width: 100% !important;
+}
+.sticker-preview-actions button[data-preview-action="close"],
+.sticker-preview-actions button[data-message-sticker-action="close"] {
+  background: transparent !important;
+  color: var(--muted) !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  font-weight: 600 !important;
+  min-height: 32px !important;
+  font-size: 13px !important;
+}
+.sticker-preview-actions button[data-preview-action="close"]:hover,
+.sticker-preview-actions button[data-message-sticker-action="close"]:hover {
+  background: rgba(255,255,255,0.06) !important;
+  color: var(--text) !important;
+}
+.sticker-preview-actions button[data-preview-action="send"],
+.sticker-preview-actions button[data-message-sticker-action="add"] {
+  background: linear-gradient(135deg, #3390ec, #2a7bd6) !important;
+  color: #fff !important;
+  border: 0 !important;
+  box-shadow: 0 6px 16px rgba(51, 144, 236, 0.32) !important;
+}
+.sticker-preview-actions button[data-preview-action="send"]:hover,
+.sticker-preview-actions button[data-message-sticker-action="add"]:hover {
+  background: linear-gradient(135deg, #2a7bd6, #2068c0) !important;
+}
+@media (max-width: 500px) {
+  .onix-stickers-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .sticker-preview-stage {
+    width: min(280px, 70vw) !important;
+    height: min(280px, 70vw) !important;
+  }
+  .sticker-preview-img {
+    max-width: 280px !important;
+    max-height: 280px !important;
+  }
+}
+
+
+/* Target returned from a received sticker: it is scrolled into view in its pack. */
+.sticker-cell.sticker-cell-target {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+  border-radius: 12px;
+  animation: onixStickerTargetPulse .8s ease-in-out 2;
+}
+@keyframes onixStickerTargetPulse {
+  50% { transform: scale(1.08); filter: brightness(1.16); }
+}
+
+/* Sticker pack controls requested for the sticker tab. */
+.onix-add-own-stickers-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 18px 8px 10px;
+}
+
+.onix-add-own-stickers {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.onix-add-own-stickers:hover {
+  filter: brightness(1.06);
+}
+
+.onix-sticker-context-menu {
+  position: fixed;
+  z-index: 10050;
+  display: grid;
+  width: min(230px, calc(100vw - 16px));
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel-strong);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .32);
+}
+
+.onix-sticker-context-menu button {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.onix-sticker-context-menu button:hover {
+  background: var(--accent-soft);
+}
+
+.onix-sticker-context-menu .danger-item {
+  color: var(--danger);
+}
+
+
+/* Right-button hold preview and stable sticker context menu. */
+body.onix-sticker-interaction-active #attachMenu {
+  pointer-events: auto !important;
+}
+
+.onix-sticker-context-menu {
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.onix-sticker-hold-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 10080;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: rgba(10, 9, 18, .42);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.onix-sticker-hold-preview-card {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+  max-width: min(430px, 88vw);
+  max-height: min(500px, 82vh);
+}
+
+.onix-sticker-hold-preview img {
+  display: block;
+  width: min(380px, 78vw);
+  height: min(380px, 68vh);
+  object-fit: contain;
+  filter: drop-shadow(0 18px 34px rgba(0, 0, 0, .45));
+}
+
+.onix-sticker-hold-preview b {
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(20, 18, 31, .72);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.sticker-preview-img {
+  cursor: default !important;
+}
